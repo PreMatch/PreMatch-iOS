@@ -57,7 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     } else if let email = user.profile.email {
       let handle = email.split(separator: "@")[0]
       
-      ScheduleReader().read(handle: String(handle), googleIdToken: user.authentication.idToken) { schedule in
+      ScheduleDownload().read(handle: String(handle), googleIdToken: user.authentication.idToken) { schedule in
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Success retrieving schedules"), object: self)
         AppDelegate.showAlert(title: "Success", message: schedule.description, actions: [])
       }
     }

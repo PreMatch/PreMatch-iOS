@@ -1,15 +1,15 @@
 //
-//  PreMatchTests.swift
-//  PreMatchTests
+//  SevenPlusHTests.swift
+//  SevenPlusHTests
 //
-//  Created by Michael Peng on 10/5/18.
+//  Created by Michael Peng on 10/13/18.
 //  Copyright © 2018 PreMatch. All rights reserved.
 //
 
 import XCTest
-@testable import PreMatch
+@testable import SevenPlusH
 
-class TimetableTests: XCTestCase {
+class SevenPlusHTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -31,7 +31,6 @@ class TimetableTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
-      
     }
     
 }

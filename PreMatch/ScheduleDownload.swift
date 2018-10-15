@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import GoogleSignIn
 
-typealias Schedule = JSON
+typealias SerializedSchedule = JSON
 
 class ScheduleDownload {
   static let loginEndpoint = "https://prematch.org/api/login"
@@ -76,7 +76,7 @@ class ScheduleDownload {
     }
   }
   
-  private func readSchedule(handle: String, processSchedule: @escaping (Schedule) -> Void) -> Void {
+  private func readSchedule(handle: String, processSchedule: @escaping (SerializedSchedule) -> Void) -> Void {
     Alamofire.request(ScheduleDownload.scheduleReadEndpoint, parameters: ["handle": handle])
       .validate()
       .responseJSON { response in
@@ -90,7 +90,7 @@ class ScheduleDownload {
   }
   
   // Handles them errors
-  func read(handle: String, googleIdToken: String, processSchedule: @escaping (Schedule) -> Void) {
+  func read(handle: String, googleIdToken: String, processSchedule: @escaping (SerializedSchedule) -> Void) {
     
     login(idToken: googleIdToken) {
       self.readSchedule(handle: handle, processSchedule: { schedule in
