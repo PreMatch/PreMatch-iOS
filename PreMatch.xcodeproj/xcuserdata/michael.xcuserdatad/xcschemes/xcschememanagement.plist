@@ -7,12 +7,12 @@
 		<key>PMToday.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>10</integer>
 		</dict>
 		<key>PreMatch Live.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>11</integer>
 		</dict>
 		<key>PreMatch.xcscheme</key>
 		<dict>
@@ -20,6 +20,11 @@
 			<integer>5</integer>
 		</dict>
 		<key>SevenPlusH.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>SevenPlusHTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>13</integer>
@@ -48,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>4CFAB2042169A3E9001383BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4CFAB22A2172ED03001383BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4CFAB2322172ED04001383BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

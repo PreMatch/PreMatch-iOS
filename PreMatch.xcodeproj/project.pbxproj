@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CB3E0A12174AB7E0079E5DD /* DefinitionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */; };
+		4CB3E0A52176BDA20079E5DD /* DefinitionReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */; };
+		4CEC5937217916EA005A0C37 /* SphTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC5936217916EA005A0C37 /* SphTimetable.swift */; };
+		4CEC59572179172E005A0C37 /* TimetableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC59562179172E005A0C37 /* TimetableTests.swift */; };
+		4CEC595921794790005A0C37 /* ExclusionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC595821794790005A0C37 /* ExclusionParser.swift */; };
+		4CF03E4921784CFA0024B06E /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1C32169863D001383BA /* SwiftyJSON.framework */; };
 		4CF29F402167C23A00BD1CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF29F3F2167C23A00BD1CD2 /* AppDelegate.swift */; };
 		4CF29F422167C23A00BD1CD2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF29F412167C23A00BD1CD2 /* RootViewController.swift */; };
 		4CF29F492167C23A00BD1CD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF29F472167C23A00BD1CD2 /* Main.storyboard */; };
@@ -30,14 +36,7 @@
 		4CFAB2142169BBD0001383BA /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1C32169863D001383BA /* SwiftyJSON.framework */; };
 		4CFAB2152169BBD0001383BA /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1C32169863D001383BA /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CFAB21B216A7C53001383BA /* ScheduleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB21A216A7C53001383BA /* ScheduleStorage.swift */; };
-		4CFAB21E216E782E001383BA /* SphCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB21D216E782E001383BA /* SphCalendar.swift */; };
-		4CFAB21F216E782F001383BA /* SphCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB21D216E782E001383BA /* SphCalendar.swift */; };
-		4CFAB221216F62AD001383BA /* Exclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB220216F62AD001383BA /* Exclusion.swift */; };
-		4CFAB222216F62AD001383BA /* Exclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB220216F62AD001383BA /* Exclusion.swift */; };
-		4CFAB224216F658C001383BA /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB223216F658C001383BA /* Day.swift */; };
-		4CFAB225216F658C001383BA /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB223216F658C001383BA /* Day.swift */; };
 		4CFAB2342172ED05001383BA /* SevenPlusH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB22B2172ED03001383BA /* SevenPlusH.framework */; };
-		4CFAB2392172ED05001383BA /* SevenPlusHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB2382172ED05001383BA /* SevenPlusHTests.swift */; };
 		4CFAB23B2172ED05001383BA /* SevenPlusH.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CFAB22D2172ED04001383BA /* SevenPlusH.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CFAB2442172EDA2001383BA /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF29F582167C24100BD1CD2 /* CalendarTests.swift */; };
 		4CFAB2452172EDE3001383BA /* SevenPlusH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB22B2172ED03001383BA /* SevenPlusH.framework */; };
@@ -321,6 +320,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReader.swift; sourceTree = "<group>"; };
+		4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReaderTests.swift; sourceTree = "<group>"; };
+		4CEC5936217916EA005A0C37 /* SphTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphTimetable.swift; sourceTree = "<group>"; };
+		4CEC59562179172E005A0C37 /* TimetableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTests.swift; sourceTree = "<group>"; };
+		4CEC595821794790005A0C37 /* ExclusionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusionParser.swift; sourceTree = "<group>"; };
 		4CF29F3C2167C23A00BD1CD2 /* PreMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF29F3F2167C23A00BD1CD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF29F412167C23A00BD1CD2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -361,7 +365,6 @@
 		4CFAB22D2172ED04001383BA /* SevenPlusH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SevenPlusH.h; sourceTree = "<group>"; };
 		4CFAB22E2172ED04001383BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFAB2332172ED04001383BA /* SevenPlusHTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SevenPlusHTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CFAB2382172ED05001383BA /* SevenPlusHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenPlusHTests.swift; sourceTree = "<group>"; };
 		4CFAB23A2172ED05001383BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -407,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF03E4921784CFA0024B06E /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,22 +571,17 @@
 			path = "PreMatch Live";
 			sourceTree = "<group>";
 		};
-		4CFAB21C216E76E2001383BA /* Schedule */ = {
+		4CFAB22C2172ED04001383BA /* SevenPlusH */ = {
 			isa = PBXGroup;
 			children = (
 				4CFAB21D216E782E001383BA /* SphCalendar.swift */,
 				4CFAB220216F62AD001383BA /* Exclusion.swift */,
 				4CFAB223216F658C001383BA /* Day.swift */,
-			);
-			path = Schedule;
-			sourceTree = "<group>";
-		};
-		4CFAB22C2172ED04001383BA /* SevenPlusH */ = {
-			isa = PBXGroup;
-			children = (
-				4CFAB21C216E76E2001383BA /* Schedule */,
 				4CFAB22D2172ED04001383BA /* SevenPlusH.h */,
 				4CFAB22E2172ED04001383BA /* Info.plist */,
+				4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */,
+				4CEC5936217916EA005A0C37 /* SphTimetable.swift */,
+				4CEC595821794790005A0C37 /* ExclusionParser.swift */,
 			);
 			path = SevenPlusH;
 			sourceTree = "<group>";
@@ -591,8 +590,9 @@
 			isa = PBXGroup;
 			children = (
 				4CF29F582167C24100BD1CD2 /* CalendarTests.swift */,
-				4CFAB2382172ED05001383BA /* SevenPlusHTests.swift */,
 				4CFAB23A2172ED05001383BA /* Info.plist */,
+				4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */,
+				4CEC59562179172E005A0C37 /* TimetableTests.swift */,
 			);
 			path = SevenPlusHTests;
 			sourceTree = "<group>";
@@ -1061,9 +1061,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFAB221216F62AD001383BA /* Exclusion.swift in Sources */,
-				4CFAB21E216E782E001383BA /* SphCalendar.swift in Sources */,
-				4CFAB224216F658C001383BA /* Day.swift in Sources */,
 				4CFAB21B216A7C53001383BA /* ScheduleStorage.swift in Sources */,
 				4CF29F422167C23A00BD1CD2 /* RootViewController.swift in Sources */,
 				4CF29F402167C23A00BD1CD2 /* AppDelegate.swift in Sources */,
@@ -1091,10 +1088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFAB21F216E782F001383BA /* SphCalendar.swift in Sources */,
 				4CFAB2092169A3EA001383BA /* TodayViewController.swift in Sources */,
-				4CFAB225216F658C001383BA /* Day.swift in Sources */,
-				4CFAB222216F62AD001383BA /* Exclusion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,8 +1097,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFAB2462172EF6C001383BA /* SphCalendar.swift in Sources */,
+				4CB3E0A12174AB7E0079E5DD /* DefinitionReader.swift in Sources */,
 				4CFAB2472172EF6C001383BA /* Exclusion.swift in Sources */,
+				4CEC5937217916EA005A0C37 /* SphTimetable.swift in Sources */,
 				4CFAB2482172EF6C001383BA /* Day.swift in Sources */,
+				4CEC595921794790005A0C37 /* ExclusionParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,7 +1109,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFAB2392172ED05001383BA /* SevenPlusHTests.swift in Sources */,
+				4CB3E0A52176BDA20079E5DD /* DefinitionReaderTests.swift in Sources */,
+				4CEC59572179172E005A0C37 /* TimetableTests.swift in Sources */,
 				4CFAB2442172EDA2001383BA /* CalendarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1246,7 +1244,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1304,7 +1302,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

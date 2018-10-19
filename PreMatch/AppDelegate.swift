@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import SevenPlusH
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -58,8 +59,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       let handle = email.split(separator: "@")[0]
       
       ScheduleDownload().read(handle: String(handle), googleIdToken: user.authentication.idToken) { schedule in
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Success retrieving schedules"), object: self)
-        AppDelegate.showAlert(title: "Success", message: schedule.description, actions: [])
+        //AppDelegate.showAlert(title: "Success", message: schedule.description, actions: [])
+        
+        guard let calendar = try? DefinitionReader.read() else {
+            print(error)
+            return
+        }
+        if let today = try? calendar.day(on: Date()) as? SchoolDay {
+            if today != nil {
+                AppDelegate.showAlert(title: "Today is \(today!.description)",
+                    message: today!.blocks.joined(separator: ", ") + "\nNext is \(today!.nextPeriod(at: Time.now))",
+                    actions: [])
+            }
+        }
       }
     }
   }
