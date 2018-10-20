@@ -32,14 +32,17 @@ public extension SchoolDay {
             return periods.last?.end ?? Time(14, 5)
         }
     }
-    public func periodIndex(at time: Time) -> DayNumber? {
-        return periods.firstIndex { time.isInside($0) }.map { DayNumber($0) }
+    public func periodIndex(at time: Time) -> UInt8? {
+        return periods.firstIndex { time.isInside($0) }.map { UInt8($0) }
     }
     public func period(at time: Time) -> Period? {
         return periods.first { time.isInside($0) }
     }
     public func nextPeriod(at time: Time) -> Period? {
         return periods.first { time.isBefore($0) }
+    }
+    public func nextPeriodIndex(at time: Time) -> UInt8? {
+        return periods.firstIndex { time.isBefore($0) }.map { UInt8($0) }
     }
     public func block(at time: Time) -> String? {
         let index = periodIndex(at: time)

@@ -18,19 +18,21 @@ enum CalendarError: Error {
 }
 
 public let ahsTimezone = TimeZone(identifier: "America/New_York")!
+public var ahsCalendar: Calendar = {
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = ahsTimezone
+    return cal
+}()
 
 public extension Date {
-    
     func isWeekend() -> Bool {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = ahsTimezone
-        return calendar.isDateInWeekend(self)
+        return ahsCalendar.isDateInWeekend(self)
     }
     func dayAfter() -> Date {
-        return self + 24*60*60
+        return ahsCalendar.date(byAdding: .day, value: 1, to: self)!
     }
     func dayBefore() -> Date {
-        return self - 24*60*60
+        return ahsCalendar.date(byAdding: .day, value: -1, to: self)!
     }
     func withoutTime(in timezone: TimeZone = ahsTimezone) -> Date {
         var calendar = Calendar(identifier: .gregorian)
@@ -138,8 +140,28 @@ public class SphCalendar {
         }
     }
     
+    public func nextSchoolDate(after date: Date) -> Date? {
+        let tomorrow = date.dayAfter()
+        
+        if isSchoolDay(on: tomorrow) {
+            return date.dayAfter()
+        } else if !includes(date) {
+            return nil
+        } else {
+            return nextSchoolDate(after: tomorrow)
+        }
+    }
+    
+    public func nextSchoolDay(after date: Date) -> SchoolDay? {
+        if let nextDate = nextSchoolDate(after: date) {
+            return try! day(on: nextDate) as! SchoolDay
+        } else {
+            return nil
+        }
+    }
+    
     public func isSchoolDay(on date: Date) -> Bool {
-        return dayType(on: date) is SchoolDay.Type
+        return dayType(on: date.withoutTime()) is SchoolDay.Type
     }
     
     private func theExclusion(for date: Date, includeOverrides: Bool = true) -> Exclusion? {

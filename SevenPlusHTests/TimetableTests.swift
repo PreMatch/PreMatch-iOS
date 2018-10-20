@@ -59,6 +59,12 @@ class TimeTests: XCTestCase {
         let json: JSON = ["bad json", 20]
         XCTAssertThrowsError(try Time.fromJSON(json))
     }
+    
+    func testInitFromDate() {
+        let time = Time.fromDate(ahsCalendar.date(from:
+            DateComponents(hour: 23, minute: 20))!)
+        XCTAssertEqual(time, Time(23, 20))
+    }
 }
 
 class PeriodTests: XCTestCase {
@@ -135,6 +141,12 @@ class TimetableTests: XCTestCase {
         XCTAssertEqual(standardTestDay.nextPeriod(at: Time(8, 45)), Period(from: Time(8, 48), to: Time(10, 3)))
         XCTAssertEqual(halfTestDay.nextPeriod(at: Time(6, 45)), Period(from: Time(7, 44), to: Time(8, 29)))
         XCTAssertEqual(examTestDay.nextPeriod(at: Time(13, 59)), nil)
+    }
+    
+    func testNextPeriodIndexInDay() {
+        XCTAssertEqual(standardTestDay.nextPeriodIndex(at: Time(12, 45)), 4)
+        XCTAssertEqual(halfTestDay.nextPeriodIndex(at: Time(8, 45)), 2)
+        XCTAssertEqual(examTestDay.nextPeriodIndex(at: Time(13, 59)), nil)
     }
     
     func testBlockAtTimeInDay() {

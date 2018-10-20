@@ -57,24 +57,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       print("Oops! I couldn't sign you in with Google: " + error.localizedDescription)
     } else if let email = user.profile.email {
       let handle = email.split(separator: "@")[0]
-      
-      ScheduleDownload().read(handle: String(handle), googleIdToken: user.authentication.idToken) { schedule in
-        //AppDelegate.showAlert(title: "Success", message: schedule.description, actions: [])
         
-        guard let calendar = try? DefinitionReader.read() else {
-            print(error)
+        if !email.hasSuffix("andoverma.us") {
+            signIn.signOut()
+            AppDelegate.showAlert(title: "Not AHS!",
+                                  message: "You signed into \(email), which is not your school email. Try again.", actions: [])
             return
         }
-        if let today = try? calendar.day(on: Date()) as? SchoolDay {
-            if today != nil {
-                AppDelegate.showAlert(title: "Today is \(today!.description)",
-                    message: today!.blocks.joined(separator: ", ") + "\nNext is \(today!.nextPeriod(at: Time.now))",
-                    actions: [])
-            }
-        }
-      }
+        
+        let provider = ResourceProvider(handle: String(handle),
+                                        googleIdToken: user.authentication.idToken)
+        let calendar = try? provider.readCalendar()
+        if (calendar == nil) { return }
+        
+        
+        let schedule = try? provider.readScheduleSync()
+        AppDelegate.showAlert(title: "Success",
+                              message: schedule?.description ?? "success?", actions: [])
+        
+      
     }
   }
+    func showNextDate(_ date: Date, _ calendar: SphCalendar, _ schedule: Schedule) {
+        let day = try! calendar.day(on: date) as! SchoolDay
+        let teachers = day.blocks.map { schedule[$0] ?? "?" }
+        
+        AppDelegate.showAlert(title: "\(date.description) is \(day.description)",
+            message: "With blocks \(zip(day.blocks, teachers).map { $0 + ": " + $1 }.joined(separator: "\n"))", actions: [
+                UIAlertAction(title: "Next", style: .default, handler: { _ in self.showNextDate(calendar.nextSchoolDate(after: date)!, calendar, schedule)})])
+    }
   
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

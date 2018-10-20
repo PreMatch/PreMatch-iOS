@@ -17,14 +17,22 @@ public struct Time: Comparable, Equatable {
     public let minute: UInt8
     public static var now: Time {
         get {
-            let components = Calendar.current.dateComponents(in: ahsTimezone, from: Date())
-            return Time(UInt8(components.hour!), UInt8(components.minute!))
+            return Time.fromDate(Date())!
         }
     }
     
     init(_ hour: UInt8, _ minute: UInt8) {
         self.hour = hour % 24;
         self.minute = minute % 60;
+    }
+    // Always returns time in ET
+    public static func fromDate(_ date: Date) -> Time? {
+        let components = ahsCalendar.dateComponents(in: ahsTimezone, from: date)
+        
+        if components.hour == nil || components.minute == nil {
+            return nil
+        }
+        return Time(UInt8(components.hour!), UInt8(components.minute!))
     }
     
     public func asDateToday(timezone: TimeZone = ahsTimezone) -> Date {

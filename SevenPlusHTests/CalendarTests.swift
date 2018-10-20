@@ -104,15 +104,6 @@ class CalendarTests: XCTestCase {
         XCTAssertEqual(day.description, description)
     }
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testFirstCycleDays() {
         assertStandardDay(on: 2018, 8, 29, hasNumber: 1)
         assertStandardDay(on: 2018, 8, 30, hasNumber: 2)
@@ -134,5 +125,12 @@ class CalendarTests: XCTestCase {
         XCTAssertTrue(Calendar.current.isDateInWeekend(date))
     }
     
+    func testNextSchoolDay() {
+        XCTAssertEqual(calendar.nextSchoolDate(after: dateFor(2018, 8, 29)), dateFor(2018, 8, 30))
+        XCTAssertEqual(calendar.nextSchoolDate(after: dateFor(2018, 9, 1)), dateFor(2018, 9, 4))
+        let day = calendar.nextSchoolDay(after: dateFor(2018, 8, 29))! as! StandardDay
     
+        XCTAssertEqual(day.date, dateFor(2018, 8, 30))
+        XCTAssertEqual(day.number, 2)
+    }
 }
