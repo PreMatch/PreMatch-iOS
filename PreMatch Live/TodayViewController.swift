@@ -71,7 +71,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         initRenderer()
         vibrancyView.effect = UIVibrancyEffect.widgetPrimary()
-        // Do any additional setup after loading the view from its nib.
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,6 +98,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 showUnavailable("Set me up in the app!")
             }
         }
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        preferredContentSize = activeDisplayMode == .expanded ?
+            CGSize(width: 0.0, height: 220.0) : maxSize
     }
     
 }

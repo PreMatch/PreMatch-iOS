@@ -56,6 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         annotation: options[UIApplicationOpenURLOptionsKey.annotation])
   }
   
+    private let errorHandler: (DownloadError) -> Void = { AppDelegate.showAlert(title: "Error!",
+                                                                             message: $0.localizedDescription, actions: []) }
+    
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
     
     if let error = error {
@@ -71,32 +74,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         let downloader = Downloader()
-        if ResourceProvider.calendar() == nil {
-            downloader.readCalendarJSON(
-                onSuccess: {
-                    try? ResourceProvider.store(calendar: $0)
-                    let calendar = ResourceProvider.calendar()
-                    let schedule = ResourceProvider.schedule(calendar)
-                    
-                    AppDelegate.showAlert(title: "Success",
-                                          message: schedule.debugDescription, actions: [])
-                    
+        downloader.storeCalendar(onSuccess: {
+            downloader.storeSchedule(
+                googleIdToken: user.authentication.idToken,
+                handle: String(handle),
+                calendar: $0,
+                onSuccess: { sch in
+                    AppDelegate.showAlert(title: "Downloaded!", message: try! sch.teacher(for: "A"), actions: [])
+                    self.window?.rootViewController = self.window?.rootViewController?.storyboard!.instantiateViewController(withIdentifier: "MainScreen")
             },
-                onFailure: { AppDelegate.showAlert(title: "Error!",
-                                                   message: $1.localizedDescription + (($0?.description) ?? "no http"), actions: []) })
-        }
-        
-      
+                onFailure: self.errorHandler)
+        }, onFailure: self.errorHandler)
     }
   }
-    func showNextDate(_ date: Date, _ calendar: SphCalendar, _ schedule: SphSchedule) {
-        let day = try! calendar.day(on: date) as! SchoolDay
-        let teachers = day.blocks.map { (try? schedule.teacher(for: $0)) ?? "?" }
-        
-        AppDelegate.showAlert(title: "\(date.description) is \(day.description)",
-            message: "With blocks \(zip(day.blocks, teachers).map { $0 + ": " + $1 }.joined(separator: "\n"))", actions: [
-                UIAlertAction(title: "Next", style: .default, handler: { _ in self.showNextDate(calendar.nextSchoolDate(after: date)!, calendar, schedule)})])
-    }
   
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

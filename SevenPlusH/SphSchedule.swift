@@ -22,15 +22,18 @@ public class SphSchedule {
     }
     
     static func from(json: JSON, calendar: SphCalendar) throws -> SphSchedule {
-        guard let dict = json.dictionary?.mapValues({ $0.string }) else {
+        guard let dict = json.dictionary?
+            .mapValues({ $0.string })
+            .filter({ pair in calendar.allBlocks.contains(pair.key) }) else {
+                
             throw ParseError.invalidFormat(
                 fieldType: "(entire expression)",
                 invalidValue: "(not dictionary)")
         }
         
-        if let nilKey = dict.first(where: { (key, value) in value == nil }) {
+        if let nilKey = dict.first(where: {(key, value) in value == nil }) {
             throw ParseError.invalidFormat(
-                fieldType: "Teacher of block \(nilKey)",
+                fieldType: "Teacher of block \(nilKey.key)",
                 invalidValue: "nil")
         }
         

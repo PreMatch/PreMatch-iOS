@@ -77,7 +77,7 @@ public class SphCalendar {
     let allBlocks: [String]
     let cycleSize: DayNumber
     
-    let interval: DateInterval
+    public let interval: DateInterval
     let exclusions: [Exclusion]
     let overrides: [Exclusion]
     

@@ -52,14 +52,14 @@ class ScheduleTests: XCTestCase {
     }
     
     func testInitFromDict() {
-        let schedule = try! SphSchedule(dict: dict, calendar: testCalendar)
+        let schedule = try! SphSchedule(mapping: dict, calendar: testCalendar)
         
         XCTAssertEqual(try! schedule.teacher(for: "B"), "Bach")
-        XCTAssertEqual(try! schedule.teacher(for: "D"), "Desfosse")
+        XCTAssertEqual(try! schedule.teacher(for: "D"), "Deschenes")
     }
     
     func testInitFromBadDict() {
-        XCTAssertThrowsError(try SphSchedule(dict: [
+        XCTAssertThrowsError(try SphSchedule(mapping: [
             "A": "Aubrey",
             "B": "Bach",
             "C": "Caveney",

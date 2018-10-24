@@ -29,7 +29,7 @@ struct OutsideYearHandler: Handler {
     }
     func apply(_ date: Date, in calendar: SphCalendar,
                for: SphSchedule?, to view: TodayViewController) {
-        view.showUnavailable("Not inside current school year")
+        view.showUnavailable("Not in current school year")
     }
 }
 
@@ -67,8 +67,8 @@ struct BeforeSchoolHandler: Handler {
             "Someone unknown" : (try? schedule!.teacher(for: firstBlock!)) ?? "H-block"
         
         view.show(
-            title: "Today is \(day.description)",
-            info: firstTeacher + " is next\nGood morning")
+            title: "Next: \(firstTeacher)",
+            info: "Block \(firstBlock ?? "?")\nGood morning")
         view.showSchoolDay(day, isToday: true)
     }
 }
@@ -151,7 +151,7 @@ struct Renderer {
     
     init(renderTo view: TodayViewController) throws {
         calendar = ResourceProvider.calendar()
-        schedule = ResourceProvider.schedule(calendar)
+        schedule = ResourceProvider.schedule()
         self.view = view
     }
     

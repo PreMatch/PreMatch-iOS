@@ -48,7 +48,7 @@ class AboutViewController: UIViewController {
     
     func setupGradient() {
         
-        currentColors = [prematchPrimary, accent]
+        currentColors = [prematchPrimary, accent, prematchSecondary]
         gradient.colors = currentColors
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
@@ -62,7 +62,7 @@ class AboutViewController: UIViewController {
     }
     
     func animateGradient() {
-        currentColors = [randomColor(), randomColor()]
+        currentColors = [randomColor(), randomColor(), randomColor()]
         
         let animation = CABasicAnimation.gradientAnimation(
             toColors: currentColors, forDelegate: self)

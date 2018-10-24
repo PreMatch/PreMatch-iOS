@@ -101,8 +101,8 @@ public struct Downloader {
     }
     
     public func readScheduleJSON(handle: String,
-                              processSchedule: @escaping (JSON) -> Void,
-                              onFailure: @escaping HTTPErrorHandler) -> Void {
+                                 processSchedule: @escaping (JSON) -> Void,
+                                 onFailure: @escaping HTTPErrorHandler) -> Void {
         Alamofire.request(Downloader.scheduleReadEndpoint, parameters: ["handle": handle])
             .validate()
             .responseJSON { response in
@@ -116,7 +116,7 @@ public struct Downloader {
     }
     
     public func readCalendarJSON(onSuccess: @escaping (JSON) -> Void,
-                              onFailure: @escaping HTTPErrorHandler) -> Void {
+                                 onFailure: @escaping HTTPErrorHandler) -> Void {
         Alamofire.request(Downloader.calendarDefinitionEndpoint)
             .validate()
             .responseJSON { response in
@@ -129,31 +129,33 @@ public struct Downloader {
         }
     }
     
-    public func schedule(googleIdToken: String, handle: String,
+    public func storeSchedule(googleIdToken: String, handle: String,
                          calendar: SphCalendar,
                          onSuccess: @escaping (SphSchedule) -> Void,
-                         onHTTPFailure: @escaping HTTPErrorHandler,
-                         onScheduleParseFailure: @escaping (ParseError) -> Void) {
+                         onFailure: @escaping (DownloadError) -> Void) {
         login(idToken: googleIdToken, onSuccess: {
             self.readScheduleJSON(handle: handle,
-                              processSchedule: {
-                                do {
-                                    onSuccess(try SphSchedule.from(json: $0, calendar: calendar))
-                                } catch {
-                                    onScheduleParseFailure(error as! ParseError)
-                                }
-                                
+                                  processSchedule: {
+                                    do {
+                                        let schedule = try SphSchedule.from(json: $0, calendar: calendar)
+                                        ResourceProvider.store(schedule: schedule)
+                                        onSuccess(schedule)
+                                    } catch {
+                                        onFailure(DownloadError.malformedSchedule(error as! ParseError))
+                                    }
+                                    
             },
-                              onFailure: onHTTPFailure)
-        }, onFailure: onHTTPFailure)
+                                  onFailure: { onFailure(self.classifyError($0, $1)) })
+        }, onFailure: { onFailure(self.classifyError($0, $1)) })
         
     }
     
-    public func calendar(onSuccess: @escaping (SphCalendar) -> Void,
+    public func storeCalendar(onSuccess: @escaping (SphCalendar) -> Void,
                          onFailure: @escaping (DownloadError) -> Void) -> Void {
         readCalendarJSON(onSuccess: {
             do {
-                onSuccess(try DefinitionReader.read($0))
+                try ResourceProvider.store(calendar: $0)
+                onSuccess(ResourceProvider.calendar()!)
             } catch {
                 onFailure(DownloadError.malformedCalendar(error as! ParseError))
             }
