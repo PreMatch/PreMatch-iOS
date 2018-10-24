@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0239D42180042E00A336E2 /* AboutViewController.swift */; };
 		4C959AA0217AA25A0082FFD9 /* SevenPlusH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB22B2172ED03001383BA /* SevenPlusH.framework */; };
 		4C959AA2217AA5CB0082FFD9 /* ResourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AA1217AA5CB0082FFD9 /* ResourceProvider.swift */; };
 		4C959AA3217AB7110082FFD9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1942169400C001383BA /* Alamofire.framework */; };
@@ -15,6 +16,10 @@
 		4C959AAA217ADDA40082FFD9 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1C32169863D001383BA /* SwiftyJSON.framework */; };
 		4C959AAB217ADDA40082FFD9 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1C32169863D001383BA /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C959AAF217B4DB20082FFD9 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AAE217B4DB20082FFD9 /* Renderer.swift */; };
+		4C959AB1217DE7100082FFD9 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB0217DE7100082FFD9 /* ScheduleTests.swift */; };
+		4C959AB3217DF3830082FFD9 /* SphSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB2217DF3830082FFD9 /* SphSchedule.swift */; };
+		4C959AB5217E314C0082FFD9 /* ResourceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB4217E314C0082FFD9 /* ResourceDownloader.swift */; };
+		4C959AB7217F93D40082FFD9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB6217F93D30082FFD9 /* MainViewController.swift */; };
 		4CB3E0A12174AB7E0079E5DD /* DefinitionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */; };
 		4CB3E0A52176BDA20079E5DD /* DefinitionReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */; };
 		4CEC5937217916EA005A0C37 /* SphTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC5936217916EA005A0C37 /* SphTimetable.swift */; };
@@ -34,7 +39,6 @@
 		4CFAB16421684B97001383BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB16321684B97001383BA /* SystemConfiguration.framework */; };
 		4CFAB16721684DFF001383BA /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB16521684DFF001383BA /* GoogleSignIn.framework */; };
 		4CFAB16821684DFF001383BA /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB16621684DFF001383BA /* GoogleSignInDependencies.framework */; };
-		4CFAB1EA216999DA001383BA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB1E9216999D9001383BA /* SwiftyJSON.swift */; };
 		4CFAB2062169A3E9001383BA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB1F02169A25F001383BA /* NotificationCenter.framework */; };
 		4CFAB2092169A3EA001383BA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAB2082169A3EA001383BA /* TodayViewController.swift */; };
 		4CFAB20C2169A3EA001383BA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFAB20A2169A3EA001383BA /* MainInterface.storyboard */; };
@@ -323,8 +327,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C0239D42180042E00A336E2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4C959AA1217AA5CB0082FFD9 /* ResourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceProvider.swift; sourceTree = "<group>"; };
 		4C959AAE217B4DB20082FFD9 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		4C959AB0217DE7100082FFD9 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
+		4C959AB2217DF3830082FFD9 /* SphSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphSchedule.swift; sourceTree = "<group>"; };
+		4C959AB4217E314C0082FFD9 /* ResourceDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceDownloader.swift; sourceTree = "<group>"; };
+		4C959AB6217F93D30082FFD9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReader.swift; sourceTree = "<group>"; };
 		4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReaderTests.swift; sourceTree = "<group>"; };
 		4CEC5936217916EA005A0C37 /* SphTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphTimetable.swift; sourceTree = "<group>"; };
@@ -350,7 +359,6 @@
 		4CFAB1882169400C001383BA /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		4CFAB1A82169863C001383BA /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4CFAB1D021698640001383BA /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
-		4CFAB1E9216999D9001383BA /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4CFAB1F02169A25F001383BA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4CFAB2052169A3E9001383BA /* PreMatch Live.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PreMatch Live.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFAB2082169A3EA001383BA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -452,7 +460,6 @@
 			isa = PBXGroup;
 			children = (
 				4CFAB218216A7348001383BA /* PreMatch.entitlements */,
-				4CFAB1E9216999D9001383BA /* SwiftyJSON.swift */,
 				4CF29F3F2167C23A00BD1CD2 /* AppDelegate.swift */,
 				4CFAB1A82169863C001383BA /* SwiftyJSON.xcodeproj */,
 				4CF29F412167C23A00BD1CD2 /* RootViewController.swift */,
@@ -460,6 +467,8 @@
 				4CF29F4A2167C24100BD1CD2 /* Assets.xcassets */,
 				4CF29F4C2167C24100BD1CD2 /* LaunchScreen.storyboard */,
 				4CF29F4F2167C24100BD1CD2 /* Info.plist */,
+				4C959AB6217F93D30082FFD9 /* MainViewController.swift */,
+				4C0239D42180042E00A336E2 /* AboutViewController.swift */,
 			);
 			path = PreMatch;
 			sourceTree = "<group>";
@@ -566,6 +575,8 @@
 				4CEC5936217916EA005A0C37 /* SphTimetable.swift */,
 				4CEC595821794790005A0C37 /* ExclusionParser.swift */,
 				4C959AA1217AA5CB0082FFD9 /* ResourceProvider.swift */,
+				4C959AB4217E314C0082FFD9 /* ResourceDownloader.swift */,
+				4C959AB2217DF3830082FFD9 /* SphSchedule.swift */,
 			);
 			path = SevenPlusH;
 			sourceTree = "<group>";
@@ -577,6 +588,7 @@
 				4CFAB23A2172ED05001383BA /* Info.plist */,
 				4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */,
 				4CEC59562179172E005A0C37 /* TimetableTests.swift */,
+				4C959AB0217DE7100082FFD9 /* ScheduleTests.swift */,
 			);
 			path = SevenPlusHTests;
 			sourceTree = "<group>";
@@ -1018,7 +1030,8 @@
 			files = (
 				4CF29F422167C23A00BD1CD2 /* RootViewController.swift in Sources */,
 				4CF29F402167C23A00BD1CD2 /* AppDelegate.swift in Sources */,
-				4CFAB1EA216999DA001383BA /* SwiftyJSON.swift in Sources */,
+				4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */,
+				4C959AB7217F93D40082FFD9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,8 +1059,10 @@
 				4C959AA2217AA5CB0082FFD9 /* ResourceProvider.swift in Sources */,
 				4CB3E0A12174AB7E0079E5DD /* DefinitionReader.swift in Sources */,
 				4CFAB2472172EF6C001383BA /* Exclusion.swift in Sources */,
+				4C959AB3217DF3830082FFD9 /* SphSchedule.swift in Sources */,
 				4CEC5937217916EA005A0C37 /* SphTimetable.swift in Sources */,
 				4CFAB2482172EF6C001383BA /* Day.swift in Sources */,
+				4C959AB5217E314C0082FFD9 /* ResourceDownloader.swift in Sources */,
 				4CEC595921794790005A0C37 /* ExclusionParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1058,6 +1073,7 @@
 			files = (
 				4CB3E0A52176BDA20079E5DD /* DefinitionReaderTests.swift in Sources */,
 				4CEC59572179172E005A0C37 /* TimetableTests.swift in Sources */,
+				4C959AB1217DE7100082FFD9 /* ScheduleTests.swift in Sources */,
 				4CFAB2442172EDA2001383BA /* CalendarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1275,7 +1291,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.prematch.PreMatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1300,7 +1316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.prematch.PreMatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

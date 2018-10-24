@@ -42,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Override point for customization after application launch.
     
     initializeLogin()
+    
+    let welcome = self.window?.rootViewController?.storyboard!.instantiateViewController(withIdentifier: "WelcomeScreen")
+    if ResourceProvider.schedule() == nil {
+        self.window?.rootViewController = welcome
+    }
     return true
   }
 
@@ -65,22 +70,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return
         }
         
-        let provider = ResourceProvider(handle: String(handle),
-                                        googleIdToken: user.authentication.idToken)
-        let calendar = try? provider.readCalendar()
-        if (calendar == nil) { return }
-        
-        
-        let schedule = try? provider.readScheduleSync()
-        AppDelegate.showAlert(title: "Success",
-                              message: schedule?.description ?? "success?", actions: [])
+        let downloader = Downloader()
+        if ResourceProvider.calendar() == nil {
+            downloader.readCalendarJSON(
+                onSuccess: {
+                    try? ResourceProvider.store(calendar: $0)
+                    let calendar = ResourceProvider.calendar()
+                    let schedule = ResourceProvider.schedule(calendar)
+                    
+                    AppDelegate.showAlert(title: "Success",
+                                          message: schedule.debugDescription, actions: [])
+                    
+            },
+                onFailure: { AppDelegate.showAlert(title: "Error!",
+                                                   message: $1.localizedDescription + (($0?.description) ?? "no http"), actions: []) })
+        }
         
       
     }
   }
-    func showNextDate(_ date: Date, _ calendar: SphCalendar, _ schedule: Schedule) {
+    func showNextDate(_ date: Date, _ calendar: SphCalendar, _ schedule: SphSchedule) {
         let day = try! calendar.day(on: date) as! SchoolDay
-        let teachers = day.blocks.map { schedule[$0] ?? "?" }
+        let teachers = day.blocks.map { (try? schedule.teacher(for: $0)) ?? "?" }
         
         AppDelegate.showAlert(title: "\(date.description) is \(day.description)",
             message: "With blocks \(zip(day.blocks, teachers).map { $0 + ": " + $1 }.joined(separator: "\n"))", actions: [
@@ -108,7 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
 
 }
 

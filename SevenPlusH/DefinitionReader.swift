@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-enum ParseError: Error {
+public enum ParseError: Error {
     case missingField(String)
     case invalidFormat(fieldType: String, invalidValue: String)
     case outOfRange(fieldType: String, invalidValue: String)

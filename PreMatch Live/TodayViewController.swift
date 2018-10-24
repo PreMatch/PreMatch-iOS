@@ -23,6 +23,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!
+    @IBOutlet weak var dayExplanation: UILabel!
+    @IBOutlet weak var vibrancyView: UIVisualEffectView!
     
     func showUnavailable(_ text: String) {
         leftView.isHidden = true
@@ -37,7 +39,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         leftView.isHidden = false
         rightView.isHidden = false
     }
-    func showSchoolDay(_ schoolDay: SchoolDay) {
+    func showSchoolDay(_ schoolDay: SchoolDay, isToday: Bool) {
+        dayExplanation.text = isToday ? "is today" : "is next"
+        
         switch schoolDay {
             
         case let day as StandardDay:
@@ -66,17 +70,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         initRenderer()
-        
-//        if let provider = try? ResourceProvider() {
-//            if let nextDate = try? provider.readCalendar().nextSchoolDate(after: Date()) {
-//                provider.readSchedule(onSuccess: { schedule in
-//                    let day = try! provider.readCalendar().day(on: nextDate!) as! StandardDay
-//                    self.dayNumber.text = String(day.number)
-//                }, onFailure: { res, error in
-//                    print(error)
-//                })
-//            }
-//        }
+        vibrancyView.effect = UIVibrancyEffect.widgetPrimary()
         // Do any additional setup after loading the view from its nib.
     }
     

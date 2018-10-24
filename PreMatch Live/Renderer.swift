@@ -19,7 +19,7 @@ private protocol Handler {
     func applicable(_ date: Date, in calendar: SphCalendar) -> Bool
     func apply(_ date: Date,
                in calendar: SphCalendar,
-               for schedule: Schedule,
+               for schedule: SphSchedule?,
                to view: TodayViewController)
 }
 
@@ -28,7 +28,7 @@ struct OutsideYearHandler: Handler {
         return !calendar.includes(date)
     }
     func apply(_ date: Date, in calendar: SphCalendar,
-               for: Schedule, to view: TodayViewController) {
+               for: SphSchedule?, to view: TodayViewController) {
         view.showUnavailable("Not inside current school year")
     }
 }
@@ -38,14 +38,14 @@ struct HolidayHandler: Handler {
         return calendar.includes(date) && !calendar.isSchoolDay(on: date)
     }
     func apply(_ date: Date, in calendar: SphCalendar,
-               for: Schedule, to view: TodayViewController) {
+               for: SphSchedule?, to view: TodayViewController) {
         let schoolDay = calendar.nextSchoolDay(after: date)!
         let day = try! calendar.day(on: date)
         
         view.show(
             title: "Today is \(day.description)",
             info: "Showing next school day\n\(format(schoolDay.date, long: true))")
-        view.showSchoolDay(schoolDay)
+        view.showSchoolDay(schoolDay, isToday: false)
     }
 }
 
@@ -59,15 +59,17 @@ struct BeforeSchoolHandler: Handler {
     }
     
     func apply(_ date: Date, in calendar: SphCalendar,
-               for schedule: Schedule, to view: TodayViewController) {
+               for schedule: SphSchedule?, to view: TodayViewController) {
         
         let day = try! calendar.day(on: date) as! SchoolDay
         let firstBlock = day.blocks.first
-        let firstTeacher = schedule[firstBlock ?? ""] ?? "Someone unknown"
+        let firstTeacher = (firstBlock == nil || schedule == nil) ?
+            "Someone unknown" : (try? schedule!.teacher(for: firstBlock!)) ?? "H-block"
         
         view.show(
             title: "Today is \(day.description)",
-            info: firstTeacher + " is next")
+            info: firstTeacher + " is next\nGood morning")
+        view.showSchoolDay(day, isToday: true)
     }
 }
 
@@ -81,7 +83,7 @@ struct AfterSchoolHandler: Handler {
     }
     
     func apply(_ date: Date, in calendar: SphCalendar,
-               for schedule: Schedule, to view: TodayViewController) {
+               for schedule: SphSchedule?, to view: TodayViewController) {
         
         let today = try! calendar.day(on: date) as! SchoolDay
         let day = calendar.nextSchoolDay(after: date)!
@@ -89,7 +91,7 @@ struct AfterSchoolHandler: Handler {
         view.show(
             title: "Today was \(today.description)",
             info: "Showing next school day\n\(format(day.date, long: true))")
-        view.showSchoolDay(day)
+        view.showSchoolDay(day, isToday: false)
     }
 }
 
@@ -102,29 +104,32 @@ struct DuringSchoolHandler: Handler {
         return false
     }
     
-    func apply(_ date: Date, in calendar: SphCalendar, for schedule: Schedule, to view: TodayViewController) {
+    func apply(_ date: Date, in calendar: SphCalendar,
+               for schedule: SphSchedule?, to view: TodayViewController) {
         let day = try! calendar.day(on: date) as! SchoolDay
         let now: Time = Time.fromDate(date)!
         
         let currentPeriodIndex = day.periodIndex(at: now)
         let currentBlock = day.block(at: now)
         let currentTeacher = currentBlock == nil ? nil :
-            schedule[currentBlock!] ?? "Unknown"
+            (try? schedule?.teacher(for: currentBlock!)) ?? "Unknown"
         
+        view.showSchoolDay(day, isToday: true)
         if currentPeriodIndex == UInt8(day.periods.count - 1) {
             // Last block
             view.show(title: "Now: \(currentTeacher!)",
                 info: "Block \(currentBlock!)\nThis is the last block!")
-            return
+           return
         }
         
         let nextIndex = day.nextPeriodIndex(at: now)!
         let nextBlock = day.blocks[Int(nextIndex)]
-        let nextTeacher = schedule[nextBlock] ?? "Unknown"
+        let nextTeacher = schedule == nil ? "Unknown" :
+            (try? schedule!.teacher(for: nextBlock)) ?? "Unknown"
         
         if currentPeriodIndex == nil {
-            view.show(title: "Next: \(nextTeacher)",
-                info: "Block \(nextBlock)\nGood morning.")
+            view.show(title: "Go to \(nextTeacher)",
+                info: "Block \(nextBlock)")
         } else {
             view.show(title: "Now: \(currentTeacher!)",
                 info: "Block \(currentBlock!)\nNext: Block \(nextBlock) with \(nextTeacher)")
@@ -137,22 +142,27 @@ struct Renderer {
         OutsideYearHandler(),
         HolidayHandler(),
         BeforeSchoolHandler(),
-        AfterSchoolHandler()
+        AfterSchoolHandler(),
+        DuringSchoolHandler()
     ]
-    private let calendar: SphCalendar
-    private var schedule: Schedule
+    private var calendar: SphCalendar?
+    private var schedule: SphSchedule?
     private let view: TodayViewController
     
     init(renderTo view: TodayViewController) throws {
-        let provider = try ResourceProvider()
-        calendar = try provider.readCalendar()
-        schedule = try provider.readScheduleSync()
+        calendar = ResourceProvider.calendar()
+        schedule = ResourceProvider.schedule(calendar)
         self.view = view
     }
     
     public func render() -> Bool {
+        guard let calendar = calendar else {
+            view.showUnavailable("Set me up in the app!")
+            return true
+        }
+        
         let date = Date()
-        guard let handler = handlers.first(where: { $0.applicable(Date(), in: self.calendar) }) else {
+        guard let handler = handlers.first(where: { $0.applicable(date, in: calendar) }) else {
             return false
         }
         handler.apply(date, in: calendar, for: schedule, to: view)

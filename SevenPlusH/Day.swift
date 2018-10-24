@@ -54,7 +54,7 @@ public struct StandardDay: SchoolDay {
     public let date: Date
     public var description: String {
         get {
-            return "a Day \(self.number)"
+            return "day \(self.number)"
         }
     }
     public let number: DayNumber
