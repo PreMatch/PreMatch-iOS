@@ -93,7 +93,7 @@
                                             <rect key="frame" x="90" y="0.0" width="230" height="110"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9n-e1-Rqf">
-                                                    <rect key="frame" x="10" y="15" width="210" height="19.5"/>
+                                                    <rect key="frame" x="10" y="12" width="210" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -103,12 +103,12 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="cJq-HL-dpF"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9d-36-dew">
-                                                    <rect key="frame" x="10" y="39.5" width="210" height="40"/>
+                                                    <rect key="frame" x="10" y="33.5" width="210" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="fhg-hv-pme"/>
                                                     </constraints>
@@ -120,27 +120,23 @@
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="L9d-36-dew" secondAttribute="trailing" constant="10" id="3lj-9j-xkH"/>
-                                                <constraint firstItem="L9d-36-dew" firstAttribute="top" secondItem="g9n-e1-Rqf" secondAttribute="bottom" constant="5" id="5Q1-kL-lEU"/>
+                                                <constraint firstItem="L9d-36-dew" firstAttribute="top" secondItem="g9n-e1-Rqf" secondAttribute="bottom" constant="2" id="5Q1-kL-lEU"/>
                                                 <constraint firstItem="L9d-36-dew" firstAttribute="leading" secondItem="cyl-Lp-iYM" secondAttribute="leading" constant="10" id="DAP-G1-nCO"/>
                                                 <constraint firstItem="L9d-36-dew" firstAttribute="leading" secondItem="cyl-Lp-iYM" secondAttribute="leading" constant="10" id="JzC-8x-6RC"/>
                                                 <constraint firstAttribute="trailing" secondItem="L9d-36-dew" secondAttribute="trailing" constant="10" id="QBb-En-t58"/>
-                                                <constraint firstItem="g9n-e1-Rqf" firstAttribute="top" secondItem="cyl-Lp-iYM" secondAttribute="top" constant="15" id="WbM-aP-gvC"/>
+                                                <constraint firstItem="g9n-e1-Rqf" firstAttribute="top" secondItem="cyl-Lp-iYM" secondAttribute="top" constant="12" id="WbM-aP-gvC"/>
                                                 <constraint firstItem="Yrq-pf-yK0" firstAttribute="leading" secondItem="cyl-Lp-iYM" secondAttribute="leading" constant="10" id="WdV-KD-DjX"/>
                                                 <constraint firstAttribute="bottom" secondItem="Yrq-pf-yK0" secondAttribute="bottom" constant="10" id="a7W-xe-L2i"/>
-                                                <constraint firstItem="L9d-36-dew" firstAttribute="top" secondItem="g9n-e1-Rqf" secondAttribute="bottom" constant="5" id="dkY-qv-eRa"/>
                                                 <constraint firstItem="g9n-e1-Rqf" firstAttribute="leading" secondItem="cyl-Lp-iYM" secondAttribute="leading" constant="10" id="fMs-Xc-ZZi"/>
                                                 <constraint firstAttribute="height" constant="110" id="g97-Ab-OR5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Yrq-pf-yK0" secondAttribute="trailing" constant="10" id="nHt-rX-Qar"/>
                                                 <constraint firstAttribute="trailing" secondItem="g9n-e1-Rqf" secondAttribute="trailing" constant="10" id="vrw-cq-03q"/>
                                             </constraints>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="low-DC-4UX" appends="YES" id="l53-ZU-0of"/>
-                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OT7-tR-qAf">
                                             <rect key="frame" x="0.0" y="111" width="320" height="120"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="center" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8UF-N7-Kev">
+                                                <stackView opaque="NO" contentMode="center" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8UF-N7-Kev" customClass="PeriodColumns" customModule="PreMatch_Live" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="120"/>
                                                 </stackView>
                                             </subviews>
@@ -202,7 +198,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="low-DC-4UX"/>
             </objects>
             <point key="canvasLocation" x="20.625" y="32.5"/>
         </scene>
