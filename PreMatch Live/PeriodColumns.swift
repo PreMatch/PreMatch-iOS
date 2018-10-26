@@ -50,12 +50,18 @@ private func relativeTimes(for day: SchoolDay, at date: Date) -> [RelativeTime?]
 }
 
 class PeriodColumns: UIStackView {
+    private let kHeightWithoutTimes: CGFloat = 110
+    private let kHeightWithTimes: CGFloat = 120
+    
     private var hasRelativeTimes: Bool = true
 
     func render(for day: SchoolDay, at time: Date, in schedule: SphSchedule?) {
         clearPeriodColumns()
         let times = relativeTimes(for: day, at: time)
         hasRelativeTimes = times.contains(where: { $0 != nil })
+        
+        heightAnchor.constraint(equalToConstant: hasRelativeTimes ?
+            kHeightWithTimes : kHeightWithoutTimes)
         
         for (block, time) in zip(day.blocks, times) {
             addColumn(time, block: block,
@@ -65,7 +71,7 @@ class PeriodColumns: UIStackView {
     }
     
     func expandedWidgetHeight() -> CGFloat {
-        return hasRelativeTimes ? 230 : 210;
+        return hasRelativeTimes ? 230 : 220
     }
     
     private func addColumn(_ time: RelativeTime?, block: String, teacher: String?) {
@@ -79,9 +85,9 @@ class PeriodColumns: UIStackView {
         view.widthAnchor.constraint(equalToConstant: viewWidth).isActive = true
         view.contentMode = .center
         
-        let timeLabel = time == nil ? nil : UILabel()
-        timeLabel?.text = format(relativeTime: time!)
-        timeLabel?.font = timeLabel?.font.withSize(14)
+        let timeLabel = UILabel()
+        timeLabel.text = time == nil ? "" : format(relativeTime: time!)
+        timeLabel.font = timeLabel.font.withSize(14)
         
         let blockLabel = UILabel()
         blockLabel.text = block
@@ -94,25 +100,25 @@ class PeriodColumns: UIStackView {
         teacherLabel.lineBreakMode = .byWordWrapping
         
         for label in [timeLabel, blockLabel, teacherLabel] {
-            if let label = label {
-                label.textColor = complete ? UIColor.lightGray : UIColor.black
-                label.textAlignment = .center
-            
-                if bold {
-                    makeBold(label: label)
-                }
-                view.addArrangedSubview(label)
+            label.textColor = complete ? UIColor.lightGray : UIColor.black
+            label.textAlignment = .center
+        
+            if bold {
+                makeBold(label: label)
             }
+            view.addArrangedSubview(label)
         }
         
+        blockLabel.sizeToFit()
         blockLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         blockLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        timeLabel?.bottomAnchor.constraint(equalTo: blockLabel.topAnchor).isActive = true
+        timeLabel.bottomAnchor.constraint(equalTo: blockLabel.topAnchor).isActive = true
+    
         teacherLabel.topAnchor.constraint(equalTo: blockLabel.bottomAnchor).isActive = true
         
         self.addArrangedSubview(view)
         
-        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: topAnchor, constant: time == nil ? -35 : 0).isActive = true
         view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     

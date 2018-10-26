@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/TodayViewController.swift"
-            timestampString = "562175465.1457551"
+            timestampString = "562212434.049342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/Renderer.swift"
-            timestampString = "562175465.155544"
+            timestampString = "562212434.079541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/Renderer.swift"
-            timestampString = "562175465.156243"
+            timestampString = "562212434.07995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -225,38 +225,38 @@
             endingLineNumber = "59"
             landmarkName = "errorHandler"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SevenPlusH.DownloadError) -&gt; () in variable initialization expression of PreMatch.AppDelegate.(errorHandler in _ADE4DBA61D29DE930F90D7E4B93565A1) : (SevenPlusH.DownloadError) -&gt; ()"
-                  moduleName = "PreMatch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/PERSISTENT/code/PreMatchApp/PreMatch/PreMatch/AppDelegate.swift"
-                  timestampString = "562047434.738214"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PreMatch.AppDelegate.init() -&gt; PreMatch.AppDelegate"
-                  moduleName = "PreMatch"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/PERSISTENT/code/PreMatchApp/PreMatch/PreMatch/AppDelegate.swift"
-                  timestampString = "562047434.740835"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PreMatch Live/PeriodColumns.swift"
+            timestampString = "562212434.0805939"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "addColumn(_:block:teacher:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PreMatch Live/PeriodColumns.swift"
+            timestampString = "562212434.082329"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "addColumn(_:block:teacher:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
