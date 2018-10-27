@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,15 +15,18 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7+H" translatesAutoresizingMaskIntoConstraints="NO" id="3JH-zW-Ajt">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4U-xg-bhV">
-                                <rect key="frame" x="57" y="268" width="300" height="200"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PreMatch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-hU-ZaT">
-                                        <rect key="frame" x="0.0" y="70" width="300" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                        <rect key="frame" x="0.0" y="240.5" width="320" height="67"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="56"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=regular">
@@ -31,10 +34,8 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Pfr-kd-DKS"/>
-                                    <constraint firstAttribute="width" constant="300" id="Q9A-dz-TgR"/>
                                     <constraint firstAttribute="trailing" secondItem="Afb-hU-ZaT" secondAttribute="trailing" id="XAV-Vi-hV0"/>
                                     <constraint firstItem="Afb-hU-ZaT" firstAttribute="leading" secondItem="h4U-xg-bhV" secondAttribute="leading" id="nJv-81-iiB"/>
                                     <constraint firstItem="Afb-hU-ZaT" firstAttribute="centerY" secondItem="h4U-xg-bhV" secondAttribute="centerY" id="nX1-0v-9Ae"/>
@@ -43,8 +44,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="h4U-xg-bhV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5gi-Qc-Y5R"/>
-                            <constraint firstItem="h4U-xg-bhV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dZb-LC-TmD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h4U-xg-bhV" secondAttribute="trailing" id="04U-Tw-Pef"/>
+                            <constraint firstItem="h4U-xg-bhV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3L8-7J-ecz"/>
+                            <constraint firstItem="3JH-zW-Ajt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9f5-uU-9wz"/>
+                            <constraint firstItem="3JH-zW-Ajt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CBK-zr-wZd"/>
+                            <constraint firstItem="h4U-xg-bhV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LKJ-mh-X61"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h4U-xg-bhV" secondAttribute="bottom" id="dAh-UW-QiL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3JH-zW-Ajt" secondAttribute="bottom" id="i9b-Ha-wfU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3JH-zW-Ajt" secondAttribute="trailing" id="kLJ-cd-JBE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -55,7 +62,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="374.18478260869568"/>
+            <point key="canvasLocation" x="50.625" y="373.828125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="7+H" width="1034" height="1335"/>
+    </resources>
 </document>

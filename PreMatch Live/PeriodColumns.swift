@@ -71,7 +71,7 @@ class PeriodColumns: UIStackView {
     }
     
     func expandedWidgetHeight() -> CGFloat {
-        return hasRelativeTimes ? 230 : 220
+        return hasRelativeTimes ? kHeightWithTimes + 110 : kHeightWithoutTimes + 110
     }
     
     private func addColumn(_ time: RelativeTime?, block: String, teacher: String?) {
@@ -118,7 +118,7 @@ class PeriodColumns: UIStackView {
         
         self.addArrangedSubview(view)
         
-        view.topAnchor.constraint(equalTo: topAnchor, constant: time == nil ? -35 : 0).isActive = true
+        view.topAnchor.constraint(equalTo: topAnchor, constant: time == nil ? -50 : 0).isActive = true
         view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     

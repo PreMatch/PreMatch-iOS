@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0239D42180042E00A336E2 /* AboutViewController.swift */; };
+		4C196AD02184BD1500220E18 /* QueryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C196ACF2184BD1500220E18 /* QueryDataSource.swift */; };
 		4C36E68221808EF500F1983F /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C36E68121808EF500F1983F /* QueryViewController.swift */; };
 		4C959AA0217AA25A0082FFD9 /* SevenPlusH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB22B2172ED03001383BA /* SevenPlusH.framework */; };
 		4C959AA2217AA5CB0082FFD9 /* ResourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AA1217AA5CB0082FFD9 /* ResourceProvider.swift */; };
@@ -330,6 +331,7 @@
 
 /* Begin PBXFileReference section */
 		4C0239D42180042E00A336E2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		4C196ACF2184BD1500220E18 /* QueryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataSource.swift; sourceTree = "<group>"; };
 		4C36E68121808EF500F1983F /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
 		4C959AA1217AA5CB0082FFD9 /* ResourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceProvider.swift; sourceTree = "<group>"; };
 		4C959AAE217B4DB20082FFD9 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				4C959AB6217F93D30082FFD9 /* MainViewController.swift */,
 				4C0239D42180042E00A336E2 /* AboutViewController.swift */,
 				4C36E68121808EF500F1983F /* QueryViewController.swift */,
+				4C196ACF2184BD1500220E18 /* QueryDataSource.swift */,
 			);
 			path = PreMatch;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */,
 				4C959AB7217F93D40082FFD9 /* MainViewController.swift in Sources */,
 				4C36E68221808EF500F1983F /* QueryViewController.swift in Sources */,
+				4C196AD02184BD1500220E18 /* QueryDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
