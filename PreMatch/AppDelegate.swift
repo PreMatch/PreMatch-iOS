@@ -62,7 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
     
     if let error = error {
-      print("Oops! I couldn't sign you in with Google: " + error.localizedDescription)
+        AppDelegate.showAlert(title: "Oops!",
+                              message: "I couldn't sign you in with Google: \(error.localizedDescription)", actions: [])
     } else if let email = user.profile.email {
       let handle = email.split(separator: "@")[0]
         
