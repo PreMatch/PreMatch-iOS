@@ -64,10 +64,10 @@ struct BeforeSchoolHandler: Handler {
         let day = try! calendar.day(on: date) as! SchoolDay
         let firstBlock = day.blocks.first
         let firstTeacher = (firstBlock == nil || schedule == nil) ?
-            "Someone unknown" : (try? schedule!.teacher(for: firstBlock!)) ?? "H-block"
+            "Someone unknown" : (try? schedule?.teacher(for: firstBlock!)) ?? "H-block"
         
         view.show(
-            title: "Next: \(firstTeacher)",
+            title: "Next: \(firstTeacher ?? "Unknown")",
             info: "Block \(firstBlock ?? "?")\nGood morning")
         view.showSchoolDay(day, isToday: true)
     }
@@ -117,7 +117,7 @@ struct DuringSchoolHandler: Handler {
         view.showSchoolDay(day, isToday: true)
         if currentPeriodIndex == UInt8(day.periods.count - 1) {
             // Last block
-            view.show(title: "Now: \(currentTeacher!)",
+            view.show(title: "Now: \(currentTeacher ?? "Unknown")",
                 info: "Block \(currentBlock!)\nThis is the last block!")
            return
         }
@@ -125,14 +125,14 @@ struct DuringSchoolHandler: Handler {
         let nextIndex = day.nextPeriodIndex(at: now)!
         let nextBlock = day.blocks[Int(nextIndex)]
         let nextTeacher = schedule == nil ? "Unknown" :
-            (try? schedule!.teacher(for: nextBlock)) ?? "Unknown"
+            (try? schedule?.teacher(for: nextBlock)) ?? "Unknown"
         
         if currentPeriodIndex == nil {
-            view.show(title: "Go to \(nextTeacher)",
+            view.show(title: "Go to \(nextTeacher ?? "Unknown")",
                 info: "Block \(nextBlock)")
         } else {
-            view.show(title: "Now: \(currentTeacher!)",
-                info: "Block \(currentBlock!)\nNext: Block \(nextBlock) with \(nextTeacher)")
+            view.show(title: "Now: \(currentTeacher ?? "Unknown")",
+                info: "Block \(currentBlock!)\nNext: Block \(nextBlock) with \(nextTeacher ?? "Unknown")")
         }
     }
 }

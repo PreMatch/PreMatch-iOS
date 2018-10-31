@@ -7,7 +7,29 @@
 //
 
 import UIKit
+import SevenPlusH
 
 class MainViewController: UITabBarController {
-
+    private weak static var instance: MainViewController?
+    
+    override func viewDidLoad() {
+        MainViewController.instance = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let welcome = storyboard!.instantiateViewController(withIdentifier: "WelcomeScreen")
+        if ResourceProvider.calendar() == nil {
+            present(welcome, animated: true, completion: nil)
+        }
+    }
+    
+    class func refreshTabs() {
+        for controller in (instance?.viewControllers ?? []) {
+            if let resourceUser = controller as? ResourceUser {
+                controller.loadViewIfNeeded()
+                resourceUser.resourcesDidUpdate()
+            }
+        }
+        
+    }
 }

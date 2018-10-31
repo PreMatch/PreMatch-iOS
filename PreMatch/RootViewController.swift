@@ -8,33 +8,44 @@
 
 import UIKit
 import GoogleSignIn
+import SevenPlusH
 
 class RootViewController: UIViewController, UIPageViewControllerDelegate, GIDSignInUIDelegate {
-
-  var pageViewController: UIPageViewController?
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    // Configure the page view controller and add it as a child view controller.
     
-    GIDSignIn.sharedInstance().uiDelegate = self
-    GIDSignIn.sharedInstance().signInSilently()
+    //MARK: Properties
+    @IBOutlet weak var passPersonalization: UIButton!
     
-    // TODO(developer) Configure the sign-in button look/feel
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  @IBAction func didTapSignOut(_ sender: AnyObject) {
-    GIDSignIn.sharedInstance().signOut()
-  }
-
-  // MARK: - UIPageViewController delegate methods
-
-
+    var pageViewController: UIPageViewController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        // Configure the page view controller and add it as a child view controller.
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - UIPageViewController delegate methods
+    
+    @IBAction func didTapContinueWithoutPersonalize() {
+        func showMainScreen() {
+            MainViewController.refreshTabs()
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        if ResourceProvider.calendar() == nil {
+            Downloader().storeCalendar(onSuccess: { _ in showMainScreen() },
+                                       onFailure: { err in
+                self.present(UIAlertController(title: "Oops!", message: err.localizedDescription, preferredStyle: .alert), animated: true, completion: nil)
+            })
+        } else {
+            showMainScreen()
+        }
+    }
 }
 

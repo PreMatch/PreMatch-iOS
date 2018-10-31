@@ -52,4 +52,8 @@ public struct ResourceProvider {
         _schedule = schedule
         defaults.set(schedule.mapping, forKey: "schedule")
     }
+    public static func clearSchedule() {
+        _schedule = nil
+        defaults.removeObject(forKey: "schedule")
+    }
 }

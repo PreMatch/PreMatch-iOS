@@ -9,8 +9,9 @@
 import UIKit
 import SevenPlusH
 
-class QueryViewController: UIViewController {
-
+class QueryViewController: UIViewController, ResourceUser {
+    weak static var instance: QueryViewController?
+    
     let dataSource = QueryDataSource(day: nil)
     
     //MARK: Properties
@@ -20,6 +21,12 @@ class QueryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        QueryViewController.instance = self
+        viewDidAppear(true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         periodTable.dataSource = dataSource
         
         if let calendar = ResourceProvider.calendar() {
@@ -34,12 +41,17 @@ class QueryViewController: UIViewController {
                              for: .valueChanged)
     }
     
+    func resourcesDidUpdate() {
+        viewDidAppear(false)
+    }
+    
     @objc func datePickerChanged(picker: UIDatePicker) {
         if let calendar = ResourceProvider.calendar(),
             let day = (try? calendar.day(on: picker.date)) {
+            let schoolDay = day as? SchoolDay
             
-            if let day = day as? SchoolDay {
-                showTable(daySource: day)
+            if schoolDay != nil && schoolDay!.blocks.count > 0 {
+                showTable(daySource: schoolDay!)
             } else {
                 showText(message: "\(format(date: picker.date)) is \(day.description)")
             }

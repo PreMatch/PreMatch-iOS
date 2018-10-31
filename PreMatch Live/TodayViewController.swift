@@ -79,11 +79,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         periodStack.render(for: day, at: Date(), in: schedule)
     }
     
+    func render() {
+        let success = initRendererSuccess()
+        self.extensionContext?.widgetLargestAvailableDisplayMode =
+            success ? .expanded : .compact
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        initRenderer()
         vibrancyView.effect = UIVibrancyEffect.widgetPrimary()
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        render()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        render()
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,14 +104,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(renderer?.render() == true ? .newData : .noData)
     }
     
-    func initRenderer() {
+    func initRendererSuccess() -> Bool {
         if renderer == nil {
             do {
                 renderer = try Renderer(renderTo: self)
+                return true
             } catch {
                 showUnavailable("Set me up in the app!")
+                return false
             }
         }
+        return true
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {

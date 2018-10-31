@@ -42,6 +42,10 @@ public class SphSchedule {
             calendar: calendar)
     }
     
+    public func applies(to calendar: SphCalendar) -> Bool {
+        return calendar.allBlocks.allSatisfy { mapping[$0] != nil }
+    }
+    
     public func teacher(for block: String) throws -> String {
         if !calendar.allBlocks.contains(block) {
             throw ParseError.outOfRange(fieldType: "block", invalidValue: block)

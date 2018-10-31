@@ -72,8 +72,8 @@ class DayIterator {
 }
 
 public class SphCalendar {
-    let name: String
-    let version: Double
+    public let name: String
+    public let version: Double
     let allBlocks: [String]
     let cycleSize: DayNumber
     

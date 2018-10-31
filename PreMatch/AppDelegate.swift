@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
   var window: UIWindow?
   
-  class func showAlert(title: String, message: String, actions: [UIAlertAction]) {
+    class func showAlert(title: String, message: String, actions: [UIAlertAction], controller: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!) {
     let alert = UIAlertController(
       title: title,
       message: message,
@@ -29,9 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       }
     }
     
-    UIApplication.shared.delegate?.window??.rootViewController?.present(
+    controller.present(
       alert, animated: true, completion: nil)
   }
+    
+    class func welcomeScreen() -> UIViewController? {
+        return UIApplication.shared.delegate?.window??.rootViewController?.storyboard!.instantiateViewController(withIdentifier: "WelcomeScreen")
+    }
   
   func initializeLogin() {
     GIDSignIn.sharedInstance().clientID = "764760025104-70ao2s5vql3ldi54okdf9tbkd4chtama.apps.googleusercontent.com"
@@ -42,11 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     // Override point for customization after application launch.
     
     initializeLogin()
-    
-    let welcome = self.window?.rootViewController?.storyboard!.instantiateViewController(withIdentifier: "WelcomeScreen")
-    if ResourceProvider.schedule() == nil {
-        self.window?.rootViewController = welcome
-    }
     return true
   }
 
@@ -56,21 +55,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         annotation: options[UIApplicationOpenURLOptionsKey.annotation])
   }
   
-    private let errorHandler: (DownloadError) -> Void = { AppDelegate.showAlert(title: "Error!",
-                                                                             message: $0.localizedDescription, actions: []) }
+    private let errorHandler: (DownloadError) -> Void = {
+        AppDelegate.showAlert(title: "Error!",
+                              message: $0.localizedDescription,
+                              actions: [])
+    }
     
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
     
+    let uiDelegate: (UIViewController) = (signIn.uiDelegate as! UIViewController)
     if let error = error {
         AppDelegate.showAlert(title: "Oops!",
-                              message: "I couldn't sign you in with Google: \(error.localizedDescription)", actions: [])
+                              message: "I couldn't sign you in with Google: \(error.localizedDescription)", actions: [],
+                              controller: uiDelegate)
     } else if let email = user.profile.email {
       let handle = email.split(separator: "@")[0]
         
         if !email.hasSuffix("andoverma.us") {
             signIn.signOut()
             AppDelegate.showAlert(title: "Not AHS!",
-                                  message: "You signed into \(email), which is not your school email. Try again.", actions: [])
+                                  message: "You signed into \(email), which is not your school email. Try again.", actions: [],
+                                  controller: uiDelegate)
             return
         }
         
@@ -81,8 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 handle: String(handle),
                 calendar: $0,
                 onSuccess: { sch in
+                    if uiDelegate.presentingViewController != nil {
+                        MainViewController.refreshTabs()
+                        uiDelegate.dismiss(animated: true, completion: nil)
+                    }
                     AppDelegate.showAlert(title: "Downloaded!", message: try! sch.teacher(for: "A"), actions: [])
-                    self.window?.rootViewController = self.window?.rootViewController?.storyboard!.instantiateViewController(withIdentifier: "MainScreen")
             },
                 onFailure: self.errorHandler)
         }, onFailure: self.errorHandler)

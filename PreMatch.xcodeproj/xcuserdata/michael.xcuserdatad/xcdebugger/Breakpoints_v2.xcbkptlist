@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SevenPlusH/SphCalendar.swift"
-            timestampString = "562094541.555429"
+            timestampString = "562652609.145515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SevenPlusH/SphCalendar.swift"
-            timestampString = "562094541.559038"
+            timestampString = "562652609.151825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/TodayViewController.swift"
-            timestampString = "562352456.563996"
+            timestampString = "562652609.1523221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/Renderer.swift"
-            timestampString = "562352883.5723521"
+            timestampString = "562652609.1527489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/Renderer.swift"
-            timestampString = "562352883.572457"
+            timestampString = "562652609.15316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SevenPlusH/ResourceProvider.swift"
-            timestampString = "562048324.118596"
+            timestampString = "562609170.047016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -153,24 +153,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreMatch/AppDelegate.swift"
-            timestampString = "562072663.237232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PreMatch/AboutViewController.swift"
-            timestampString = "562072663.23851"
+            timestampString = "562609170.0471309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -218,13 +202,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch/AppDelegate.swift"
-            timestampString = "562072663.284104"
+            timestampString = "562609170.0474091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "errorHandler"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SevenPlusH.DownloadError) -&gt; () in variable initialization expression of PreMatch.AppDelegate.(errorHandler in _ADE4DBA61D29DE930F90D7E4B93565A1) : (SevenPlusH.DownloadError) -&gt; ()"
+                  moduleName = "PreMatch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/PERSISTENT/code/PreMatchApp/PreMatch/PreMatch/AppDelegate.swift"
+                  timestampString = "562611169.523446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PreMatch.AppDelegate.init() -&gt; PreMatch.AppDelegate"
+                  moduleName = "PreMatch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/PERSISTENT/code/PreMatchApp/PreMatch/PreMatch/AppDelegate.swift"
+                  timestampString = "562611169.52551"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "102">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,13 +250,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/PeriodColumns.swift"
-            timestampString = "562355496.0481991"
+            timestampString = "562605723.912522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "addColumn(_:block:teacher:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -250,13 +266,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PreMatch Live/PeriodColumns.swift"
-            timestampString = "562355496.048455"
+            timestampString = "562605723.913053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
             endingLineNumber = "109"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "addColumn(_:block:teacher:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PreMatch/QueryViewController.swift"
+            timestampString = "562652609.1538889"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "datePickerChanged(picker:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
