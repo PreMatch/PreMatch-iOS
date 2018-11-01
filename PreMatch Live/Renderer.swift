@@ -15,6 +15,26 @@ private func format(_ date: Date, long: Bool = false) -> String {
     return formatter.string(from: date)
 }
 
+private func relativeExpression(for target: Date, relativeTo now: Date) -> String? {
+    if ahsCalendar.isDate(now.dayAfter(), inSameDayAs: target) {
+        return "tomorrow"
+    }
+    let targetComps = ahsCalendar.dateComponents(in: ahsTimezone, from: target),
+        nowComps = ahsCalendar.dateComponents(in: ahsTimezone, from: now)
+    
+    guard let targetWeek = targetComps.weekOfYear,
+        let thisWeek = nowComps.weekOfYear else {
+            return nil
+    }
+    
+    if targetWeek == thisWeek + 1 {
+        formatter.dateFormat = "EEEE"
+        return "next " + formatter.string(from: target)
+    }
+    
+    return nil
+}
+
 private protocol Handler {
     func applicable(_ date: Date, in calendar: SphCalendar) -> Bool
     func apply(_ date: Date,
@@ -87,10 +107,11 @@ struct AfterSchoolHandler: Handler {
         
         let today = try! calendar.day(on: date) as! SchoolDay
         let day = calendar.nextSchoolDay(after: date)!
+        let expr = relativeExpression(for: day.date, relativeTo: date)
         
         view.show(
             title: "Today was \(today.description)",
-            info: "Showing next school day\n\(format(day.date, long: true))")
+            info: "Showing next school day\n\(expr ?? format(day.date, long: true))")
         view.showSchoolDay(day, isToday: false)
     }
 }
@@ -111,7 +132,7 @@ struct DuringSchoolHandler: Handler {
         
         let currentPeriodIndex = day.periodIndex(at: now)
         let currentBlock = day.block(at: now)
-        let currentTeacher = currentBlock == nil ? nil :
+        let currentTeacher = currentBlock == nil ? "Unknown" :
             (try? schedule?.teacher(for: currentBlock!)) ?? "Unknown"
         
         view.showSchoolDay(day, isToday: true)
@@ -145,22 +166,20 @@ struct Renderer {
         AfterSchoolHandler(),
         DuringSchoolHandler()
     ]
-    private var calendar: SphCalendar?
+    private var calendar: SphCalendar
     private var schedule: SphSchedule?
     private let view: TodayViewController
     
     init(renderTo view: TodayViewController) throws {
-        calendar = ResourceProvider.calendar()
+        guard let calendar = ResourceProvider.calendar() else {
+            throw ProviderError.noCalendarAvailable
+        }
+        self.calendar = calendar
         schedule = ResourceProvider.schedule()
         self.view = view
     }
     
     public func render() -> Bool {
-        guard let calendar = calendar else {
-            view.showUnavailable("Set me up in the app!")
-            return true
-        }
-        
         let date = Date()
         guard let handler = handlers.first(where: { $0.applicable(date, in: calendar) }) else {
             return false

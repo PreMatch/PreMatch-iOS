@@ -10,6 +10,14 @@ import UIKit
 import SevenPlusH
 import GoogleSignIn
 
+extension UIButton {
+    func reenableAfter(minutes: Int) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(minutes*60)) {
+            self.isEnabled = true
+        }
+    }
+}
+
 class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUser {
 
     private let dangerButtonColor = UIColor(red: 255, green: 59, blue: 48, alpha: 1)
@@ -81,6 +89,9 @@ class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUse
     }
     
     @IBAction func didTapUpdateCalendar() {
+        updateCalendar.isEnabled = false
+        updateCalendar.reenableAfter(minutes: 5)
+        
         let downloader = Downloader()
         downloader.readCalendarJSON(onSuccess: {
             do {

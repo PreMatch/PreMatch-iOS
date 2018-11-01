@@ -175,7 +175,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hvs-QA-Kfc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="baseline_settings_black_36pt" id="vdO-ub-bZY"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="baseline_settings_black_24pt" selectedImage="baseline_settings_black_24pt" id="vdO-ub-bZY"/>
                     <connections>
                         <outlet property="refreshSchedule" destination="lAk-z9-cQ1" id="Gen-Gw-j8N"/>
                         <outlet property="toggleAccountLink" destination="dYo-CT-uTc" id="AGc-O9-j8v"/>
@@ -361,7 +361,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="7+H" image="baseline_calendar_today_black_36pt" id="6Jo-Li-dxp"/>
+                    <tabBarItem key="tabBarItem" title="7+H" image="baseline_calendar_today_black_24pt" id="6Jo-Li-dxp"/>
                     <connections>
                         <outlet property="datePicker" destination="mQt-9m-ole" id="3hG-td-3Vn"/>
                         <outlet property="periodTable" destination="AIi-5m-YjA" id="783-SH-ROr"/>
@@ -434,7 +434,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eTL-Ma-lAK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="baseline_info_black_36pt" id="VKk-wU-Sft"/>
+                    <tabBarItem key="tabBarItem" title="About" image="baseline_info_black_24pt" id="VKk-wU-Sft"/>
                     <connections>
                         <outlet property="gradientLabel" destination="AZd-g8-sGG" id="aKF-P1-u5p"/>
                         <outlet property="gradientView" destination="1Oy-gG-mrj" id="Vpg-Z8-QPZ"/>
@@ -470,7 +470,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="79w-xD-3p6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="baseline_notifications_black_36pt" id="BxZ-rC-HVb"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="baseline_notifications_black_24pt" id="BxZ-rC-HVb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adm-ad-Zmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -498,9 +498,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_calendar_today_black_36pt" width="72" height="72"/>
-        <image name="baseline_info_black_36pt" width="72" height="72"/>
-        <image name="baseline_notifications_black_36pt" width="72" height="72"/>
-        <image name="baseline_settings_black_36pt" width="72" height="72"/>
+        <image name="baseline_calendar_today_black_24pt" width="48" height="48"/>
+        <image name="baseline_info_black_24pt" width="48" height="48"/>
+        <image name="baseline_notifications_black_24pt" width="48" height="48"/>
+        <image name="baseline_settings_black_24pt" width="48" height="48"/>
     </resources>
 </document>

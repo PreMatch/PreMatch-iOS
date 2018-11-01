@@ -16,19 +16,6 @@ enum RelativeTime {
     case soon
 }
 
-private func format(relativeTime time: RelativeTime) -> String {
-    switch time {
-    case .done:
-        return "Done"
-    case .now:
-        return "Now"
-    case .next:
-        return "Next"
-    case .soon:
-        return "Soon"
-    }
-}
-
 private func relativeTimes(for day: SchoolDay, at date: Date) -> [RelativeTime?] {
     if day.date > date {
         return Array(repeating: nil, count: day.periods.count)
@@ -65,8 +52,7 @@ class PeriodColumns: UIStackView {
         
         for (block, time) in zip(day.blocks, times) {
             addColumn(time, block: block,
-                      teacher: schedule == nil ? nil :
-                        try? schedule!.teacher(for: block))
+                      schedule: schedule)
         }
     }
     
@@ -74,52 +60,21 @@ class PeriodColumns: UIStackView {
         return hasRelativeTimes ? kHeightWithTimes + 110 : kHeightWithoutTimes + 110
     }
     
-    private func addColumn(_ time: RelativeTime?, block: String, teacher: String?) {
+    private func addColumn(_ time: RelativeTime?, block: String, schedule: SphSchedule?) {
         
-        let bold = time == .now
-        let complete = time == .done
-        let viewWidth = UIScreen.main.bounds.width / 6
+        let viewWidth = bounds.width / 5
         
-        let view = UIStackView()
-        view.axis = .vertical
-        view.widthAnchor.constraint(equalToConstant: viewWidth).isActive = true
-        view.contentMode = .center
-        
-        let timeLabel = UILabel()
-        timeLabel.text = time == nil ? "" : format(relativeTime: time!)
-        timeLabel.font = timeLabel.font.withSize(14)
-        
-        let blockLabel = UILabel()
-        blockLabel.text = block
-        blockLabel.font = blockLabel.font.withSize(28)
-        
-        let teacherLabel = UILabel()
-        teacherLabel.text = teacher
-        teacherLabel.font = teacherLabel.font.withSize(11)
-        teacherLabel.numberOfLines = 0
-        teacherLabel.lineBreakMode = .byWordWrapping
-        
-        for label in [timeLabel, blockLabel, teacherLabel] {
-            label.textColor = complete ? UIColor.lightGray : UIColor.black
-            label.textAlignment = .center
-        
-            if bold {
-                makeBold(label: label)
-            }
-            view.addArrangedSubview(label)
-        }
-        
-        blockLabel.sizeToFit()
-        blockLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        blockLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        timeLabel.bottomAnchor.constraint(equalTo: blockLabel.topAnchor).isActive = true
-    
-        teacherLabel.topAnchor.constraint(equalTo: blockLabel.bottomAnchor).isActive = true
+        let view = PeriodColumn()
+        view.widthAnchor.constraint(equalToConstant: viewWidth)
+        view.populate(
+            block: block,
+            time: time,
+            schedule: schedule)
         
         self.addArrangedSubview(view)
         
-        view.topAnchor.constraint(equalTo: topAnchor, constant: time == nil ? -50 : 0).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        view.topAnchor.constraint(equalTo: topAnchor, constant: time == nil ? -50 : 0).isActive = true
+//        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     private func makeBold(label: UILabel) {

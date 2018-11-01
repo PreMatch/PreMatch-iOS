@@ -13,59 +13,41 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7+H" translatesAutoresizingMaskIntoConstraints="NO" id="3JH-zW-Ajt">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4U-xg-bhV">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PreMatch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-hU-ZaT">
-                                        <rect key="frame" x="0.0" y="240.5" width="320" height="67"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="56"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="100"/>
-                                        </variation>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Afb-hU-ZaT" secondAttribute="trailing" id="XAV-Vi-hV0"/>
-                                    <constraint firstItem="Afb-hU-ZaT" firstAttribute="leading" secondItem="h4U-xg-bhV" secondAttribute="leading" id="nJv-81-iiB"/>
-                                    <constraint firstItem="Afb-hU-ZaT" firstAttribute="centerY" secondItem="h4U-xg-bhV" secondAttribute="centerY" id="nX1-0v-9Ae"/>
-                                </constraints>
-                            </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M94-Xt-gm2">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="7+H" image="baseline_calendar_today_black_24pt" selectedImage="baseline_calendar_today_black_36pt" id="dn7-EH-I1v"/>
+                                    <tabBarItem title="Notifications" image="baseline_notifications_black_24pt" id="gwV-dm-694"/>
+                                    <tabBarItem title="Settings" image="baseline_settings_black_24pt" id="hf0-it-FXB"/>
+                                    <tabBarItem title="About" image="baseline_info_black_24pt" id="1u4-Lu-DjL"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h4U-xg-bhV" secondAttribute="trailing" id="04U-Tw-Pef"/>
-                            <constraint firstItem="h4U-xg-bhV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3L8-7J-ecz"/>
-                            <constraint firstItem="3JH-zW-Ajt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9f5-uU-9wz"/>
-                            <constraint firstItem="3JH-zW-Ajt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CBK-zr-wZd"/>
-                            <constraint firstItem="h4U-xg-bhV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LKJ-mh-X61"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h4U-xg-bhV" secondAttribute="bottom" id="dAh-UW-QiL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3JH-zW-Ajt" secondAttribute="bottom" id="i9b-Ha-wfU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3JH-zW-Ajt" secondAttribute="trailing" id="kLJ-cd-JBE"/>
+                            <constraint firstItem="M94-Xt-gm2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4Gz-ID-mek"/>
+                            <constraint firstAttribute="trailing" secondItem="M94-Xt-gm2" secondAttribute="trailing" id="8iS-Tk-5vX"/>
+                            <constraint firstItem="M94-Xt-gm2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dLn-e7-1zw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="gradientLabel" destination="Afb-hU-ZaT" id="Z0A-d2-sKh"/>
-                        <outlet property="gradientView" destination="h4U-xg-bhV" id="nmD-vs-0Nd"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.625" y="373.828125"/>
+            <point key="canvasLocation" x="-298" y="491"/>
         </scene>
     </scenes>
     <resources>
-        <image name="7+H" width="1034" height="1335"/>
+        <image name="baseline_calendar_today_black_24pt" width="48" height="48"/>
+        <image name="baseline_calendar_today_black_36pt" width="72" height="72"/>
+        <image name="baseline_info_black_24pt" width="48" height="48"/>
+        <image name="baseline_notifications_black_24pt" width="48" height="48"/>
+        <image name="baseline_settings_black_24pt" width="48" height="48"/>
     </resources>
 </document>

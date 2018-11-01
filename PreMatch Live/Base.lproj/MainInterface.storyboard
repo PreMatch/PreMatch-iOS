@@ -136,7 +136,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OT7-tR-qAf">
                                             <rect key="frame" x="0.0" y="111" width="320" height="120"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="center" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8UF-N7-Kev" customClass="PeriodColumns" customModule="PreMatch_Live" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8UF-N7-Kev" customClass="PeriodColumns" customModule="PreMatch_Live" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="0.0" width="300" height="120"/>
                                                 </stackView>
                                             </subviews>

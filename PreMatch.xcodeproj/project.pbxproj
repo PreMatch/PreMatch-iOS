@@ -26,6 +26,8 @@
 		4C959AB7217F93D40082FFD9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB6217F93D30082FFD9 /* MainViewController.swift */; };
 		4CB3E0A12174AB7E0079E5DD /* DefinitionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */; };
 		4CB3E0A52176BDA20079E5DD /* DefinitionReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */; };
+		4CB8F257218B1B4F00AAD360 /* PeriodColumn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB8F256218B1B4F00AAD360 /* PeriodColumn.xib */; };
+		4CB8F259218B1CA500AAD360 /* PeriodColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8F258218B1CA500AAD360 /* PeriodColumn.swift */; };
 		4CBBB0632181D8210041DB11 /* PeriodColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBBB0622181D8210041DB11 /* PeriodColumns.swift */; };
 		4CEC5937217916EA005A0C37 /* SphTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC5936217916EA005A0C37 /* SphTimetable.swift */; };
 		4CEC59572179172E005A0C37 /* TimetableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC59562179172E005A0C37 /* TimetableTests.swift */; };
@@ -345,6 +347,8 @@
 		4C959AB6217F93D30082FFD9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReader.swift; sourceTree = "<group>"; };
 		4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReaderTests.swift; sourceTree = "<group>"; };
+		4CB8F256218B1B4F00AAD360 /* PeriodColumn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeriodColumn.xib; sourceTree = "<group>"; };
+		4CB8F258218B1CA500AAD360 /* PeriodColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodColumn.swift; sourceTree = "<group>"; };
 		4CBBB0622181D8210041DB11 /* PeriodColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodColumns.swift; sourceTree = "<group>"; };
 		4CEC5936217916EA005A0C37 /* SphTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphTimetable.swift; sourceTree = "<group>"; };
 		4CEC59562179172E005A0C37 /* TimetableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableTests.swift; sourceTree = "<group>"; };
@@ -568,12 +572,14 @@
 		4CFAB2072169A3EA001383BA /* PreMatch Live */ = {
 			isa = PBXGroup;
 			children = (
+				4CB8F256218B1B4F00AAD360 /* PeriodColumn.xib */,
 				4CFAB219216A736A001383BA /* PreMatch Live.entitlements */,
 				4CFAB2082169A3EA001383BA /* TodayViewController.swift */,
 				4CFAB20A2169A3EA001383BA /* MainInterface.storyboard */,
 				4CFAB20D2169A3EA001383BA /* Info.plist */,
 				4C959AAE217B4DB20082FFD9 /* Renderer.swift */,
 				4CBBB0622181D8210041DB11 /* PeriodColumns.swift */,
+				4CB8F258218B1CA500AAD360 /* PeriodColumn.swift */,
 			);
 			path = "PreMatch Live";
 			sourceTree = "<group>";
@@ -1018,6 +1024,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB8F257218B1B4F00AAD360 /* PeriodColumn.xib in Resources */,
 				4CFAB20C2169A3EA001383BA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1067,6 +1074,7 @@
 			files = (
 				4CBBB0632181D8210041DB11 /* PeriodColumns.swift in Sources */,
 				4C959AAF217B4DB20082FFD9 /* Renderer.swift in Sources */,
+				4CB8F259218B1CA500AAD360 /* PeriodColumn.swift in Sources */,
 				4CFAB2092169A3EA001383BA /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
