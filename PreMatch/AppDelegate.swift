@@ -55,12 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                  annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
     
-    private let errorHandler: (DownloadError) -> Void = {
-        AppDelegate.showAlert(title: "Error!",
-                              message: $0.localizedDescription,
-                              actions: [])
-    }
-    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         let uiDelegate: (UIViewController) = (signIn.uiDelegate as! UIViewController)
@@ -92,14 +86,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         let teacher = try! sch.teacher(for: "A")
                         AppDelegate.showAlert(title: "Downloaded!", message: "You have \(teacher) for A block", actions: [])
                 },
-                    onFailure: self.errorHandler)
+                    onFailure: dispatchError)
             }
             
             let downloader = Downloader()
             if let cal = ResourceProvider.calendar() {
                 storeSchedule(downloader, cal)
             } else {
-                downloader.storeCalendar(onSuccess: { storeSchedule(downloader, $0) }, onFailure: self.errorHandler)
+                downloader.storeCalendar(onSuccess: { storeSchedule(downloader, $0) }, onFailure: dispatchError)
             }
         }
     }

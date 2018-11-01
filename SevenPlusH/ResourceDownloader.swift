@@ -28,49 +28,6 @@ public struct Downloader {
     
     public init() {
     }
-    //    private func handleClientError(error: Error) {
-    //        GIDSignIn.sharedInstance().signOut()
-    //
-    //        AppDelegate.showAlert(
-    //            title: "Ouch!",
-    //            message: "I couldn't get your schedule. Check your Internet connection.",
-    //            actions: [])
-    //    }
-    //
-    //    fileprivate func handleMissingSchedule() {
-    //        let actions = [
-    //            UIAlertAction(title: "Go", style: .default, handler: { action in
-    //                UIApplication.shared.open(URL(string: "https://prematch.org/login")!)
-    //            }),
-    //            UIAlertAction(title: "Cancel", style: .cancel)
-    //        ]
-    //
-    //        AppDelegate.showAlert(title: "Schedule Missing",
-    //                              message: "You don't have a schedule recorded with PreMatch. Enter it on PreMatch.org.",
-    //                              actions: actions)
-    //    }
-    
-    //    private func handleServerError(response: HTTPURLResponse?, error: Error) {
-    //        GIDSignIn.sharedInstance().signOut()
-    //
-    //        if response == nil {
-    //            AppDelegate.showAlert(title: "Oops!", message: "The server didn't respond. Try again?", actions: [])
-    //            return
-    //        }
-    //
-    //        switch response!.statusCode {
-    //        case 401:
-    //            AppDelegate.showAlert(title: "Oof!", message: "The request was unauthorized. Try again?", actions: [])
-    //        case 422:
-    //            AppDelegate.showAlert(title: "Oops!", message: "Apparently I didn't provide a handle. Try again?", actions: [])
-    //        case 404:
-    //            handleMissingSchedule()
-    //        default:
-    //            AppDelegate.showAlert(title: "Error \(response!.statusCode)!",
-    //                message: "Oops, there was an error. Please let us know of this. \(error.localizedDescription)",
-    //                actions: [])
-    //        }
-    //    }
     
     private func classifyError(_ res: HTTPURLResponse?, _ err: Error) -> DownloadError {
         guard let res = res else {

@@ -111,7 +111,7 @@ struct AfterSchoolHandler: Handler {
         
         view.show(
             title: "Today was \(today.description)",
-            info: "Showing next school day\n\(expr ?? format(day.date, long: true))")
+            info: "Showing \(expr ?? format(day.date, long: true))")
         view.showSchoolDay(day, isToday: false)
     }
 }

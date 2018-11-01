@@ -48,7 +48,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func showSchoolDay(_ schoolDay: SchoolDay, isToday: Bool) {
-        dayExplanation.text = isToday ? "is today" : "is next"
+        dayExplanation.text = isToday ? "" : "is next"
         
         switch schoolDay {
             
