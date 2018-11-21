@@ -15,6 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var renderer: Renderer? = nil
     
     //MARK: Properties
+    @IBOutlet weak var dayHeader: UILabel!
     @IBOutlet weak var dayNumber: UILabel!
     @IBOutlet weak var boldTitle: UILabel!
     @IBOutlet weak var specialDayLabel: UILabel!
@@ -49,6 +50,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func showSchoolDay(_ schoolDay: SchoolDay, isToday: Bool) {
         dayExplanation.text = isToday ? "" : "is next"
+    
+        specialDayLabel.isHidden = schoolDay is StandardDay
+        dayHeader.isHidden = !specialDayLabel.isHidden
+        dayNumber.isHidden = dayHeader.isHidden
+        dayExplanation.isHidden = dayHeader.isHidden
         
         switch schoolDay {
             
@@ -57,11 +63,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         case is HalfDay:
             specialDayLabel.text = "Half Day"
-            specialDayLabel.isHidden = false
         
         case is ExamDay:
             specialDayLabel.text = "Exam Day"
-            specialDayLabel.isHidden = false
         
         case let day as UnknownDay:
             dayNumber.text = String(day.description.last ?? "?")

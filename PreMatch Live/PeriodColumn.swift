@@ -47,7 +47,13 @@ class PeriodColumn: UIView {
     }
     
     func populate(block: String, time: RelativeTime?, schedule: SphSchedule?) {
-        applyText(to: timeLabel, time == nil ? nil : format(relativeTime: time!))
+        applyText(to: timeLabel, time.map(format))
+        
+        if (block.count > 2) {
+            denoteSpecialPeriod(name: block, time: time)
+            return
+        }
+        
         blockLabel.text = block
         
         if let schedule = schedule {
@@ -64,6 +70,12 @@ class PeriodColumn: UIView {
         if time == .done {
             markComplete()
         }
+    }
+    
+    func denoteSpecialPeriod(name: String, time: RelativeTime?) {
+        applyText(to: timeLabel, time.map(format))
+        teacherLabel.text = name
+        blockLabel.text = "\u{2605}"
     }
     
     func markComplete() {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -186,6 +186,7 @@
                         <outlet property="boldTitle" destination="g9n-e1-Rqf" id="okd-se-CUI"/>
                         <outlet property="compactBlocks" destination="Yrq-pf-yK0" id="GIv-bD-U6V"/>
                         <outlet property="dayExplanation" destination="38r-OL-BOe" id="7WN-45-59D"/>
+                        <outlet property="dayHeader" destination="SLJ-yg-JvA" id="qiU-g3-jnC"/>
                         <outlet property="dayNumber" destination="xro-f4-6qC" id="XwN-Ri-ROC"/>
                         <outlet property="divider" destination="Fp1-Vf-87V" id="Oye-ei-Imv"/>
                         <outlet property="infoLabel" destination="L9d-36-dew" id="6PC-fL-oIJ"/>
