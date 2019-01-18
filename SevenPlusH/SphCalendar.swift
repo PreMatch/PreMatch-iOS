@@ -84,9 +84,11 @@ public class SphCalendar {
     let iterator: DayIterator
     let timetable: SphTimetable
     
+    let semesters: [DateInterval]
+    
     init(name: String, version: Double, blocks: [String], cycleSize: DayNumber, interval: DateInterval,
          exclusions: [Exclusion], overrides: [Exclusion], standardPeriods: [Period], halfDayPeriods: [Period], examPeriods: [Period],
-         dayBlocks: [[String]]) {
+         dayBlocks: [[String]], semesters: [DateInterval]) {
         self.name = name
         self.version = version
         self.allBlocks = blocks
@@ -101,6 +103,7 @@ public class SphCalendar {
             standardDayPeriods: standardPeriods,
             halfDayPeriods: halfDayPeriods,
             examDayPeriods: examPeriods)
+        self.semesters = semesters
     }
     
     public func includes(_ date: Date) -> Bool {
@@ -162,6 +165,27 @@ public class SphCalendar {
     
     public func isSchoolDay(on date: Date) -> Bool {
         return dayType(on: date.withoutTime()) is SchoolDay.Type
+    }
+    
+    public func semesterIndexOf(date: Date) -> UInt8? {
+        for (index, item) in semesters.enumerated() {
+            if item.contains(date) {
+                return UInt8(index)
+            }
+        }
+        return nil
+    }
+    
+    public func allBlockSemesterCombinations() -> [String] {
+        var output = [String]()
+        
+        for block in allBlocks {
+            for semester in 1...(semesters.count) {
+                output.append(block + String(semester))
+            }
+        }
+        
+        return output
     }
     
     private func theExclusion(for date: Date, includeOverrides: Bool = true) -> Exclusion? {

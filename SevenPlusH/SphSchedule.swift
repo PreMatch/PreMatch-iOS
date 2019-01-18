@@ -14,17 +14,17 @@ public class SphSchedule {
     public let calendar: SphCalendar
     
     public init(mapping: [String: String], calendar: SphCalendar) throws {
-        if let missing = calendar.allBlocks.first(where: { mapping[$0] == nil }) {
+        if let missing = calendar.allBlockSemesterCombinations().first(where: { mapping[$0] == nil }) {
             throw ParseError.missingField(missing)
         }
-        self.mapping = mapping.filter { key, _ in calendar.allBlocks.contains(key) }
+        self.mapping = mapping.filter { key, _ in calendar.allBlockSemesterCombinations().contains(key) }
         self.calendar = calendar
     }
     
     static func from(json: JSON, calendar: SphCalendar) throws -> SphSchedule {
         guard let dict = json.dictionary?
             .mapValues({ $0.string })
-            .filter({ pair in calendar.allBlocks.contains(pair.key) }) else {
+            .filter({ pair in calendar.allBlockSemesterCombinations().contains(pair.key) }) else {
                 
             throw ParseError.invalidFormat(
                 fieldType: "(entire expression)",
@@ -46,10 +46,20 @@ public class SphSchedule {
         return calendar.allBlocks.allSatisfy { mapping[$0] != nil }
     }
     
-    public func teacher(for block: String) throws -> String {
+    public func currentTeacher(for block: String) throws -> String {
+        guard let semester = calendar.semesterIndexOf(date: Date()) else {
+            throw CalendarError.outOfRange
+        }
+        return try teacher(for: block, in: semester)
+    }
+    
+    public func teacher(for block: String, in semesterIndex: UInt8) throws -> String {
         if !calendar.allBlocks.contains(block) {
             throw ParseError.outOfRange(fieldType: "block", invalidValue: block)
         }
-        return mapping[block]!
+        if semesterIndex >= calendar.semesters.count {
+            throw ParseError.outOfRange(fieldType: "semester index", invalidValue: String(semesterIndex))
+        }
+        return mapping[block + String(semesterIndex + 1)]!
     }
 }

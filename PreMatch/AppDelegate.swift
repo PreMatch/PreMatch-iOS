@@ -83,8 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                             MainViewController.refreshTabs()
                             uiDelegate.dismiss(animated: true, completion: nil)
                         }
-                        let teacher = try! sch.teacher(for: "A")
-                        AppDelegate.showAlert(title: "Downloaded!", message: "You have \(teacher) for A block", actions: [])
+                        let teacher = try! sch.teacher(for: "A", in: 1)
+                        AppDelegate.showAlert(title: "Downloaded!", message: "You have \(teacher) for A block, 2nd semester", actions: [])
                 },
                     onFailure: dispatchError)
             }

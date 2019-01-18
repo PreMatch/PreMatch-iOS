@@ -57,7 +57,7 @@ class PeriodColumn: UIView {
         blockLabel.text = block
         
         if let schedule = schedule {
-            let teacher = (try? schedule.teacher(for: block)) ?? "?"
+            let teacher = (try? schedule.currentTeacher(for: block)) ?? "?"
             applyText(to: teacherLabel, teacher)
             updateTeacherLabelLineCount(teacher: teacher)
         } else {

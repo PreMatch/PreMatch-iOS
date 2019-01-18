@@ -27,9 +27,14 @@ class QueryDataSource: NSObject, UITableViewDataSource {
         let schedule = ResourceProvider.schedule()
         
         cell.textLabel?.text = day?.blocks[indexPath.row]
-        cell.detailTextLabel?.text =
-            schedule == nil || day == nil ? "" :
-            (try? schedule!.teacher(for: day!.blocks[indexPath.row])) ?? "?"
+        
+        if schedule != nil && day != nil {
+            let semester = schedule!.calendar.semesterIndexOf(date: day!.date)
+            if semester != nil {
+                cell.detailTextLabel?.text = (try? schedule!.teacher(for: day!.blocks[indexPath.row],
+                                                                     in: semester!)) ?? "?"
+            }
+        }
         
         return cell
     }

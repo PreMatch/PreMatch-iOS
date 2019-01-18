@@ -62,6 +62,11 @@ public class DefinitionReader {
                 try requiredField("standard day block string", $0.string)
             }
         }
+        let semesterJSONs = try requiredField("semesters", json["semesters"].array)
+        let semesters = try semesterJSONs.map { (interval: JSON) -> DateInterval in
+            let dates = try requiredField("semester date interval", interval.array).map { try parseISODate($0.stringValue) }
+            return DateInterval(start: dates[0], end: dates[1])
+        }
         
         return SphCalendar(
             name: try requiredField("definition name", json["name"].string),
@@ -74,7 +79,8 @@ public class DefinitionReader {
             standardPeriods: try readPeriods(from: json["periods"], name: "standard periods"),
             halfDayPeriods: try readPeriods(from: json["half_day_periods"], name: "half day periods"),
             examPeriods: try readPeriods(from: json["exam_day_periods"], name: "exam day periods"),
-            dayBlocks: dayBlocks
+            dayBlocks: dayBlocks,
+            semesters: semesters
         )
     }
     
