@@ -63,18 +63,23 @@ class DayIterator {
     private func recursivelyIterate(from date: Date) -> DayNumber {
         if let number = mapping[date.withoutTime()] {
             return number
-        } else if calendar!.dayType(on: date, includeOverrides: false) == StandardDay.self {
+        } else if shouldIncrement(on: date) {
             return (recursivelyIterate(from: date.dayBefore().withoutTime()) % 8) + 1
         } else {
             return recursivelyIterate(from: date.dayBefore().withoutTime())
         }
+    }
+    
+    private func shouldIncrement(on date: Date) -> Bool {
+        return calendar!.dayType(on: date, includeOverrides: false) == StandardDay.self &&
+            calendar!.theExclusion(for: date, includeOverrides: false) == nil
     }
 }
 
 public class SphCalendar {
     public let name: String
     public let version: Double
-    let allBlocks: [String]
+    public let allBlocks: [String]
     let cycleSize: DayNumber
     
     public let interval: DateInterval
@@ -188,7 +193,7 @@ public class SphCalendar {
         return output
     }
     
-    private func theExclusion(for date: Date, includeOverrides: Bool = true) -> Exclusion? {
+    func theExclusion(for date: Date, includeOverrides: Bool = true) -> Exclusion? {
         return (includeOverrides ? (exclusions + overrides) : exclusions).first { $0.includes(date) }
     }
 }

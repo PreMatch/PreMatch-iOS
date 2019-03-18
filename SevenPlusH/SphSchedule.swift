@@ -43,7 +43,7 @@ public class SphSchedule {
     }
     
     public func applies(to calendar: SphCalendar) -> Bool {
-        return calendar.allBlocks.allSatisfy { mapping[$0] != nil }
+        return calendar.allBlockSemesterCombinations().allSatisfy { mapping[$0] != nil }
     }
     
     public func currentTeacher(for block: String) throws -> String {
