@@ -168,12 +168,17 @@ class NODayBriefingSettingsController: UIViewController {
         let dayBriefingEnabled = NotificationPreferences.isOptionEnabled(identifier: NODayBriefing.id)
         enableSwitch.setOn(dayBriefingEnabled, animated: false)
         
+        restrictNotifyTimePicker()
+        
         if dayBriefingEnabled {
             if let notifyTime = defaults.string(forKey: "dayBriefingTime") {
                 let (hour, minute) = NODayBriefing.parseTime(notifyTime)
-                notifyTimePicker.setDate(ahsCalendar.date(bySettingHour: Int(hour), minute: Int(minute), second: 0, of: notifyTimePicker.date)!, animated: false)
+                notifyTimePicker.setDate(Calendar.current.date(bySettingHour: Int(hour), minute: Int(minute), second: 0, of: notifyTimePicker.date)!, animated: false)
             }
+        } else {
+            selectDefaultValueForNotifyTimePicker()
         }
+        
         
         onEnableChange(to: dayBriefingEnabled)
     }
@@ -196,7 +201,7 @@ class NODayBriefingSettingsController: UIViewController {
         let previouslyEnabled = NotificationPreferences.isOptionEnabled(identifier: NODayBriefing.id)
         let previousTime = UserDefaults().string(forKey: "dayBriefingTime")
         let newEnabled = enableSwitch.isOn
-        let newTime = timeFormatter.string(from: notifyTimePicker.date)
+        let newTime = timeValueForDefaultsField()
         
         do {
             if !previouslyEnabled && !newEnabled {
@@ -222,8 +227,8 @@ class NODayBriefingSettingsController: UIViewController {
                 
             }
             if newEnabled {
-                defaults.set(timeFormatter.string(from: notifyTimePicker.date), forKey: "dayBriefingTime")
-                try scheduleRequests(option, calendar: calendar, completion: nil)
+                defaults.set(newTime, forKey: "dayBriefingTime")
+                try scheduleRequests(option, newTime, calendar: calendar, completion: nil)
             } else {
                 discardButtonPressed()
             }
@@ -263,7 +268,7 @@ class NODayBriefingSettingsController: UIViewController {
         NotificationPreferences.didDisableOption(identifier: NODayBriefing.id, semester: UInt8(semester))
     }
     
-    private func scheduleRequests(_ option: NODayBriefing, calendar: SphCalendar, completion: ((Error?) -> Void)? = nil) throws {
+    private func scheduleRequests(_ option: NODayBriefing, _ newTime: String, calendar: SphCalendar, completion: ((Error?) -> Void)? = nil) throws {
         let notify = UNUserNotificationCenter.current()
         let (interval, semester) = try schedulingRange(from: Date(), inCalendar: calendar)
         // TODO fix truncation to 64 with more systematic auto-scheduling
@@ -314,7 +319,7 @@ class NODayBriefingSettingsController: UIViewController {
             
             DispatchQueue.main.async {
                 progressAlert.title = "Scheduled!"
-                progressAlert.message = "Successfully scheduled \(scheduled) notifications"
+                progressAlert.message = "Successfully scheduled \(scheduled) notifications."
                 progressBar.removeFromSuperview()
                 progressAlert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { _ in
                     self.discardButtonPressed()
@@ -326,5 +331,25 @@ class NODayBriefingSettingsController: UIViewController {
     
     private func updateNotifyTimeLabel() {
         notifyTimeLabel.text = timeFormatter.string(from: notifyTimePicker.date)
+    }
+    
+    private func timeValueForDefaultsField() -> String {
+        let comps = Calendar.current.dateComponents(in: TimeZone.current, from: notifyTimePicker.date)
+        return "\(comps.hour!):\(comps.minute!)"
+    }
+    
+    private func restrictNotifyTimePicker() {
+        // from 5 to 9
+        let min = Calendar.current.date(bySettingHour: 5, minute: 0, second: 0, of: notifyTimePicker.date)
+        let max = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: notifyTimePicker.date)
+        
+        notifyTimePicker.minimumDate = min
+        notifyTimePicker.maximumDate = max
+    }
+    
+    private func selectDefaultValueForNotifyTimePicker() {
+        if let selected = Calendar.current.date(bySettingHour: 7, minute: 30, second: 0, of: notifyTimePicker.date) {
+            notifyTimePicker.date = selected
+        }
     }
 }

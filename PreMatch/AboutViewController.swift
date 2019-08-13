@@ -69,6 +69,19 @@ class AboutViewController: UIViewController {
         
         gradient.add(animation, forKey: "animateGradient")
     }
+    
+    @IBAction func didPressContactUs() {
+        UIApplication.shared.open(URL(string: "mailto:ios@prematch.org")!)
+    }
+    
+    @IBAction func didPressPrivacyPolicy() {
+        UIApplication.shared.open(URL(string: "https://prematch.org/privacy")!)
+    }
+    
+    @IBAction func didPressVisitWebsite() {
+        UIApplication.shared.open(URL(string: "https://prematch.org")!)
+    }
+    
     /*
      // MARK: - Navigation
      

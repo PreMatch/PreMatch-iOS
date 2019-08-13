@@ -46,6 +46,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         infoLabel.sizeToFit()
         leftView.isHidden = false
         rightView.isHidden = false
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
     }
     
     func showSchoolDay(_ schoolDay: SchoolDay, isToday: Bool) {
@@ -74,6 +75,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             print("Unknown schoolDay in showSchoolDay: \(schoolDay.description)")
         }
         showBlocks(of: schoolDay)
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     func showBlocks(of day: SchoolDay) {

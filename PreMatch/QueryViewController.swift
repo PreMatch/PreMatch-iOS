@@ -46,19 +46,27 @@ class QueryViewController: UIViewController, ResourceUser {
     }
     
     @objc func datePickerChanged(picker: UIDatePicker) {
+        let date = correctGlobalDate(picker.date)
         if let calendar = ResourceProvider.calendar(),
-            let day = (try? calendar.day(on: picker.date)) {
+            let day = (try? calendar.day(on: date)) {
             let schoolDay = day as? SchoolDay
             
             if schoolDay != nil && schoolDay!.blocks.count > 0 {
                 showTable(daySource: schoolDay!)
             } else {
-                showText(message: "\(format(date: picker.date)) is \(day.description)")
+                showText(message: "\(format(date: date)) is \(day.description)")
             }
             
         } else {
             showText(message: "Local calendar unavailable")
         }
+    }
+    
+    private func correctGlobalDate(_ date: Date) -> Date {
+        var comps = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        comps.calendar = ahsCalendar
+        
+        return ahsCalendar.date(from: comps)!.withoutTime()
     }
     
     private func showText(message: String) {

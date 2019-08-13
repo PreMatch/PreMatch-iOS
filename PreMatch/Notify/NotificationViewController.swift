@@ -18,6 +18,7 @@ class NotificationViewController: UIViewController, NotificationHubTransition {
     
     @IBOutlet var didNotAllowLabels: UIView!
     @IBOutlet weak var tableView: UIView!
+    @IBOutlet weak var removePendingButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +44,8 @@ class NotificationViewController: UIViewController, NotificationHubTransition {
     }
     
     func didUpdateNotifyPermission(allowed: Bool) {
-        // didNotAllowLabels.isHidden = allowed
         tableView.isHidden = !allowed
+        removePendingButton.isHidden = !allowed
     }
     
     @IBAction func didRequestRemoveAllPending() {

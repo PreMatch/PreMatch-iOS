@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1re-XL-WXT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1re-XL-WXT">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -403,7 +403,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ♥" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBp-Vg-Juj">
-                                <rect key="frame" x="0.0" y="344" width="320" height="23.5"/>
+                                <rect key="frame" x="0.0" y="329" width="320" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -412,7 +412,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Michael Peng and Daniel Ivanovich" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwO-Df-Ydy">
-                                <rect key="frame" x="20" y="367.5" width="280" height="46.5"/>
+                                <rect key="frame" x="20" y="352.5" width="280" height="46.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -432,20 +432,59 @@
                                     <constraint firstAttribute="height" constant="150" id="1gk-RG-bJy"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cE-jA-L4t">
+                                <rect key="frame" x="119" y="411" width="82" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="1kn-9O-GEN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Contact Us"/>
+                                <connections>
+                                    <action selector="didPressContactUs" destination="38a-tB-Y5s" eventType="touchUpInside" id="7D4-QF-c4P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZf-Kh-fPe">
+                                <rect key="frame" x="109.5" y="437" width="101" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="NLf-kp-UAk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Privacy Policy"/>
+                                <connections>
+                                    <action selector="didPressPrivacyPolicy" destination="38a-tB-Y5s" eventType="touchUpInside" id="kxG-Le-KfV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdY-xg-Kcr">
+                                <rect key="frame" x="93" y="463" width="134" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="gwr-bv-OJ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Visit PreMatch.org"/>
+                                <connections>
+                                    <action selector="didPressVisitWebsite" destination="38a-tB-Y5s" eventType="touchUpInside" id="FoE-Wt-JfW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1Oy-gG-mrj" firstAttribute="top" secondItem="spT-Gs-9Yh" secondAttribute="bottom" constant="20" id="2yf-bb-qmt"/>
-                            <constraint firstItem="hBp-Vg-Juj" firstAttribute="top" secondItem="1Oy-gG-mrj" secondAttribute="bottom" id="FN5-ye-1QQ"/>
+                            <constraint firstItem="6cE-jA-L4t" firstAttribute="centerX" secondItem="emd-Aw-Fos" secondAttribute="centerX" id="E7I-9j-ODt"/>
+                            <constraint firstItem="hBp-Vg-Juj" firstAttribute="top" secondItem="1Oy-gG-mrj" secondAttribute="bottom" constant="-15" id="FN5-ye-1QQ"/>
                             <constraint firstItem="eTL-Ma-lAK" firstAttribute="trailing" secondItem="ZwO-Df-Ydy" secondAttribute="trailing" constant="20" id="Gvb-pL-LH9"/>
                             <constraint firstItem="1Oy-gG-mrj" firstAttribute="centerX" secondItem="emd-Aw-Fos" secondAttribute="centerX" id="JYB-r8-R6y"/>
                             <constraint firstItem="ZwO-Df-Ydy" firstAttribute="top" secondItem="hBp-Vg-Juj" secondAttribute="bottom" id="NiX-mk-2bq"/>
+                            <constraint firstItem="SZf-Kh-fPe" firstAttribute="centerX" secondItem="emd-Aw-Fos" secondAttribute="centerX" id="ODC-xa-D14"/>
+                            <constraint firstItem="xdY-xg-Kcr" firstAttribute="top" secondItem="SZf-Kh-fPe" secondAttribute="bottom" id="QYs-qC-OBR"/>
                             <constraint firstItem="1Oy-gG-mrj" firstAttribute="centerY" secondItem="emd-Aw-Fos" secondAttribute="centerY" constant="10" id="SYk-jR-P2x"/>
                             <constraint firstItem="eTL-Ma-lAK" firstAttribute="trailing" secondItem="csD-Gd-Ig5" secondAttribute="trailing" constant="5" id="U0j-o8-08c"/>
                             <constraint firstItem="spT-Gs-9Yh" firstAttribute="centerX" secondItem="emd-Aw-Fos" secondAttribute="centerX" id="WWJ-1e-4Q0"/>
+                            <constraint firstItem="SZf-Kh-fPe" firstAttribute="top" secondItem="6cE-jA-L4t" secondAttribute="bottom" id="gkA-AY-5g0"/>
                             <constraint firstItem="ZwO-Df-Ydy" firstAttribute="leading" secondItem="eTL-Ma-lAK" secondAttribute="leading" constant="20" id="iyN-uV-u1I"/>
+                            <constraint firstItem="6cE-jA-L4t" firstAttribute="top" secondItem="ZwO-Df-Ydy" secondAttribute="bottom" constant="12" id="j94-Af-EnJ"/>
                             <constraint firstItem="eTL-Ma-lAK" firstAttribute="bottom" secondItem="csD-Gd-Ig5" secondAttribute="bottom" constant="5" id="mA7-Uf-Di7"/>
                             <constraint firstItem="eTL-Ma-lAK" firstAttribute="trailing" secondItem="hBp-Vg-Juj" secondAttribute="trailing" id="ny2-dk-mwa"/>
+                            <constraint firstItem="xdY-xg-Kcr" firstAttribute="centerX" secondItem="emd-Aw-Fos" secondAttribute="centerX" id="odV-uC-RPl"/>
                             <constraint firstItem="hBp-Vg-Juj" firstAttribute="leading" secondItem="eTL-Ma-lAK" secondAttribute="leading" id="pxi-qF-8EG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eTL-Ma-lAK"/>
@@ -541,6 +580,7 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="baseline_notifications_black_24pt" id="BxZ-rC-HVb"/>
                     <connections>
                         <outlet property="didNotAllowLabels" destination="2yW-Ne-i6x" id="hRk-8D-efd"/>
+                        <outlet property="removePendingButton" destination="1VF-Rh-Lxk" id="3A6-ZG-QLs"/>
                         <outlet property="tableView" destination="SIY-kY-CN7" id="g7r-Fn-oVI"/>
                         <segue destination="UL1-U8-1iX" kind="show" identifier="showNODayBriefing" id="fhE-1L-IAq"/>
                     </connections>
@@ -764,11 +804,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PreMatch Logo" width="349" height="349"/>
-        <image name="baseline_calendar_today_black_24pt" width="48" height="48"/>
-        <image name="baseline_info_black_24pt" width="48" height="48"/>
-        <image name="baseline_notifications_black_24pt" width="48" height="48"/>
-        <image name="baseline_settings_black_24pt" width="48" height="48"/>
+        <image name="PreMatch Logo" width="174.5" height="174.5"/>
+        <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
+        <image name="baseline_info_black_24pt" width="24" height="24"/>
+        <image name="baseline_notifications_black_24pt" width="24" height="24"/>
+        <image name="baseline_settings_black_24pt" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
