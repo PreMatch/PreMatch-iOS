@@ -12,6 +12,11 @@ public struct Exclusion {
   let interval: DateInterval
   let dayGenerator: (Date, SphCalendar) -> Day
   
+    public init(interval: DateInterval, dayGenerator: @escaping (Date, SphCalendar) -> Day) {
+        self.interval = interval
+        self.dayGenerator = dayGenerator
+    }
+    
   public func includes(_ date: Date) -> Bool {
     return interval.contains(date)
   }

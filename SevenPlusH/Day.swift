@@ -29,7 +29,7 @@ public extension SchoolDay {
     }
     var end: Time {
         get {
-            return periods.last?.end ?? Time(14, 5)
+            return periods.last?.end ?? Time(14, 20)
         }
     }
     public func periodIndex(at time: Time) -> UInt8? {
@@ -75,7 +75,7 @@ public struct StandardDay: SchoolDay {
 
 public struct HalfDay: SchoolDay {
     public let date: Date
-    public let description: String = "a half-day"
+    public let description: String
     public let calendar: SphCalendar
     public let blocks: [String]
     public var periods: [Period] {
@@ -83,17 +83,31 @@ public struct HalfDay: SchoolDay {
             return calendar.timetable.halfDayPeriods
         }
     }
+    
+    public init(date: Date, description: String = "a half-day", calendar: SphCalendar, blocks: [String]) {
+        self.date = date
+        self.description = description
+        self.calendar = calendar
+        self.blocks = blocks
+    }
 }
 
 public struct ExamDay: SchoolDay {
     public let date: Date
-    public let description: String = "an exam day"
+    public let description: String
     public let calendar: SphCalendar
     public let blocks: [String]
     public var periods: [Period] {
         get {
             return calendar.timetable.examDayPeriods
         }
+    }
+    
+    public init(date: Date, description: String = "an exam day", calendar: SphCalendar, blocks: [String]) {
+        self.date = date
+        self.description = description
+        self.calendar = calendar
+        self.blocks = blocks
     }
 }
 

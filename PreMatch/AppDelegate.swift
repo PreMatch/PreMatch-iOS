@@ -9,20 +9,22 @@
 import UIKit
 import GoogleSignIn
 import SevenPlusH
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
+    let defaults: UserDefaults = UserDefaults.init()
     
-    class func showAlert(title: String, message: String, actions: [UIAlertAction], controller: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!) {
+    class func showAlert(title: String, message: String, actions: [UIAlertAction], controller: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!, okHandler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert)
         
         if actions.isEmpty {
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
         } else {
             for action in actions {
                 alert.addAction(action)
@@ -46,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         
         initializeLogin()
+        initNotifications()
         return true
     }
     
@@ -120,5 +123,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func initNotifications() {
+        if !NotificationPreferences.permissionGranted() {
+            let notifyCenter = UNUserNotificationCenter.current()
+            
+            notifyCenter.requestAuthorization(options: [.alert]) { (granted, error) in
+                if granted {
+                    NotificationPreferences.didGrantPermission()
+                }
+                
+                if let error = error {
+                    print(error)
+                }
+            }
+            return
+        }
+    }
 }
 

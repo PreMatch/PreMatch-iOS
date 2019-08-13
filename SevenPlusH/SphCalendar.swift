@@ -13,7 +13,7 @@ enum Result<T, E> {
     case error(E)
 }
 
-enum CalendarError: Error {
+public enum CalendarError: Error {
     case outOfRange
 }
 
@@ -64,7 +64,7 @@ class DayIterator {
         if let number = mapping[date.withoutTime()] {
             return number
         } else if shouldIncrement(on: date) {
-            return (recursivelyIterate(from: date.dayBefore().withoutTime()) % 8) + 1
+            return (recursivelyIterate(from: date.dayBefore().withoutTime()) % calendar!.cycleSize) + 1
         } else {
             return recursivelyIterate(from: date.dayBefore().withoutTime())
         }
@@ -89,9 +89,9 @@ public class SphCalendar {
     let iterator: DayIterator
     let timetable: SphTimetable
     
-    let semesters: [DateInterval]
+    public let semesters: [DateInterval]
     
-    init(name: String, version: Double, blocks: [String], cycleSize: DayNumber, interval: DateInterval,
+    public init(name: String, version: Double, blocks: [String], cycleSize: DayNumber, interval: DateInterval,
          exclusions: [Exclusion], overrides: [Exclusion], standardPeriods: [Period], halfDayPeriods: [Period], examPeriods: [Period],
          dayBlocks: [[String]], semesters: [DateInterval]) {
         self.name = name

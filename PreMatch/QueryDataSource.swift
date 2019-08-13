@@ -26,14 +26,16 @@ class QueryDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "periodCell")!
         let schedule = ResourceProvider.schedule()
         
-        cell.textLabel?.text = day?.blocks[indexPath.row]
+        cell.textLabel!.text = day?.blocks[indexPath.row]
         
         if schedule != nil && day != nil {
             let semester = schedule!.calendar.semesterIndexOf(date: day!.date)
             if semester != nil {
-                cell.detailTextLabel?.text = (try? schedule!.teacher(for: day!.blocks[indexPath.row],
+                cell.detailTextLabel!.text = (try? schedule!.teacher(for: day!.blocks[indexPath.row],
                                                                      in: semester!)) ?? "?"
             }
+        } else {
+            cell.detailTextLabel!.text = "?"
         }
         
         return cell

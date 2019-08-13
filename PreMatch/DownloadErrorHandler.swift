@@ -31,7 +31,8 @@ private func handleBadConnection() {
     AppDelegate.showAlert(
         title: "Ouch!",
         message: "I couldn't get your schedule. Check your Internet connection.",
-        actions: [])
+        actions: [],
+        controller: GIDSignIn.sharedInstance()!.uiDelegate as! UIViewController)
 }
 
 private func handleMalformed(_ err: ParseError) {
@@ -50,7 +51,7 @@ private func handleMalformed(_ err: ParseError) {
         message = "A field with type \(String(reflecting: fieldType)) has a value that is out of range: \(String(reflecting: invalidValue))"
     }
     
-    AppDelegate.showAlert(title: title, message: message, actions: [])
+    AppDelegate.showAlert(title: title, message: message, actions: [], controller: GIDSignIn.sharedInstance()!.uiDelegate as! UIViewController)
 }
 
 fileprivate func handleMissingSchedule() {
@@ -63,16 +64,19 @@ fileprivate func handleMissingSchedule() {
     
     AppDelegate.showAlert(title: "Schedule Missing",
                           message: "You don't have a schedule recorded with PreMatch. Enter it on PreMatch.org.",
-                          actions: actions)
+                          actions: actions,
+                          controller: GIDSignIn.sharedInstance()!.uiDelegate as! UIViewController)
 }
 
 private func handleUnknown(error: Error) {
     
     AppDelegate.showAlert(title: "Unknown Error!",
                           message: "Oops, there was an error. Please let us know of this. \(error.localizedDescription)",
-        actions: [])
+        actions: [],
+        controller: GIDSignIn.sharedInstance()!.uiDelegate as! UIViewController)
 }
 
 private func handleUnauthorized() {
-    AppDelegate.showAlert(title: "Oof!", message: "The request was unauthorized. Try again?", actions: [])
+    AppDelegate.showAlert(title: "Oof!", message: "The request was unauthorized. Try again?", actions: [],
+                          controller: GIDSignIn.sharedInstance()!.uiDelegate as! UIViewController)
 }

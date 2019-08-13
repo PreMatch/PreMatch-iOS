@@ -21,7 +21,7 @@ public struct Time: Comparable, Equatable {
         }
     }
     
-    init(_ hour: UInt8, _ minute: UInt8) {
+    public init(_ hour: UInt8, _ minute: UInt8) {
         self.hour = hour % 24;
         self.minute = minute % 60;
     }
@@ -91,7 +91,7 @@ public struct Period: Equatable, TimeSpan {
         }
     }
     
-    init(from: Time, to: Time) {
+    public init(from: Time, to: Time) {
         start = min(from, to)
         end = max(from, to)
     }

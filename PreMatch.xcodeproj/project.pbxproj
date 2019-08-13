@@ -12,6 +12,8 @@
 		4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0239D42180042E00A336E2 /* AboutViewController.swift */; };
 		4C196AD02184BD1500220E18 /* QueryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C196ACF2184BD1500220E18 /* QueryDataSource.swift */; };
 		4C36E68221808EF500F1983F /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C36E68121808EF500F1983F /* QueryViewController.swift */; };
+		4C512D9B2300DAE30082109F /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C512D9A2300DAE30082109F /* NotificationPreferences.swift */; };
+		4C512D9F2300F5320082109F /* NotificationOptionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C512D9E2300F5320082109F /* NotificationOptionTest.swift */; };
 		4C875F9621871BAD009AE6D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C875F9521871BAD009AE6D5 /* SettingsViewController.swift */; };
 		4C88DAB02188C505002BC794 /* ResourceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C88DAAF2188C505002BC794 /* ResourceUser.swift */; };
 		4C959AA0217AA25A0082FFD9 /* SevenPlusH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAB22B2172ED03001383BA /* SevenPlusH.framework */; };
@@ -21,6 +23,12 @@
 		4C959AB3217DF3830082FFD9 /* SphSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB2217DF3830082FFD9 /* SphSchedule.swift */; };
 		4C959AB5217E314C0082FFD9 /* ResourceDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB4217E314C0082FFD9 /* ResourceDownloader.swift */; };
 		4C959AB7217F93D40082FFD9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C959AB6217F93D30082FFD9 /* MainViewController.swift */; };
+		4C9CC99C2281D79300F949E2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC99B2281D79300F949E2 /* NotificationViewController.swift */; };
+		4CB3872E22FF85DF00A77C1F /* NotificationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3872D22FF85DF00A77C1F /* NotificationOption.swift */; };
+		4CB3873022FF9DD400A77C1F /* NODayBriefing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3872F22FF9DD400A77C1F /* NODayBriefing.swift */; };
+		4CB3873322FF9FA600A77C1F /* NODayBriefingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3873222FF9FA600A77C1F /* NODayBriefingTest.swift */; };
+		4CB3873522FFB11B00A77C1F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB3873422FFB11A00A77C1F /* UserNotifications.framework */; };
+		4CB3873A2300A99E00A77C1F /* NOSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB387392300A99E00A77C1F /* NOSelectionController.swift */; };
 		4CB3E0A12174AB7E0079E5DD /* DefinitionReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */; };
 		4CB3E0A52176BDA20079E5DD /* DefinitionReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */; };
 		4CB8F257218B1B4F00AAD360 /* PeriodColumn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB8F256218B1B4F00AAD360 /* PeriodColumn.xib */; };
@@ -159,14 +167,14 @@
 		};
 		4CFAB1FF2169A260001383BA /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				4CFAB2102169A3EA001383BA /* PreMatch Live.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -180,6 +188,8 @@
 		4C0239D42180042E00A336E2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4C196ACF2184BD1500220E18 /* QueryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataSource.swift; sourceTree = "<group>"; };
 		4C36E68121808EF500F1983F /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
+		4C512D9A2300DAE30082109F /* NotificationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
+		4C512D9E2300F5320082109F /* NotificationOptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionTest.swift; sourceTree = "<group>"; };
 		4C875F9521871BAD009AE6D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C88DAAF2188C505002BC794 /* ResourceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceUser.swift; sourceTree = "<group>"; };
 		4C959AA1217AA5CB0082FFD9 /* ResourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceProvider.swift; sourceTree = "<group>"; };
@@ -188,6 +198,13 @@
 		4C959AB2217DF3830082FFD9 /* SphSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphSchedule.swift; sourceTree = "<group>"; };
 		4C959AB4217E314C0082FFD9 /* ResourceDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceDownloader.swift; sourceTree = "<group>"; };
 		4C959AB6217F93D30082FFD9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4C9CC99B2281D79300F949E2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		4CB3872D22FF85DF00A77C1F /* NotificationOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOption.swift; sourceTree = "<group>"; };
+		4CB3872F22FF9DD400A77C1F /* NODayBriefing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NODayBriefing.swift; sourceTree = "<group>"; };
+		4CB3873122FF9FA500A77C1F /* PreMatchTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PreMatchTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CB3873222FF9FA600A77C1F /* NODayBriefingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NODayBriefingTest.swift; sourceTree = "<group>"; };
+		4CB3873422FFB11A00A77C1F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		4CB387392300A99E00A77C1F /* NOSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOSelectionController.swift; sourceTree = "<group>"; };
 		4CB3E0A02174AB7E0079E5DD /* DefinitionReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReader.swift; sourceTree = "<group>"; };
 		4CB3E0A42176BDA10079E5DD /* DefinitionReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionReaderTests.swift; sourceTree = "<group>"; };
 		4CB8F256218B1B4F00AAD360 /* PeriodColumn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeriodColumn.xib; sourceTree = "<group>"; };
@@ -259,6 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB3873522FFB11B00A77C1F /* UserNotifications.framework in Frameworks */,
 				9C16E194B9DDE9352AFE7689 /* Pods_PreMatchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +311,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CB3872C22FF85B200A77C1F /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				4C9CC99B2281D79300F949E2 /* NotificationViewController.swift */,
+				4CB3872D22FF85DF00A77C1F /* NotificationOption.swift */,
+				4CB3872F22FF9DD400A77C1F /* NODayBriefing.swift */,
+				4CB387392300A99E00A77C1F /* NOSelectionController.swift */,
+				4C512D9A2300DAE30082109F /* NotificationPreferences.swift */,
+			);
+			path = Notify;
+			sourceTree = "<group>";
+		};
 		4CF29F332167C23900BD1CD2 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +353,7 @@
 		4CF29F3E2167C23A00BD1CD2 /* PreMatch */ = {
 			isa = PBXGroup;
 			children = (
+				4CB3872C22FF85B200A77C1F /* Notify */,
 				4CFAB218216A7348001383BA /* PreMatch.entitlements */,
 				4CF29F3F2167C23A00BD1CD2 /* AppDelegate.swift */,
 				4CF29F412167C23A00BD1CD2 /* RootViewController.swift */,
@@ -345,6 +376,9 @@
 			isa = PBXGroup;
 			children = (
 				4CF29F5A2167C24100BD1CD2 /* Info.plist */,
+				4CB3873222FF9FA600A77C1F /* NODayBriefingTest.swift */,
+				4CB3873122FF9FA500A77C1F /* PreMatchTests-Bridging-Header.h */,
+				4C512D9E2300F5320082109F /* NotificationOptionTest.swift */,
 			);
 			path = PreMatchTests;
 			sourceTree = "<group>";
@@ -352,6 +386,7 @@
 		4CFAB15E21684B86001383BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CB3873422FFB11A00A77C1F /* UserNotifications.framework */,
 				4CFAB16521684DFF001383BA /* GoogleSignIn.framework */,
 				4CFAB16621684DFF001383BA /* GoogleSignInDependencies.framework */,
 				4CFAB16321684B97001383BA /* SystemConfiguration.framework */,
@@ -574,16 +609,26 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
 						};
 					};
 					4CF29F532167C24100BD1CD2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 4CF29F3B2167C23900BD1CD2;
 					};
 					4CFAB2042169A3E9001383BA = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -887,9 +932,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9CC99C2281D79300F949E2 /* NotificationViewController.swift in Sources */,
 				4CF29F422167C23A00BD1CD2 /* RootViewController.swift in Sources */,
 				4CF29F402167C23A00BD1CD2 /* AppDelegate.swift in Sources */,
+				4C512D9B2300DAE30082109F /* NotificationPreferences.swift in Sources */,
+				4CB3873022FF9DD400A77C1F /* NODayBriefing.swift in Sources */,
 				4C875F9621871BAD009AE6D5 /* SettingsViewController.swift in Sources */,
+				4CB3873A2300A99E00A77C1F /* NOSelectionController.swift in Sources */,
+				4CB3872E22FF85DF00A77C1F /* NotificationOption.swift in Sources */,
 				4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */,
 				4C88DAB02188C505002BC794 /* ResourceUser.swift in Sources */,
 				4C959AB7217F93D40082FFD9 /* MainViewController.swift in Sources */,
@@ -903,6 +953,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C512D9F2300F5320082109F /* NotificationOptionTest.swift in Sources */,
+				4CB3873322FF9FA600A77C1F /* NODayBriefingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1134,7 +1186,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "PreMatch App icons";
 				CODE_SIGN_ENTITLEMENTS = PreMatch/PreMatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D34PP8BS37;
+				DEVELOPMENT_TEAM = 2P8TYHGSKM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1145,7 +1197,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.prematch.PreMatch;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.prematch.prematch-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1160,7 +1212,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "PreMatch App icons";
 				CODE_SIGN_ENTITLEMENTS = PreMatch/PreMatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D34PP8BS37;
+				DEVELOPMENT_TEAM = 2P8TYHGSKM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1171,7 +1223,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.prematch.PreMatch;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.prematch.prematch-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1184,8 +1236,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D34PP8BS37;
+				DEVELOPMENT_TEAM = 2P8TYHGSKM;
 				INFOPLIST_FILE = PreMatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1194,6 +1247,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.broaderator.PreMatchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PreMatchTests/PreMatchTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PreMatch.app/PreMatch";
@@ -1206,8 +1261,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D34PP8BS37;
+				DEVELOPMENT_TEAM = 2P8TYHGSKM;
 				INFOPLIST_FILE = PreMatchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1216,6 +1272,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.broaderator.PreMatchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PreMatchTests/PreMatchTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PreMatch.app/PreMatch";
@@ -1228,14 +1285,14 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "PreMatch Live/PreMatch Live.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D34PP8BS37;
+				DEVELOPMENT_TEAM = 2P8TYHGSKM;
 				INFOPLIST_FILE = "PreMatch Live/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.prematch.PreMatch.PreMatch-Live";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.prematch.prematch-ios-live";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1249,14 +1306,14 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "PreMatch Live/PreMatch Live.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D34PP8BS37;
+				DEVELOPMENT_TEAM = 2P8TYHGSKM;
 				INFOPLIST_FILE = "PreMatch Live/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.prematch.PreMatch.PreMatch-Live";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.prematch.prematch-ios-live";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;

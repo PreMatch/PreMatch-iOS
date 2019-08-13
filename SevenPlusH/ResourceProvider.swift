@@ -16,7 +16,7 @@ public enum ProviderError: Error {
 public struct ResourceProvider {
     private static var _schedule: SphSchedule?
     private static var _calendar: SphCalendar?
-    private static let defaults = UserDefaults(suiteName: "group.org.prematch.data")!
+    private static let defaults = UserDefaults(suiteName: "group.com.prematch.data")!
 
     public static func schedule(_ calendar: SphCalendar? = calendar()) -> SphSchedule? {
         if let sched = _schedule {
