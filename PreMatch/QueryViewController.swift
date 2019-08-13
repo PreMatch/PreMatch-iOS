@@ -30,8 +30,8 @@ class QueryViewController: UIViewController, ResourceUser {
         periodTable.dataSource = dataSource
         
         if let calendar = ResourceProvider.calendar() {
-            datePicker.minimumDate = calendar.interval.start
-            datePicker.maximumDate = calendar.interval.end
+            datePicker.minimumDate = correctGlobalDate(calendar.interval.start, from: ahsCalendar, to: Calendar.current)
+            datePicker.maximumDate = correctGlobalDate(calendar.interval.end, from: ahsCalendar, to: Calendar.current)
             
             datePickerChanged(picker: datePicker)
         } else {
@@ -46,7 +46,7 @@ class QueryViewController: UIViewController, ResourceUser {
     }
     
     @objc func datePickerChanged(picker: UIDatePicker) {
-        let date = correctGlobalDate(picker.date)
+        let date = correctGlobalDate(picker.date, from: Calendar.current, to: ahsCalendar)
         if let calendar = ResourceProvider.calendar(),
             let day = (try? calendar.day(on: date)) {
             let schoolDay = day as? SchoolDay
@@ -62,11 +62,11 @@ class QueryViewController: UIViewController, ResourceUser {
         }
     }
     
-    private func correctGlobalDate(_ date: Date) -> Date {
-        var comps = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        comps.calendar = ahsCalendar
+    private func correctGlobalDate(_ date: Date, from originCalendar: Calendar, to destCalendar: Calendar) -> Date {
+        var comps = originCalendar.dateComponents([.year, .month, .day], from: date)
+        comps.calendar = destCalendar
         
-        return ahsCalendar.date(from: comps)!.withoutTime()
+        return destCalendar.date(from: comps)!
     }
     
     private func showText(message: String) {

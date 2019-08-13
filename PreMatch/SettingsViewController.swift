@@ -19,9 +19,6 @@ extension UIButton {
 }
 
 class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUser {
-
-    private let dangerButtonColor = UIColor(red: 255, green: 59, blue: 48, alpha: 1)
-    private let normalButtonColor = UIColor(red: 0, green: 122, blue: 255, alpha: 1)
     
     //MARK: Properties
     @IBOutlet weak var updateCalendar: UIButton!
@@ -40,13 +37,15 @@ class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUse
             configure(
                 button: toggleAccountLink,
                 title: "Unlink Account",
-                addAction: #selector(unlinkAccount))
+                addAction: #selector(unlinkAccount),
+                isDangerous: true)
         } else {
             refreshSchedule.isEnabled = false
             configure(
                 button: toggleAccountLink,
                 title: "Link Account",
-                addAction: #selector(linkAccount))
+                addAction: #selector(linkAccount),
+                isDangerous: false)
         }
     }
     
@@ -56,10 +55,11 @@ class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUse
     
     func configure(button: UIButton,
                    title: String,
-                   addAction: Selector) {
+                   addAction: Selector,
+                   isDangerous _: Bool) {
         
         button.setTitle(title, for: .normal)
-        //button.setTitleColor(titleColor, for: .normal)
+        // TODO figure out how to set button color without making it invisible
         
         button.removeTarget(nil, action: nil, for: .allEvents)
         button.addTarget(self, action: addAction, for: .touchDown)

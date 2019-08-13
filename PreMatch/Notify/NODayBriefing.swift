@@ -272,7 +272,8 @@ class NODayBriefingSettingsController: UIViewController {
         let notify = UNUserNotificationCenter.current()
         let (interval, semester) = try schedulingRange(from: Date(), inCalendar: calendar)
         // TODO fix truncation to 64 with more systematic auto-scheduling
-        let requests = try option.scheduleNotifications(from: interval.start, to: interval.end).prefix(upTo: 64)
+        let allRequests = try option.scheduleNotifications(from: interval.start, to: interval.end)
+        let requests = allRequests.count > 64 ? Array(allRequests.prefix(upTo: 64)) : allRequests
         
         NotificationPreferences.didEnableOption(identifier: NODayBriefing.id, semester: UInt8(semester))
         
