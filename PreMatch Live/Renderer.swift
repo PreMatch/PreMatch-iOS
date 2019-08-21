@@ -53,6 +53,27 @@ struct OutsideYearHandler: Handler {
     }
 }
 
+struct AfterReleaseHandler: Handler {
+    func applicable(_ date: Date, in calendar: SphCalendar) -> Bool {
+        return DateInterval(start: calendar.releaseDate, end: calendar.interval.start).includes(date)
+    }
+    
+    func apply(_ _: Date, in calendar: SphCalendar,
+               for schedule: SphSchedule?, to view: TodayViewController) {
+        let date = calendar.interval.start
+        let day = try! calendar.day(on: date) as! SchoolDay
+        let firstBlock = day.blocks.first
+        let semester = schedule?.calendar.semesterIndexOf(date: date)
+        let firstTeacher = (firstBlock == nil || schedule == nil) ?
+            "Someone unknown" : (try? schedule?.teacher(for: firstBlock!, in: semester!)) ?? "H-block"
+        
+        view.show(
+            title: "First Teacher: \(firstTeacher ?? "Unknown")",
+            info: "Block \(firstBlock ?? "?")\nEnjoy what remains of summer ☀️")
+        view.showSchoolDay(day, isToday: false)
+    }
+}
+
 struct HolidayHandler: Handler {
     func applicable(_ date: Date, in calendar: SphCalendar) -> Bool {
         return calendar.includes(date) && !calendar.isSchoolDay(on: date)
@@ -162,6 +183,7 @@ struct DuringSchoolHandler: Handler {
 
 struct Renderer {
     private let handlers: [Handler] = [
+        AfterReleaseHandler(),
         OutsideYearHandler(),
         HolidayHandler(),
         BeforeSchoolHandler(),

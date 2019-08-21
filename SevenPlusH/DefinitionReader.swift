@@ -67,6 +67,8 @@ public class DefinitionReader {
             let dates = try requiredField("semester date interval", interval.array).map { try parseISODate($0.stringValue) }
             return DateInterval(start: dates[0], end: dates[1])
         }
+        let releaseDateISO = try requiredField("schedule release date", json["schedule_release"].string)
+        let releaseDate = try parseJsonDate(releaseDateISO)
         
         return SphCalendar(
             name: try requiredField("definition name", json["name"].string),
@@ -80,7 +82,8 @@ public class DefinitionReader {
             halfDayPeriods: try readPeriods(from: json["half_day_periods"], name: "half day periods"),
             examPeriods: try readPeriods(from: json["exam_day_periods"], name: "exam day periods"),
             dayBlocks: dayBlocks,
-            semesters: semesters
+            semesters: semesters,
+            releaseDate: releaseDate
         )
     }
     
@@ -93,5 +96,14 @@ public class DefinitionReader {
         return try periods.map { try Period.fromJSON($0) }
     }
     
+    static let jsonDate = DateFormatter()
+    private class func parseJsonDate(_ dateString: String) throws -> Date {
+        jsonDate.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        jsonDate.locale = .init(identifier: "en_US_POSIX")
+        guard let out = jsonDate.date(from: dateString) else {
+            throw ParseError.invalidFormat(fieldType: "schedule release date", invalidValue: dateString)
+        }
+        return out
+    }
     
 }

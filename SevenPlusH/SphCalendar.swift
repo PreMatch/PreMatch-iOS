@@ -81,6 +81,7 @@ public class SphCalendar {
     public let version: Double
     public let allBlocks: [String]
     let cycleSize: DayNumber
+    public let releaseDate: Date
     
     public let interval: DateInterval
     let exclusions: [Exclusion]
@@ -93,7 +94,7 @@ public class SphCalendar {
     
     public init(name: String, version: Double, blocks: [String], cycleSize: DayNumber, interval: DateInterval,
          exclusions: [Exclusion], overrides: [Exclusion], standardPeriods: [Period], halfDayPeriods: [Period], examPeriods: [Period],
-         dayBlocks: [[String]], semesters: [DateInterval]) {
+         dayBlocks: [[String]], semesters: [DateInterval], releaseDate: Date) {
         self.name = name
         self.version = version
         self.allBlocks = blocks
@@ -109,6 +110,7 @@ public class SphCalendar {
             halfDayPeriods: halfDayPeriods,
             examDayPeriods: examPeriods)
         self.semesters = semesters
+        self.releaseDate = releaseDate
     }
     
     public func includes(_ date: Date) -> Bool {
