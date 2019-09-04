@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,10 +41,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view hidden="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-Y9-MNY">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLJ-yg-JvA">
-                                                    <rect key="frame" x="33.5" y="16" width="23.5" height="19"/>
+                                                    <rect key="frame" x="28.5" y="16" width="23.5" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="ftX-uh-SrP"/>
                                                     </constraints>
@@ -53,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xro-f4-6qC">
-                                                    <rect key="frame" x="34" y="30" width="22" height="50"/>
+                                                    <rect key="frame" x="29" y="30" width="22" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="H0E-kS-OBv"/>
                                                     </constraints>
@@ -62,13 +62,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38r-OL-BOe">
-                                                    <rect key="frame" x="25.5" y="75" width="39.5" height="16"/>
+                                                    <rect key="frame" x="20.5" y="75" width="39.5" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Half Day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpo-to-V97">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                                 <constraint firstAttribute="height" constant="110" id="CKY-4H-dXH"/>
                                                 <constraint firstItem="xro-f4-6qC" firstAttribute="centerY" secondItem="h3n-Y9-MNY" secondAttribute="centerY" id="LfP-Jv-jzN"/>
                                                 <constraint firstItem="gpo-to-V97" firstAttribute="top" secondItem="h3n-Y9-MNY" secondAttribute="top" id="Nrs-5F-piK"/>
-                                                <constraint firstAttribute="width" constant="90" id="SYp-5I-yzp"/>
+                                                <constraint firstAttribute="width" constant="80" id="SYp-5I-yzp"/>
                                                 <constraint firstItem="xro-f4-6qC" firstAttribute="top" secondItem="SLJ-yg-JvA" secondAttribute="bottom" constant="-5" id="WX8-R8-hCI"/>
                                                 <constraint firstItem="gpo-to-V97" firstAttribute="leading" secondItem="h3n-Y9-MNY" secondAttribute="leading" id="XEW-KU-Sbt"/>
                                                 <constraint firstItem="38r-OL-BOe" firstAttribute="top" secondItem="xro-f4-6qC" secondAttribute="bottom" constant="-5" id="ZDX-tu-5k4"/>
@@ -90,16 +90,16 @@
                                             </constraints>
                                         </view>
                                         <view hidden="YES" contentMode="right" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-Lp-iYM">
-                                            <rect key="frame" x="90" y="0.0" width="230" height="110"/>
+                                            <rect key="frame" x="80" y="0.0" width="240" height="110"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9n-e1-Rqf">
-                                                    <rect key="frame" x="10" y="12" width="210" height="19.5"/>
+                                                    <rect key="frame" x="10" y="12" width="220" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrq-pf-yK0">
-                                                    <rect key="frame" x="10" y="80" width="210" height="20"/>
+                                                    <rect key="frame" x="10" y="80" width="220" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="cJq-HL-dpF"/>
                                                     </constraints>
@@ -108,7 +108,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9d-36-dew">
-                                                    <rect key="frame" x="10" y="33.5" width="210" height="40"/>
+                                                    <rect key="frame" x="10" y="33.5" width="220" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="fhg-hv-pme"/>
                                                     </constraints>

@@ -11,6 +11,7 @@ target 'PreMatch' do
   # Pods for PreMatch
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 4.7'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
 
   target 'PreMatchTests' do
     inherit! :search_paths

@@ -14,6 +14,11 @@ private func format(_ date: Date, long: Bool = false) -> String {
     formatter.dateFormat = (long ? "EEEE, " : "") + "MMM d, yyyy"
     return formatter.string(from: date)
 }
+private var timeFormatter = DateFormatter()
+private func formatTime(_ time: Date) -> String {
+    timeFormatter.timeStyle = .short
+    return timeFormatter.string(from: time)
+}
 
 private func relativeExpression(for target: Date, relativeTo now: Date) -> String? {
     if ahsCalendar.isDate(now.dayAfter(), inSameDayAs: target) {
@@ -55,7 +60,7 @@ struct OutsideYearHandler: Handler {
 
 struct AfterReleaseHandler: Handler {
     func applicable(_ date: Date, in calendar: SphCalendar) -> Bool {
-        return DateInterval(start: calendar.releaseDate, end: calendar.interval.start).includes(date)
+        return DateInterval(start: calendar.releaseDate, end: calendar.interval.start).contains(date)
     }
     
     func apply(_ _: Date, in calendar: SphCalendar,
@@ -110,7 +115,7 @@ struct BeforeSchoolHandler: Handler {
         
         view.show(
             title: "Next: \(firstTeacher ?? "Unknown")",
-            info: "Block \(firstBlock ?? "?")\nGood morning")
+            info: "Block \(firstBlock ?? "?")\nGood morning 🌅")
         view.showSchoolDay(day, isToday: true)
     }
 }
@@ -154,6 +159,7 @@ struct DuringSchoolHandler: Handler {
         
         let currentPeriodIndex = day.periodIndex(at: now)
         let currentBlock = day.block(at: now)
+        let currentPeriod = day.period(at: now)
         let currentSemester = calendar.semesterIndexOf(date: date)
         let currentTeacher = currentBlock == nil ? "Unknown" :
             (try? schedule?.teacher(for: currentBlock!, in: currentSemester!)) ?? "Unknown"
@@ -161,8 +167,9 @@ struct DuringSchoolHandler: Handler {
         view.showSchoolDay(day, isToday: true)
         if currentPeriodIndex == UInt8(day.periods.count - 1) {
             // Last block
+            let endTime = formatTime(currentPeriod!.end.asDateToday())
             view.show(title: "Now: \(currentTeacher ?? "Unknown")",
-                info: "Block \(currentBlock!)\nThis is the last block!")
+                info: "Block \(currentBlock!) ends at \(endTime)\nThis is the last block!")
            return
         }
         
@@ -175,8 +182,9 @@ struct DuringSchoolHandler: Handler {
             view.show(title: "Go to \(nextTeacher ?? "Unknown")",
                 info: "Block \(nextBlock)")
         } else {
+            let endTime = formatTime(currentPeriod!.end.asDateToday())
             view.show(title: "Now: \(currentTeacher ?? "Unknown")",
-                info: "Block \(currentBlock!)\nNext: Block \(nextBlock) with \(nextTeacher ?? "Unknown")")
+                info: "Block \(currentBlock!) ends at \(endTime)\nNext: Block \(nextBlock) with \(nextTeacher ?? "Unknown")")
         }
     }
 }

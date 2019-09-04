@@ -10,6 +10,7 @@ import UIKit
 import GoogleSignIn
 import SevenPlusH
 import UserNotifications
+import Sentry
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -49,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         initializeLogin()
         initNotifications()
+        initSentry()
         return true
     }
     
@@ -137,6 +139,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 }
             }
             return
+        }
+    }
+    
+    func initSentry() {
+        // Create a Sentry client and start crash handler
+        do {
+            Client.shared = try Client(dsn: "https://11b83f7d2a054364bf7883476e681eea@sentry.io/1536746")
+            try Client.shared?.startCrashHandler()
+        } catch let error {
+            print("\(error)")
         }
     }
 }
