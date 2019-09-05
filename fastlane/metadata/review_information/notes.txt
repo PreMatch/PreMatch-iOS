@@ -1,0 +1,2 @@
+Testing account: Since this app requires a valid Google account in our school organization, and since we are not authorized to create dummy accounts under our school organization, the only option is to provide my own sign-in info. Please use this account for testing PreMatch only.
+Temporal requirements: It is recommended to reset the date to a future value in order to see more features in action.

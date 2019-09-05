@@ -1,0 +1,5 @@
+PreMatch for iOS helps students at Andover High School reason about the complex 7+H calendar and schedule scheme. What day is it on [insert date here]? Ask PreMatch for iOS. What blocks and teachers do I have today? Swipe to check the PreMatch widget without even having to unlock your phone. Want to get notified every morning with the day's schedule? Enable School-Day Briefings on PreMatch for iOS.
+
+PreMatch for iOS integrates with PreMatch.org, where students can easily discover their classmates after schedule release but before school starts. It pulls the student's personal schedule from the website and integrates the personalized information in the most helpful ways, such as displaying teachers with blocks in the Today widget. PreMatch for iOS is designed to work offline, so it does not depend on cellular data, which is often unreliable in various parts of the school building.
+
+Coming soon to PreMatch for iOS: More notification options and Siri integration.
