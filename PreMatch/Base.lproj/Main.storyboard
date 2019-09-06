@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1re-XL-WXT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1re-XL-WXT">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -291,21 +291,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodCell" rowHeight="46" id="qgK-tT-OKV" customClass="QueryTableCell" customModule="PreMatch" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="46"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodCell" rowHeight="43" id="qgK-tT-OKV" customClass="QueryTableCell" customModule="PreMatch" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="43"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qgK-tT-OKV" id="cCT-QF-MQU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-gp-YhS">
-                                                            <rect key="frame" x="50" y="12.5" width="61.5" height="20.5"/>
+                                                            <rect key="frame" x="50" y="11" width="61.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuJ-XN-aOF">
-                                                            <rect key="frame" x="29" y="12.5" width="13" height="20.5"/>
+                                                            <rect key="frame" x="29" y="11" width="13" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -475,8 +475,8 @@
                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csD-Gd-Ig5">
-                                <rect key="frame" x="289" y="497" width="26" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csD-Gd-Ig5">
+                                <rect key="frame" x="291.5" y="497" width="23.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -860,12 +860,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PreMatch Logo" width="174.5" height="174.5"/>
-        <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
-        <image name="baseline_format_list_bulleted_black_24pt" width="24" height="24"/>
-        <image name="baseline_info_black_24pt" width="24" height="24"/>
-        <image name="baseline_notifications_black_24pt" width="24" height="24"/>
-        <image name="baseline_settings_black_24pt" width="24" height="24"/>
+        <image name="PreMatch Logo" width="349" height="349"/>
+        <image name="baseline_calendar_today_black_24pt" width="48" height="48"/>
+        <image name="baseline_format_list_bulleted_black_24pt" width="48" height="48"/>
+        <image name="baseline_info_black_24pt" width="48" height="48"/>
+        <image name="baseline_notifications_black_24pt" width="48" height="48"/>
+        <image name="baseline_settings_black_24pt" width="48" height="48"/>
     </resources>
     <color key="tintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
