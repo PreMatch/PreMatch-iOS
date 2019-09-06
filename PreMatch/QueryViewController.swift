@@ -18,6 +18,7 @@ class QueryViewController: UIViewController, ResourceUser {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var periodTable: UITableView!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var jumpToTodayButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class QueryViewController: UIViewController, ResourceUser {
             datePicker.maximumDate = correctGlobalDate(calendar.interval.end, from: ahsCalendar, to: Calendar.current)
             
             datePickerChanged(picker: datePicker)
+            jumpToTodayButton.isEnabled = calendar.includes(Date())
+            
         } else {
             showText(message: "Local calendar unavailable")
         }
@@ -89,6 +92,18 @@ class QueryViewController: UIViewController, ResourceUser {
     private func format(date: Date, long: Bool = false) -> String {
         formatter.dateFormat = (long ? "EEEE, " : "") + "MMM d"
         return formatter.string(from: date)
+    }
+    
+    @IBAction private func onJumpToTodayPressed() {
+        let today = Date()
+        if let min = datePicker.minimumDate,
+            let max = datePicker.maximumDate {
+            if today < min || today > max {
+                return
+            }
+        }
+        datePicker.date = today
+        datePickerChanged(picker: datePicker)
     }
     
     /*

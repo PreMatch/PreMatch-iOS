@@ -271,7 +271,7 @@
                                 </variation>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-9m-ole">
-                                <rect key="frame" x="0.0" y="369" width="320" height="150"/>
+                                <rect key="frame" x="0.0" y="344" width="320" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Fbt-EU-3lZ"/>
                                 </constraints>
@@ -284,63 +284,49 @@
                                     </mask>
                                 </variation>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a date to view its details." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LM9-cO-zSc">
-                                <rect key="frame" x="20" y="103" width="254.5" height="21.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="QBv-mB-MWc"/>
-                                    <constraint firstAttribute="height" constant="44" id="Vnd-Bn-UdF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="QBv-mB-MWc"/>
-                                        <exclude reference="Vnd-Bn-UdF"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="QBv-mB-MWc"/>
-                                        <include reference="Vnd-Bn-UdF"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbn-62-4Lu">
-                                <rect key="frame" x="0.0" y="134.5" width="320" height="234.5"/>
+                                <rect key="frame" x="0.0" y="118" width="320" height="226"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AIi-5m-YjA">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="234.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodCell" textLabel="iYN-au-mXq" detailTextLabel="Njf-8o-rfG" style="IBUITableViewCellStyleValue1" id="qgK-tT-OKV">
-                                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="periodCell" rowHeight="46" id="qgK-tT-OKV" customClass="QueryTableCell" customModule="PreMatch" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="46"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qgK-tT-OKV" id="cCT-QF-MQU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iYN-au-mXq">
-                                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-gp-YhS">
+                                                            <rect key="frame" x="50" y="12.5" width="61.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Njf-8o-rfG">
-                                                            <rect key="frame" x="296.5" y="12" width="8.5" height="20.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuJ-XN-aOF">
+                                                            <rect key="frame" x="29" y="12.5" width="13" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="4ZX-gp-YhS" firstAttribute="leading" secondItem="KuJ-XN-aOF" secondAttribute="trailing" constant="8" id="EqK-No-hbY"/>
+                                                        <constraint firstItem="4ZX-gp-YhS" firstAttribute="centerY" secondItem="cCT-QF-MQU" secondAttribute="centerY" id="JIU-vR-FBD"/>
+                                                        <constraint firstItem="KuJ-XN-aOF" firstAttribute="centerY" secondItem="cCT-QF-MQU" secondAttribute="centerY" id="eKW-JP-qjZ"/>
+                                                        <constraint firstItem="4ZX-gp-YhS" firstAttribute="leading" secondItem="cCT-QF-MQU" secondAttribute="leading" constant="50" id="p8W-RG-ncC"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="blockLabel" destination="KuJ-XN-aOF" id="H71-Y7-5Nn"/>
+                                                    <outlet property="teacherLabel" destination="4ZX-gp-YhS" id="cPT-9o-bFT"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unavailable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvx-Tm-Ww0">
-                                        <rect key="frame" x="20" y="105.5" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="101" width="280" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -361,24 +347,31 @@
                                     <constraint firstItem="yvx-Tm-Ww0" firstAttribute="centerX" secondItem="Qbn-62-4Lu" secondAttribute="centerX" id="xnI-Rt-wBh"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-Pi-Fk8">
+                                <rect key="frame" x="118" y="494" width="84" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Jump to Today"/>
+                                <connections>
+                                    <action selector="onJumpToTodayPressed" destination="0Nn-KV-GRf" eventType="touchUpInside" id="GBz-0J-KEN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qbn-62-4Lu" firstAttribute="leading" secondItem="LM9-cO-zSc" secondAttribute="trailing" constant="15" id="0lb-OJ-sHW"/>
+                            <constraint firstItem="IkJ-Pi-Fk8" firstAttribute="top" secondItem="mQt-9m-ole" secondAttribute="bottom" id="0RL-Wx-bxL"/>
+                            <constraint firstItem="IkJ-Pi-Fk8" firstAttribute="bottom" secondItem="iAE-9Z-8EG" secondAttribute="bottom" id="7ey-zE-ucV"/>
                             <constraint firstItem="mQt-9m-ole" firstAttribute="top" secondItem="Qbn-62-4Lu" secondAttribute="bottom" id="A8f-Va-7nu"/>
                             <constraint firstItem="iAE-9Z-8EG" firstAttribute="trailing" secondItem="mQt-9m-ole" secondAttribute="trailing" id="Bej-4n-lgY"/>
                             <constraint firstItem="Qbn-62-4Lu" firstAttribute="leading" secondItem="6bF-ha-op0" secondAttribute="trailing" constant="-128" id="E1D-3X-CU0"/>
-                            <constraint firstItem="Qbn-62-4Lu" firstAttribute="top" secondItem="LM9-cO-zSc" secondAttribute="bottom" constant="10" id="EXS-Oo-xMM"/>
-                            <constraint firstItem="mQt-9m-ole" firstAttribute="top" secondItem="LM9-cO-zSc" secondAttribute="bottom" priority="500" id="FPo-FN-kDq"/>
-                            <constraint firstItem="LM9-cO-zSc" firstAttribute="leading" secondItem="iAE-9Z-8EG" secondAttribute="leading" constant="20" id="J5p-gD-S4t"/>
-                            <constraint firstItem="LM9-cO-zSc" firstAttribute="top" secondItem="6bF-ha-op0" secondAttribute="bottom" priority="400" id="KxH-oZ-8oJ"/>
                             <constraint firstItem="iAE-9Z-8EG" firstAttribute="bottom" secondItem="Qbn-62-4Lu" secondAttribute="bottom" id="R2S-sR-fAp"/>
+                            <constraint firstItem="IkJ-Pi-Fk8" firstAttribute="centerX" secondItem="GMI-4Z-Jz6" secondAttribute="centerX" id="UG2-GR-GPQ"/>
                             <constraint firstItem="iAE-9Z-8EG" firstAttribute="trailing" secondItem="6bF-ha-op0" secondAttribute="trailing" constant="40" id="ZDk-Bk-n1g">
                                 <variation key="heightClass=compact" constant="320"/>
                             </constraint>
+                            <constraint firstItem="Qbn-62-4Lu" firstAttribute="top" secondItem="6bF-ha-op0" secondAttribute="bottom" constant="15" id="fue-am-ai1"/>
                             <constraint firstItem="Qbn-62-4Lu" firstAttribute="trailing" secondItem="iAE-9Z-8EG" secondAttribute="trailing" id="kn9-fY-B4R"/>
                             <constraint firstItem="Qbn-62-4Lu" firstAttribute="leading" secondItem="mQt-9m-ole" secondAttribute="trailing" id="lj1-ol-pht"/>
-                            <constraint firstItem="iAE-9Z-8EG" firstAttribute="bottom" secondItem="mQt-9m-ole" secondAttribute="bottom" id="mpC-YE-0i5"/>
+                            <constraint firstItem="iAE-9Z-8EG" firstAttribute="bottom" secondItem="mQt-9m-ole" secondAttribute="bottom" constant="25" id="mpC-YE-0i5"/>
                             <constraint firstItem="Qbn-62-4Lu" firstAttribute="top" secondItem="iAE-9Z-8EG" secondAttribute="top" id="ot4-8T-bJG"/>
                             <constraint firstItem="iAE-9Z-8EG" firstAttribute="trailing" secondItem="Qbn-62-4Lu" secondAttribute="trailing" id="qup-QI-2BD"/>
                             <constraint firstItem="6bF-ha-op0" firstAttribute="top" secondItem="iAE-9Z-8EG" secondAttribute="top" constant="40" id="rCs-av-vMm"/>
@@ -394,15 +387,12 @@
                             <mask key="constraints">
                                 <exclude reference="R2S-sR-fAp"/>
                                 <exclude reference="qup-QI-2BD"/>
-                                <exclude reference="0lb-OJ-sHW"/>
                                 <exclude reference="E1D-3X-CU0"/>
-                                <exclude reference="EXS-Oo-xMM"/>
                                 <exclude reference="kn9-fY-B4R"/>
                                 <exclude reference="lj1-ol-pht"/>
                                 <exclude reference="ot4-8T-bJG"/>
                                 <exclude reference="ssS-de-Bt7"/>
                                 <exclude reference="A8f-Va-7nu"/>
-                                <exclude reference="FPo-FN-kDq"/>
                                 <exclude reference="yOF-3v-10H"/>
                             </mask>
                         </variation>
@@ -411,17 +401,14 @@
                                 <exclude reference="Bej-4n-lgY"/>
                                 <include reference="R2S-sR-fAp"/>
                                 <include reference="qup-QI-2BD"/>
-                                <include reference="0lb-OJ-sHW"/>
                                 <exclude reference="E1D-3X-CU0"/>
                                 <include reference="lj1-ol-pht"/>
                                 <include reference="ot4-8T-bJG"/>
                                 <exclude reference="A8f-Va-7nu"/>
-                                <include reference="FPo-FN-kDq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
-                                <include reference="EXS-Oo-xMM"/>
                                 <include reference="kn9-fY-B4R"/>
                                 <include reference="ssS-de-Bt7"/>
                                 <include reference="yOF-3v-10H"/>
@@ -431,13 +418,14 @@
                     <tabBarItem key="tabBarItem" title="7+H" image="baseline_calendar_today_black_24pt" id="6Jo-Li-dxp"/>
                     <connections>
                         <outlet property="datePicker" destination="mQt-9m-ole" id="3hG-td-3Vn"/>
+                        <outlet property="jumpToTodayButton" destination="IkJ-Pi-Fk8" id="eBy-34-YU6"/>
                         <outlet property="periodTable" destination="AIi-5m-YjA" id="783-SH-ROr"/>
                         <outlet property="textLabel" destination="yvx-Tm-Ww0" id="GTO-F3-1XE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2k-J8-hRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-513.38028169014081" y="1291.875"/>
+            <point key="canvasLocation" x="-513.75" y="1290.8450704225352"/>
         </scene>
         <!--About-->
         <scene sceneID="1yJ-8e-4ri">

@@ -26,6 +26,7 @@ class QueryDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "periodCell")!
         let schedule = ResourceProvider.schedule()
         
+        
         cell.textLabel!.text = day?.blocks[indexPath.row]
         
         if schedule != nil && day != nil {
