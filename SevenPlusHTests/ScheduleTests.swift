@@ -83,12 +83,12 @@ class ScheduleTests: XCTestCase {
     }
     
     func testTeacherFor() {
-        XCTAssertEqual(try! testSchedule.teacher(for: "B"), "Burns")
-        XCTAssertEqual(try! testSchedule.teacher(for: "G"), "Germaine")
+        XCTAssertEqual(try! testSchedule.teacher(for: "B", in: 1), "Burns")
+        XCTAssertEqual(try! testSchedule.teacher(for: "G", in: 1), "Germaine")
     }
     
     func testTeacherForBadBlock() {
-        XCTAssertThrowsError(try testSchedule.teacher(for: "I"))
-        XCTAssertThrowsError(try testSchedule.teacher(for: ""))
+        XCTAssertThrowsError(try testSchedule.teacher(for: "I", in: 1))
+        XCTAssertThrowsError(try testSchedule.teacher(for: "", in: 1))
     }
 }

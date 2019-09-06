@@ -22,4 +22,9 @@ platform :ios do
     build_app(workspace: "PreMatch.xcworkspace", scheme: "PreMatch")
     upload_to_app_store
   end
+
+  lane :tests do
+  	run_tests(scheme: "PreMatch")
+  	run_tests(scheme: "SevenPlusHTests")
+  end
 end

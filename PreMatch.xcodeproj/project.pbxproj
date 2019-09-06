@@ -12,6 +12,7 @@
 		4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0239D42180042E00A336E2 /* AboutViewController.swift */; };
 		4C196AD02184BD1500220E18 /* QueryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C196ACF2184BD1500220E18 /* QueryDataSource.swift */; };
 		4C36E68221808EF500F1983F /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C36E68121808EF500F1983F /* QueryViewController.swift */; };
+		4C4DC791231F4ED00016E571 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4DC790231F4ED00016E571 /* ScheduleViewController.swift */; };
 		4C512D9B2300DAE30082109F /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C512D9A2300DAE30082109F /* NotificationPreferences.swift */; };
 		4C512D9F2300F5320082109F /* NotificationOptionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C512D9E2300F5320082109F /* NotificationOptionTest.swift */; };
 		4C875F9621871BAD009AE6D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C875F9521871BAD009AE6D5 /* SettingsViewController.swift */; };
@@ -188,6 +189,7 @@
 		4C0239D42180042E00A336E2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4C196ACF2184BD1500220E18 /* QueryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataSource.swift; sourceTree = "<group>"; };
 		4C36E68121808EF500F1983F /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
+		4C4DC790231F4ED00016E571 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		4C512D9A2300DAE30082109F /* NotificationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
 		4C512D9E2300F5320082109F /* NotificationOptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionTest.swift; sourceTree = "<group>"; };
 		4C875F9521871BAD009AE6D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				4C196ACF2184BD1500220E18 /* QueryDataSource.swift */,
 				4C88DAAF2188C505002BC794 /* ResourceUser.swift */,
 				4CB8F25A218B4C4E00AAD360 /* DownloadErrorHandler.swift */,
+				4C4DC790231F4ED00016E571 /* ScheduleViewController.swift */,
 			);
 			path = PreMatch;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C4DC791231F4ED00016E571 /* ScheduleViewController.swift in Sources */,
 				4C9CC99C2281D79300F949E2 /* NotificationViewController.swift in Sources */,
 				4CF29F422167C23A00BD1CD2 /* RootViewController.swift in Sources */,
 				4CF29F402167C23A00BD1CD2 /* AppDelegate.swift in Sources */,

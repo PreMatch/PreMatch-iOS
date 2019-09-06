@@ -72,7 +72,11 @@ let testCalendar = SphCalendar(
         ["A", "H", "E", "F", "C"],
         ["B", "A", "D", "E", "G"],
         ["C", "B", "H", "F", "D"]
-    ]
+    ],
+    semesters: [
+        DateInterval(start: dateFor(2018, 8, 29), end: dateFor(2019, 1, 22)),
+        DateInterval(start: dateFor(2019, 1, 23), end: dateFor(2019, 6, 14))],
+    releaseDate: dateFor(2018, 8, 22)
 )
 
 class CalendarTests: XCTestCase {

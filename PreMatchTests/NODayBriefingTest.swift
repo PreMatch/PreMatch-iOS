@@ -46,7 +46,8 @@ let calendar = SphCalendar(
             ["D", "C", "A"]
         ],
         semesters: [DateInterval(start: date(2019, 8, 28), end: date(2020, 1, 21)),
-                    DateInterval(start: date(2020, 1, 22), end: date(2020, 6, 12))]
+                    DateInterval(start: date(2020, 1, 22), end: date(2020, 6, 12))],
+        releaseDate: date(2019, 8, 20)
     )
 
 let schedule = try! SphSchedule(mapping: [
