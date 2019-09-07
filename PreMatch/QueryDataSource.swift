@@ -33,10 +33,10 @@ class QueryDataSource: NSObject, UITableViewDataSource {
             let semester = schedule!.calendar.semesterIndexOf(date: day!.date)
             if semester != nil {
                 cell.teacherLabel.text = (try? schedule!.teacher(for: day!.blocks[indexPath.row],
-                                                                     in: semester!)) ?? "?"
+                                                                     in: semester!)) ?? ""
             }
         } else {
-            cell.teacherLabel.text = "?"
+            cell.teacherLabel.text = ""
         }
         
         return cell

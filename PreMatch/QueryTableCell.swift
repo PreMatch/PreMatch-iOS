@@ -12,6 +12,4 @@ import UIKit
 class QueryTableCell: UITableViewCell {
     @IBOutlet weak var teacherLabel: UILabel!
     @IBOutlet weak var blockLabel: UILabel!
-    
-    
 }

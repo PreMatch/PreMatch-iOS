@@ -53,6 +53,7 @@ public class SphSchedule {
         return try teacher(for: block, in: semester)
     }
     
+    /// semesterIndex is zero-based
     public func teacher(for block: String, in semesterIndex: UInt8) throws -> String {
         if !calendar.allBlocks.contains(block) {
             throw ParseError.outOfRange(fieldType: "block", invalidValue: block)
