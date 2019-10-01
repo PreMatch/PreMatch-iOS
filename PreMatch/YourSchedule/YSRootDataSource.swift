@@ -10,6 +10,28 @@ import Foundation
 import UIKit
 import SevenPlusH
 
+class YSTableCell: UITableViewCell {
+    func setup(block: String, in schedule: SphSchedule) {
+        textLabel?.text = titleFor(block: block, in: schedule)
+        detailTextLabel?.text = "\(block) Block"
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func handleSelection(view: UIViewController) {
+        view.performSegue(withIdentifier: "showBlockDetails", sender: self)
+    }
+    
+    private func titleFor(block: String, in schedule: SphSchedule) -> String {
+        return (0..<schedule.calendar.semesters.count)
+            .map { semester in try! schedule.teacher(for: block, in: UInt8(semester)) }
+            .uniqued()
+            .joined(separator: " and ")
+    }
+}
+
 class YSRootDataSource: NSObject, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,25 +45,17 @@ class YSRootDataSource: NSObject, UITableViewDataSource {
         return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "yourScheduleOption")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "yourScheduleOption")! as! YSTableCell
         
         if let schedule = ResourceProvider.schedule() {
             let block: String = schedule.calendar.allBlocks[indexPath.row]
-            let title = titleFor(block: block, in: schedule)
-            
-            cell.textLabel?.text = title
-            cell.detailTextLabel?.text = "\(block) Block"
+            cell.setup(block: block, in: schedule)
         }
         
         return cell
     }
     
-    func titleFor(block: String, in schedule: SphSchedule) -> String {
-        return (0..<schedule.calendar.semesters.count)
-            .map { semester in try! schedule.teacher(for: block, in: UInt8(semester)) }
-            .uniqued()
-            .joined(separator: " and ")
-    }
+    
 }
 
 // Creds to StackOverflow mxcl & Honey
