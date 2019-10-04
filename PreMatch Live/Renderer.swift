@@ -132,13 +132,13 @@ struct AfterSchoolHandler: Handler {
     func apply(_ date: Date, in calendar: SphCalendar,
                for schedule: SphSchedule?, to view: TodayViewController) {
         
-        let today = try! calendar.day(on: date) as! SchoolDay
         let day = calendar.nextSchoolDay(after: date)!
         let expr = relativeExpression(for: day.date, relativeTo: date)
+        let startingTime = day.periods.first?.start.asDateToday()
         
         view.show(
-            title: "Today was \(today.description)",
-            info: "Showing \(expr ?? format(day.date, long: true))")
+            title: "\((expr ?? "the next school day").capitalized) will be \(day.description)",
+            info: "School starts at \(startingTime == nil ? "<unknown>" : formatTime(startingTime!))")
         view.showSchoolDay(day, isToday: false)
     }
 }

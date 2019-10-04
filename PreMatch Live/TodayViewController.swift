@@ -25,7 +25,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var dayExplanation: UILabel!
-    @IBOutlet weak var vibrancyView: UIVisualEffectView!
     
     @IBOutlet weak var divider: UIView!
     @IBOutlet weak var periodStack: PeriodColumns!
@@ -93,7 +92,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vibrancyView.effect = UIVibrancyEffect.widgetPrimary()
+        // No longer: vibrancyView.effect = UIVibrancyEffect.widgetPrimary()
         render()
     }
     

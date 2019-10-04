@@ -48,11 +48,12 @@ class PeriodColumns: UIStackView {
         hasRelativeTimes = times.contains(where: { $0 != nil })
         
         heightAnchor.constraint(equalToConstant: hasRelativeTimes ?
-            kHeightWithTimes : kHeightWithoutTimes)
+            kHeightWithTimes : kHeightWithoutTimes).isActive = true
         
         for (block, time) in zip(day.blocks, times) {
             addColumn(time, block: block,
-                      schedule: schedule)
+                      schedule: schedule,
+                      totalBlockCount: day.blocks.count)
         }
     }
     
@@ -60,12 +61,16 @@ class PeriodColumns: UIStackView {
         return hasRelativeTimes ? kHeightWithTimes + 110 : kHeightWithoutTimes + 110
     }
     
-    private func addColumn(_ time: RelativeTime?, block: String, schedule: SphSchedule?) {
+    private func addColumn(_ time: RelativeTime?, block: String, schedule: SphSchedule?, totalBlockCount: Int) {
         
-        let viewWidth = bounds.width / 5
+        let viewWidth = bounds.width / CGFloat(totalBlockCount)
         
         let view = PeriodColumn()
-        view.widthAnchor.constraint(equalToConstant: viewWidth)
+        
+        let constraint = view.widthAnchor.constraint(equalToConstant: viewWidth)
+        constraint.isActive = true
+        constraint.priority = .required
+        
         view.populate(
             block: block,
             time: time,
