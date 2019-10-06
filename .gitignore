@@ -16,3 +16,5 @@ Pods/
 **/fastlane/test_output
 
 PreMatch.xcodeproj/*
+
+**/review_information/
