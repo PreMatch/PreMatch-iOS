@@ -11,7 +11,6 @@ import GoogleSignIn
 import SevenPlusH
 import UserNotifications
 import Sentry
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -155,7 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func initFirebase() {
-        FirebaseApp.configure()
+        //FirebaseApp.configure()
     }
 }
 

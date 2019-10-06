@@ -114,13 +114,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download new changes to the calendar, such as snow days." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udp-Jo-lYB">
                                 <rect key="frame" x="20" y="164" width="275" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download any changes you have made to your classes on PreMatch.org." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-Sa-3vg">
                                 <rect key="frame" x="20" y="266.5" width="275" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYo-CT-uTc">
@@ -581,18 +581,13 @@
         <!--Block X-->
         <scene sceneID="a7i-j9-fi5">
             <objects>
-                <viewController title="Block X" id="H62-9C-2mi" sceneMemberID="viewController">
+                <viewController title="Block X" id="H62-9C-2mi" customClass="YSBlockDetailController" customModule="PreMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4qH-cb-04i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="CQM-Uk-Ctl">
-                                <rect key="frame" x="148.5" y="482" width="23" height="37"/>
-                                <color key="pageIndicatorTintColor" red="0.81441350191903783" green="0.81812473136155817" blue="0.82925841968911918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2aM-BX-axY">
-                                <rect key="frame" x="0.0" y="44" width="320" height="438"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="2" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2aM-BX-axY">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockData" textLabel="2MJ-ui-ntS" detailTextLabel="384-bI-BwM" style="IBUITableViewCellStyleValue1" id="8zX-Ad-f5u">
@@ -619,33 +614,41 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="roomNumber" id="GRD-fN-ftv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="roomNumber" id="GRD-fN-ftv" customClass="YSRoomNumberDetailCell" customModule="PreMatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="71.5" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GRD-fN-ftv" id="X9S-51-Qik">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" text="Room Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAk-a2-gf6">
-                                                    <rect key="frame" x="15" y="11" width="111" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Room Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAk-a2-gf6">
+                                                    <rect key="frame" x="15" y="11" width="110.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gTW-dG-2Ow">
-                                                    <rect key="frame" x="239.5" y="5" width="65.5" height="34"/>
+                                                    <rect key="frame" x="235" y="5" width="70" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="nzm-e1-bL8"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="gTW-dG-2Ow" secondAttribute="trailing" constant="15" id="9c6-e2-ck2"/>
+                                                <constraint firstItem="LAk-a2-gf6" firstAttribute="top" secondItem="X9S-51-Qik" secondAttribute="topMargin" id="WXx-4O-9rm"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LAk-a2-gf6" secondAttribute="bottom" id="iBl-yb-uc0"/>
                                                 <constraint firstItem="gTW-dG-2Ow" firstAttribute="centerY" secondItem="X9S-51-Qik" secondAttribute="centerY" id="mGr-Y8-QV4"/>
+                                                <constraint firstItem="LAk-a2-gf6" firstAttribute="leading" secondItem="X9S-51-Qik" secondAttribute="leadingMargin" id="y2e-ZK-kw5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="roomNumberField" destination="gTW-dG-2Ow" id="pSP-h4-FEd"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="viewClassmates" textLabel="5tz-ai-c8V" style="IBUITableViewCellStyleDefault" id="CIs-MR-JCv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="viewClassmates" textLabel="5tz-ai-c8V" style="IBUITableViewCellStyleDefault" id="CIs-MR-JCv" customClass="YSViewClassmatesDetailCell" customModule="PreMatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="115" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CIs-MR-JCv" id="zq6-YM-0LY">
@@ -668,10 +671,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="CQM-Uk-Ctl" firstAttribute="top" secondItem="2aM-BX-axY" secondAttribute="bottom" id="Lma-DK-ulK"/>
                             <constraint firstItem="2aM-BX-axY" firstAttribute="leading" secondItem="ATP-q0-liA" secondAttribute="leading" id="MfE-fE-ZtW"/>
-                            <constraint firstItem="CQM-Uk-Ctl" firstAttribute="centerX" secondItem="4qH-cb-04i" secondAttribute="centerX" id="SgE-YR-kZi"/>
-                            <constraint firstItem="CQM-Uk-Ctl" firstAttribute="bottom" secondItem="ATP-q0-liA" secondAttribute="bottom" id="oWT-xB-5c8"/>
+                            <constraint firstItem="ATP-q0-liA" firstAttribute="bottom" secondItem="2aM-BX-axY" secondAttribute="bottom" id="Z22-94-bnp"/>
                             <constraint firstItem="2aM-BX-axY" firstAttribute="top" secondItem="ATP-q0-liA" secondAttribute="top" id="uTe-Ft-e5S"/>
                             <constraint firstItem="ATP-q0-liA" firstAttribute="trailing" secondItem="2aM-BX-axY" secondAttribute="trailing" id="w7a-Xq-4Kh"/>
                         </constraints>
@@ -680,6 +681,9 @@
                             <outletCollection property="gestureRecognizers" destination="RmA-6z-ltK" appends="YES" id="6fd-tB-lAS"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="2aM-BX-axY" id="qGN-Z9-XBr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qrl-Ur-3QM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="RmA-6z-ltK"/>
@@ -715,7 +719,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To allow PreMatch to send notifications, go to the Settings app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWp-lT-xBj">
                                         <rect key="frame" x="35" y="101.5" width="210" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

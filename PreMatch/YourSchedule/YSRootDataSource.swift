@@ -11,7 +11,10 @@ import UIKit
 import SevenPlusH
 
 class YSTableCell: UITableViewCell {
+    var block: String? = nil
+    
     func setup(block: String, in schedule: SphSchedule) {
+        self.block = block
         textLabel?.text = titleFor(block: block, in: schedule)
         detailTextLabel?.text = "\(block) Block"
     }

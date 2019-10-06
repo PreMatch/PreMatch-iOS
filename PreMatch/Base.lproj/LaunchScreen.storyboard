@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,14 +20,15 @@
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem title="7+H" image="baseline_calendar_today_black_24pt" id="dn7-EH-I1v"/>
+                                    <tabBarItem title="Schedule" image="baseline_format_list_bulleted_black_24pt" id="dn7-EH-I1v"/>
+                                    <tabBarItem title="7+H" image="baseline_calendar_today_black_24pt" id="StR-tD-a7N"/>
                                     <tabBarItem title="Notifications" image="baseline_notifications_black_24pt" id="gwV-dm-694"/>
                                     <tabBarItem title="Settings" image="baseline_settings_black_24pt" id="hf0-it-FXB"/>
                                     <tabBarItem title="About" image="baseline_info_black_24pt" id="1u4-Lu-DjL"/>
                                 </items>
                             </tabBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="M94-Xt-gm2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4Gz-ID-mek"/>
                             <constraint firstAttribute="trailing" secondItem="M94-Xt-gm2" secondAttribute="trailing" id="8iS-Tk-5vX"/>
@@ -40,13 +39,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-298" y="491"/>
+            <point key="canvasLocation" x="-298.125" y="490.14084507042253"/>
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_calendar_today_black_24pt" width="48" height="48"/>
-        <image name="baseline_info_black_24pt" width="48" height="48"/>
-        <image name="baseline_notifications_black_24pt" width="48" height="48"/>
-        <image name="baseline_settings_black_24pt" width="48" height="48"/>
+        <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
+        <image name="baseline_format_list_bulleted_black_24pt" width="24" height="24"/>
+        <image name="baseline_info_black_24pt" width="24" height="24"/>
+        <image name="baseline_notifications_black_24pt" width="24" height="24"/>
+        <image name="baseline_settings_black_24pt" width="24" height="24"/>
     </resources>
 </document>
