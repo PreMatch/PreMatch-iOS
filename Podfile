@@ -9,10 +9,13 @@ target 'PreMatch' do
   use_frameworks!
 
   # Pods for PreMatch
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'Alamofire', '~> 4.7'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
+  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'Alamofire'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.2'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'PreMatchTests' do
     inherit! :search_paths
@@ -26,8 +29,8 @@ target 'PreMatch Live' do
   use_frameworks!
 
   # Pods for PreMatch Live
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'Alamofire', '~> 4.7'
+  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'Alamofire'
 
 end
 
@@ -36,8 +39,8 @@ target 'SevenPlusH' do
   use_frameworks!
 
   # Pods for SevenPlusH
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'Alamofire', '~> 4.7'
+  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'Alamofire'
 
   target 'SevenPlusHTests' do
     inherit! :search_paths

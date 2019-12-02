@@ -10,7 +10,7 @@ import UIKit
 import GoogleSignIn
 import SevenPlusH
 
-class RootViewController: UIViewController, UIPageViewControllerDelegate, GIDSignInUIDelegate {
+class RootViewController: UIViewController, UIPageViewControllerDelegate {
     
     //MARK: Properties
     @IBOutlet weak var passPersonalization: UIButton!
@@ -22,7 +22,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate, GIDSig
         // Do any additional setup after loading the view, typically from a nib.
         // Configure the page view controller and add it as a child view controller.
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
     override func didReceiveMemoryWarning() {

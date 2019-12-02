@@ -18,7 +18,7 @@ extension UIButton {
     }
 }
 
-class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUser {
+class SettingsViewController: UIViewController, ResourceUser {
     
     //MARK: Properties
     @IBOutlet weak var updateCalendar: UIButton!
@@ -84,7 +84,7 @@ class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUse
     }
     
     @IBAction func didTapRefreshSchedule() {
-        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
     }
     
@@ -105,6 +105,7 @@ class SettingsViewController: UIViewController, GIDSignInUIDelegate, ResourceUse
                 AppDelegate.showAlert(title: "Success",
                                       message: "Downloaded \(calendar.name), version \(calendar.version)",
                     actions: [])
+                // TODO reschedule notifications
             } catch {
                 self.downloadDidFail(nil, error)
             }

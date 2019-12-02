@@ -11,6 +11,8 @@ import SevenPlusH
 
 class YSBlockDetailController: UIViewController {
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var semesterSelector: UISegmentedControl!
+    
     var dataSource: YSDetailTableDataSource?
     var block: String?
     
@@ -22,21 +24,40 @@ class YSBlockDetailController: UIViewController {
             return
         }
         table.isHidden = false
-        dataSource = YSDetailTableDataSource(schedule: schedule, block: block)
+        dataSource = YSDetailTableDataSource(schedule: schedule, block: block, controller: self)
         table.dataSource = dataSource
         table.reloadData()
         title = "\(block) Block"
+        self.block = block
+    }
+    
+    func selectedSemester() -> UInt8 {
+        return UInt8(semesterSelector.selectedSegmentIndex)
+    }
+    
+    @IBAction func onSemesterSelect() {
+        table.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let block = block else { return }
+        let destination = segue.destination as! YSRosterController
+        destination.prepare(block: block, semester: selectedSemester())
     }
 }
+
+// MARK: YSDetailTableDataSource
 
 class YSDetailTableDataSource: NSObject, UITableViewDataSource {
     private let schedule: SphSchedule
     private let block: String
+    private let controller: YSBlockDetailController
     
     init(schedule: SphSchedule,
-                  block: String) {
+         block: String, controller: YSBlockDetailController) {
         self.schedule = schedule
         self.block = block
+        self.controller = controller
     }
     
     private let tableItemsPerSemester: [(String, SphSchedule, UITableView, UInt8) -> UITableViewCell] = [
@@ -67,15 +88,15 @@ class YSDetailTableDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableItemsPerSemester[indexPath.row](
-            block, schedule, tableView, UInt8(indexPath.section))
+            block, schedule, tableView, controller.selectedSemester())
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Semester \(section + 1)"
+        return nil
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
 }
 

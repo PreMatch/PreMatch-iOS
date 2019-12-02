@@ -24,6 +24,7 @@ public typealias HTTPErrorHandler = (HTTPURLResponse?, Error) -> Void
 public struct Downloader {
     static let loginEndpoint = "https://prematch.org/api/login"
     static let scheduleReadEndpoint = "https://prematch.org/api/schedule"
+    static let rosterReadEndpoint = "https://prematch.org/api/classmates"
     static let calendarDefinitionEndpoint = "https://prematch.org/static/calendar.json"
     
     public init() {
@@ -43,7 +44,7 @@ public struct Downloader {
         }
     }
     
-    private func login(idToken: String, onSuccess: @escaping () -> Void,
+    public func login(idToken: String, onSuccess: @escaping () -> Void,
                        onFailure: @escaping HTTPErrorHandler) -> Void {
         Alamofire.request(Downloader.loginEndpoint, parameters: ["id_token": idToken])
             .validate()
@@ -118,6 +119,40 @@ public struct Downloader {
             }
         }, onFailure: { res, err in
             onFailure(self.classifyError(res, err))
+        })
+    }
+    
+    public func readRoster(block: String, semester: UInt8, onSuccess: @escaping (Roster) -> Void,
+                           onFailure: @escaping (Error) -> Void) -> Void {
+        Alamofire.request(Downloader.rosterReadEndpoint,
+                          parameters: ["block": block, "semester": String(semester + 1)])
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .failure(let error):
+                    onFailure(error)
+                case .success(let value):
+                    do {
+                        onSuccess(try self.parseRoster(data: JSON(value)))
+                    } catch {
+                        onFailure(error)
+                    }
+                }
+        }
+    }
+    
+    private func parseRoster(data: JSON) throws -> Roster {
+        guard let students = data["students"].array else {
+            throw ParseError.invalidFormat(fieldType: "array of students", invalidValue: data["students"].description)
+        }
+        return try students.map({ json in
+            guard let name = json["name"].string else {
+                throw ParseError.invalidFormat(fieldType: "student name", invalidValue: json["name"].description)
+            }
+            guard let handle = json["handle"].string else {
+                throw ParseError.invalidFormat(fieldType: "student handle", invalidValue: json["handle"].description)
+            }
+            return Classmate(name: name, handle: handle)
         })
     }
 }

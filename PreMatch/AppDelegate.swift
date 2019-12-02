@@ -11,6 +11,7 @@ import GoogleSignIn
 import SevenPlusH
 import UserNotifications
 import Sentry
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -40,30 +41,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return UIApplication.shared.delegate?.window??.rootViewController?.storyboard!.instantiateViewController(withIdentifier: "WelcomeScreen")
     }
     
-    func initializeLogin() {
+    func initLogin() {
         GIDSignIn.sharedInstance().clientID = "764760025104-70ao2s5vql3ldi54okdf9tbkd4chtama.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        initializeLogin()
-        initNotifications()
-        initSentry()
         initFirebase()
+        initNotifications()
+        initPushNotifications(application)
+        initSentry()
+        initLogin()
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return GIDSignIn.sharedInstance()!.handle(url)
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        let uiDelegate: (UIViewController) = (signIn.uiDelegate as! UIViewController)
+        let uiDelegate = GIDSignIn.sharedInstance()!.presentingViewController!
         if let error = error {
             AppDelegate.showAlert(title: "Oops!",
                                   message: "I couldn't sign you in with Google: \(error.localizedDescription)", actions: [],
@@ -100,6 +101,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 storeSchedule(downloader, cal)
             } else {
                 downloader.storeCalendar(onSuccess: { storeSchedule(downloader, $0) }, onFailure: dispatchError)
+            }
+            
+            authFirebase(user.authentication)
+        }
+    }
+    
+    private func authFirebase(_ auth: GIDAuthentication?) {
+        guard let auth = auth else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print(error)
             }
         }
     }
@@ -143,6 +156,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+    func initPushNotifications(_ application: UIApplication) {
+        let delegate = PushNotificationDelegate()
+        UNUserNotificationCenter.current().delegate = delegate
+        Messaging.messaging().delegate = delegate
+        
+        application.registerForRemoteNotifications()
+    }
+    
     func initSentry() {
         // Create a Sentry client and start crash handler
         do {
@@ -154,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func initFirebase() {
-        //FirebaseApp.configure()
+        FirebaseApp.configure()
     }
 }
 

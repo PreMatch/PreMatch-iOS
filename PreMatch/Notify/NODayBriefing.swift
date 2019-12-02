@@ -149,7 +149,7 @@ class NODayBriefing: NotificationOption {
 
 class NODayBriefingSettingsController: UIViewController {
     
-    lazy var timeFormatter: DateFormatter = {
+    static var timeFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .none
         df.timeStyle = .short
@@ -331,7 +331,7 @@ class NODayBriefingSettingsController: UIViewController {
     }
     
     private func updateNotifyTimeLabel() {
-        notifyTimeLabel.text = timeFormatter.string(from: notifyTimePicker.date)
+        notifyTimeLabel.text = NODayBriefing.timeFormatter.string(from: notifyTimePicker.date)
     }
     
     private func timeValueForDefaultsField() -> String {
