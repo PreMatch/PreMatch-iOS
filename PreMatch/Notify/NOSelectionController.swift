@@ -19,6 +19,4 @@ class NOSelectionController: UITableViewController {
             hubDelegate?.transitionTo(identifier: "d")
         }
     }
-    
-    
 }

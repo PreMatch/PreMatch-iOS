@@ -26,6 +26,7 @@ import SevenPlusH
 /// # Configurations
 /// The user chooses the time to deliver DayBriefing notifications. This time value will be saved in the form `XX:XX` in the app group UserDefaults with key `dayBriefingTime`. If this value is not found when `scheduleNotifications` is called, a `NotificationConfigError.badSettings` error will be thrown.
 class NODayBriefing: NotificationOption {
+    
     static let id: Character = "d"
     static let name: String = "School Day Briefing"
     
@@ -37,48 +38,53 @@ class NODayBriefing: NotificationOption {
         self.schedule = schedule
     }
     
-    func scheduleNotifications(from: Date, to: Date) throws -> [UNNotificationRequest] {
+    func scheduleNotification(withIdentifier id: String) throws -> UNNotificationRequest {
         guard let notifyTime = UserDefaults().string(forKey: "dayBriefingTime") else {
             throw NotificationConfigError.badSettings("Missing time for day briefings")
         }
-        var output: [UNNotificationRequest] = []
         
-        var date = from.withoutTime()
-        while date.withoutTime() <= to.withoutTime() {
-            switch try calendar.day(on: date) {
-                
-            case let day as StandardDay:
-                output.append(requestForDay(day, bodyInitial: "Today is a Day \(day.number) with blocks", notifyTime: notifyTime))
-                
-            case let day as HalfDay:
-                output.append(requestForDay(day, title: "Your Half Day Briefing", bodyInitial: "Today is a half day with blocks", notifyTime: notifyTime))
+        let theDate = self.date(for: id)
+        switch try calendar.day(on: theDate) {
             
-            case let day as ExamDay:
-                output.append(requestForDay(day, title: "Your Exam Day Briefing",
-                                            bodySuffix: " Good luck!",
-                                            bodyInitial: "Today is an exam day with blocks", notifyTime: notifyTime))
-            default:
-                break
-            }
-            date = ahsCalendar.date(byAdding: .day, value: 1, to: date)!.withoutTime()
-        }
+        case let day as StandardDay:
+            return requestForDay(day, bodyInitial: "Today is a Day \(day.number) with blocks", notifyTime: notifyTime)
+            
+        case let day as HalfDay:
+            return requestForDay(day, title: "Your Half Day Briefing", bodyInitial: "Today is a half day with blocks", notifyTime: notifyTime)
         
-        return output
+        case let day as ExamDay:
+            return requestForDay(day, title: "Your Exam Day Briefing",
+                                        bodySuffix: " Good luck!",
+                                        bodyInitial: "Today is an exam day with blocks", notifyTime: notifyTime)
+        default:
+            fatalError("identifier with unsupported day encountered")
+        }
     }
     
-    func notificationIdentifiers(from: Date, to: Date) -> [String] {
-        let acceptedTypes: [Day.Type] = [StandardDay.self, HalfDay.self, ExamDay.self]
-        var output: [String] = []
-        
+    func notificationIdentifiers(from: Date) -> AnyIterator<(String, Date)> {
         var date = from.withoutTime()
-        while date <= to.withoutTime() {
-            if acceptedTypes.contains(where: { $0 == calendar.dayType(on: date) }) {
-                output.append(identifier(for: date))
+        return AnyIterator<(String, Date)> {
+            while date <= self.calendar.interval.end {
+                let id = self.identifier(for: date)
+                let idDate = date
+                
+                // go to next standard/half/exam day
+                while true {
+                    date = ahsCalendar.date(
+                        byAdding: .day, value: 1, to: date)!.withoutTime()
+                    
+                    // past the end?
+                    if !self.calendar.interval.contains(date) { break }
+                    
+                    let day = (try? self.calendar.day(on: date))
+                    if day is StandardDay || day is HalfDay || day is ExamDay {
+                        break
+                    }
+                }
+                return (id, idDate)
             }
-            date = ahsCalendar.date(byAdding: .day, value: 1, to: date)!.withoutTime()
+            return nil
         }
-        
-        return output
     }
     
     private func requestForDay(_ day: SchoolDay, title: String = "Your Daily Briefing", bodySuffix: String = "", bodyInitial: String, notifyTime: String) -> UNNotificationRequest {
@@ -134,11 +140,17 @@ class NODayBriefing: NotificationOption {
     lazy var dateFormat: ISO8601DateFormatter = {
         let dateFormat = ISO8601DateFormatter()
         dateFormat.formatOptions = .withFullDate
+        dateFormat.timeZone = ahsTimezone
         return dateFormat
     }()
     
     private func identifier(for date: Date) -> String {
         return "\(NODayBriefing.id)\(dateFormat.string(from: date))"
+    }
+    
+    private func date(for identifier: String) -> Date {
+        assert(identifier.first == NODayBriefing.id)
+        return dateFormat.date(from: String(identifier.dropFirst()))!
     }
     
     fileprivate class func parseTime(_ str: String) -> (UInt8, UInt8) {
@@ -261,21 +273,21 @@ class NODayBriefingSettingsController: UIViewController {
     }
     
     private func removePendingRequests(calendar: SphCalendar, _ option: NODayBriefing) throws {
-        let (interval, semester) = try schedulingRange(from: Date(), inCalendar: calendar)
         
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers:
-            option.notificationIdentifiers(from: interval.start, to: interval.end))
-        NotificationPreferences.didDisableOption(identifier: NODayBriefing.id, semester: UInt8(semester))
+            option.notificationIdentifiers(from: Date()).map { $0.0 })
+        
+        NotificationPreferences.didDisableOption(identifier: NODayBriefing.id)
     }
     
     private func scheduleRequests(_ option: NODayBriefing, _ newTime: String, calendar: SphCalendar, completion: ((Error?) -> Void)? = nil) throws {
         let notify = UNUserNotificationCenter.current()
-        let (interval, semester) = try schedulingRange(from: Date(), inCalendar: calendar)
         // TODO fix truncation to 64 with more systematic auto-scheduling
-        let allRequests = try option.scheduleNotifications(from: interval.start, to: interval.end)
+        let allIds = option.notificationIdentifiers(from: Date()).map { $0 }
+        let allRequests = try option.scheduleNotifications(withIdentifiers: allIds.map { $0.0 })
         let requests = allRequests.count > 64 ? Array(allRequests.prefix(upTo: 64)) : allRequests
         
-        NotificationPreferences.didEnableOption(identifier: NODayBriefing.id, semester: UInt8(semester))
+        NotificationPreferences.didEnableOption(identifier: NODayBriefing.id)
         
         let progressAlert = UIAlertController(title: "Scheduling...", message: "Scheduling \(requests.count) notifications... 0 done.", preferredStyle: .alert)
         let progressBar = UIProgressView(progressViewStyle: .default)
@@ -297,7 +309,7 @@ class NODayBriefingSettingsController: UIViewController {
                         DispatchQueue.main.async {
                             progressAlert.dismiss(animated: true, completion: nil)
                             AppDelegate.showAlert(title: "Failed to Schedule Notifications", message: error.localizedDescription, actions: [], controller: self, okHandler: { _ in
-                                NotificationPreferences.didDisableOption(identifier: NODayBriefing.id, semester: UInt8(semester))
+                                NotificationPreferences.didDisableOption(identifier: NODayBriefing.id)
                                 self.discardButtonPressed()
                             })
                         }
@@ -331,7 +343,7 @@ class NODayBriefingSettingsController: UIViewController {
     }
     
     private func updateNotifyTimeLabel() {
-        notifyTimeLabel.text = NODayBriefing.timeFormatter.string(from: notifyTimePicker.date)
+        notifyTimeLabel.text = NODayBriefingSettingsController.timeFormatter.string(from: notifyTimePicker.date)
     }
     
     private func timeValueForDefaultsField() -> String {

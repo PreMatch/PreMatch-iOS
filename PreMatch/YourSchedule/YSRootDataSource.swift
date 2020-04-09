@@ -24,7 +24,8 @@ class YSTableCell: UITableViewCell {
     }
     
     func handleSelection(view: UIViewController) {
-        view.performSegue(withIdentifier: "showBlockDetails", sender: self)
+        // FIXME: Block details hidden for v1.1
+        //view.performSegue(withIdentifier: "showBlockDetails", sender: self)
     }
     
     private func titleFor(block: String, in schedule: SphSchedule) -> String {

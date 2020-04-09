@@ -11,7 +11,9 @@
 		4C015AD72321E82900E2654E /* QueryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C015AD62321E82900E2654E /* QueryTableCell.swift */; };
 		4C0239D52180042E00A336E2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0239D42180042E00A336E2 /* AboutViewController.swift */; };
 		4C196AD02184BD1500220E18 /* QueryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C196ACF2184BD1500220E18 /* QueryDataSource.swift */; };
+		4C340E7A243D335C00A1C0C9 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C340E79243D335C00A1C0C9 /* NotificationScheduler.swift */; };
 		4C36E68221808EF500F1983F /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C36E68121808EF500F1983F /* QueryViewController.swift */; };
+		4C4D06C3243E2951008AAEEE /* NotificationSchedulerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4D06C2243E2951008AAEEE /* NotificationSchedulerTest.swift */; };
 		4C512D9B2300DAE30082109F /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C512D9A2300DAE30082109F /* NotificationPreferences.swift */; };
 		4C512D9F2300F5320082109F /* NotificationOptionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C512D9E2300F5320082109F /* NotificationOptionTest.swift */; };
 		4C6434162394AFE500E8E76A /* PushNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6434152394AFE500E8E76A /* PushNotificationDelegate.swift */; };
@@ -191,7 +193,9 @@
 		4C015AD62321E82900E2654E /* QueryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTableCell.swift; sourceTree = "<group>"; };
 		4C0239D42180042E00A336E2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4C196ACF2184BD1500220E18 /* QueryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataSource.swift; sourceTree = "<group>"; };
+		4C340E79243D335C00A1C0C9 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		4C36E68121808EF500F1983F /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
+		4C4D06C2243E2951008AAEEE /* NotificationSchedulerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulerTest.swift; sourceTree = "<group>"; };
 		4C512D9A2300DAE30082109F /* NotificationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
 		4C512D9E2300F5320082109F /* NotificationOptionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionTest.swift; sourceTree = "<group>"; };
 		4C6434152394AFE500E8E76A /* PushNotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationDelegate.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				4CB387392300A99E00A77C1F /* NOSelectionController.swift */,
 				4C512D9A2300DAE30082109F /* NotificationPreferences.swift */,
 				4C6434152394AFE500E8E76A /* PushNotificationDelegate.swift */,
+				4C340E79243D335C00A1C0C9 /* NotificationScheduler.swift */,
 			);
 			path = Notify;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				4CB3873222FF9FA600A77C1F /* NODayBriefingTest.swift */,
 				4CB3873122FF9FA500A77C1F /* PreMatchTests-Bridging-Header.h */,
 				4C512D9E2300F5320082109F /* NotificationOptionTest.swift */,
+				4C4D06C2243E2951008AAEEE /* NotificationSchedulerTest.swift */,
 			);
 			path = PreMatchTests;
 			sourceTree = "<group>";
@@ -956,6 +962,7 @@
 				4C512D9B2300DAE30082109F /* NotificationPreferences.swift in Sources */,
 				4CB3873022FF9DD400A77C1F /* NODayBriefing.swift in Sources */,
 				4CD5695023497E04006C5BDC /* YSRootDataSource.swift in Sources */,
+				4C340E7A243D335C00A1C0C9 /* NotificationScheduler.swift in Sources */,
 				4CEE43BB2352C0D900612332 /* YSRosterController.swift in Sources */,
 				4C875F9621871BAD009AE6D5 /* SettingsViewController.swift in Sources */,
 				4CD5694E23497E04006C5BDC /* YSBlockDetailController.swift in Sources */,
@@ -978,6 +985,7 @@
 			files = (
 				4C512D9F2300F5320082109F /* NotificationOptionTest.swift in Sources */,
 				4CB3873322FF9FA600A77C1F /* NODayBriefingTest.swift in Sources */,
+				4C4D06C3243E2951008AAEEE /* NotificationSchedulerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

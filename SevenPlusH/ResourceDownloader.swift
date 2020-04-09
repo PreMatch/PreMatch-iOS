@@ -46,7 +46,7 @@ public struct Downloader {
     
     public func login(idToken: String, onSuccess: @escaping () -> Void,
                        onFailure: @escaping HTTPErrorHandler) -> Void {
-        Alamofire.request(Downloader.loginEndpoint, parameters: ["id_token": idToken])
+        AF.request(Downloader.loginEndpoint, parameters: ["id_token": idToken])
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -61,7 +61,7 @@ public struct Downloader {
     public func readScheduleJSON(handle: String,
                                  processSchedule: @escaping (JSON) -> Void,
                                  onFailure: @escaping HTTPErrorHandler) -> Void {
-        Alamofire.request(Downloader.scheduleReadEndpoint, parameters: ["handle": handle])
+        AF.request(Downloader.scheduleReadEndpoint, parameters: ["handle": handle])
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -75,7 +75,7 @@ public struct Downloader {
     
     public func readCalendarJSON(onSuccess: @escaping (JSON) -> Void,
                                  onFailure: @escaping HTTPErrorHandler) -> Void {
-        Alamofire.request(Downloader.calendarDefinitionEndpoint)
+        AF.request(Downloader.calendarDefinitionEndpoint)
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -124,7 +124,7 @@ public struct Downloader {
     
     public func readRoster(block: String, semester: UInt8, onSuccess: @escaping (Roster) -> Void,
                            onFailure: @escaping (Error) -> Void) -> Void {
-        Alamofire.request(Downloader.rosterReadEndpoint,
+        AF.request(Downloader.rosterReadEndpoint,
                           parameters: ["block": block, "semester": String(semester + 1)])
             .validate()
             .responseJSON { response in

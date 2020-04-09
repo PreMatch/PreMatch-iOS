@@ -51,7 +51,9 @@ class NotificationViewController: UIViewController, NotificationHubTransition {
     @IBAction func didRequestRemoveAllPending() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            AppDelegate.showAlert(title: "Removed Notifications", message: "Removed \(requests.count) notifications.", actions: [], controller: self)
+            DispatchQueue.main.async {
+                AppDelegate.showAlert(title: "Removed Notifications", message: "Removed \(requests.count) notifications.", actions: [], controller: self)
+            }
             NotificationPreferences.didClearNotifications()
             print(requests.map { $0.identifier })
         }

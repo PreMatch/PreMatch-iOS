@@ -73,14 +73,15 @@ class NODayBriefingTest: XCTestCase {
             defaults.removeObject(forKey: "dayBriefingTime")
         }
         
-        XCTAssertThrowsError(try dayBriefing.scheduleNotifications(from: date(2019, 8, 29), to: date(2019, 9, 30)))
+        XCTAssertThrowsError(try dayBriefing.scheduleNotifications(withIdentifiers: ["d2019-08-29"]))
     }
     
     func testOneStandardDayWithoutSchedule() throws {
         let dayBriefing = NODayBriefing(calendar: calendar, schedule: nil)
         defaults.set("7:30", forKey: "dayBriefingTime")
         
-        let requests = try dayBriefing.scheduleNotifications(from: date(2019, 9, 6), to: date(2019, 9, 6))
+        let requests = try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-09-06"])
         
         XCTAssertEqual(requests.count, 1)
         let request = requests.first!
@@ -94,7 +95,8 @@ class NODayBriefingTest: XCTestCase {
         let dayBriefing = NODayBriefing(calendar: calendar, schedule: schedule)
         defaults.set("7:27", forKey: "dayBriefingTime")
         
-        let request = (try dayBriefing.scheduleNotifications(from: date(2019, 9, 4), to: date(2019, 9, 4))).first!
+        let request = (try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-09-04"])).first!
         
         assertNotificationRequest(request, identifier: "d2019-09-04", contentTitle: "Your Daily Briefing",
                                   contentBody: "Today is a Day 1 with blocks BCE. Your teachers for today are Bach, Caveney, and Emery.",
@@ -105,7 +107,8 @@ class NODayBriefingTest: XCTestCase {
         let dayBriefing = NODayBriefing(calendar: calendar)
         defaults.set("7:32", forKey: "dayBriefingTime")
         
-        let request = (try dayBriefing.scheduleNotifications(from: date(2019, 11, 11), to: date(2019, 11, 11))).first!
+        let request = (try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-11-11"])).first!
         
         assertNotificationRequest(request, identifier: "d2019-11-11", contentTitle: "Your Half Day Briefing",
                                   contentBody: "Today is a half day with blocks BD.",
@@ -116,7 +119,8 @@ class NODayBriefingTest: XCTestCase {
         let dayBriefing = NODayBriefing(calendar: calendar, schedule: schedule)
         defaults.set("7:13", forKey: "dayBriefingTime")
         
-        let request = (try dayBriefing.scheduleNotifications(from: date(2019, 11, 11), to: date(2019, 11, 11))).first!
+        let request = (try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-11-11"])).first!
         
         assertNotificationRequest(request, identifier: "d2019-11-11", contentTitle: "Your Half Day Briefing",
                                   contentBody: "Today is a half day with blocks BD. Your teachers for today are Bach and DiBenedetto.",
@@ -127,7 +131,8 @@ class NODayBriefingTest: XCTestCase {
         let dayBriefing = NODayBriefing(calendar: calendar)
         defaults.set("7:23", forKey: "dayBriefingTime")
         
-        let request = (try dayBriefing.scheduleNotifications(from: date(2019, 12, 12), to: date(2019, 12, 12))).first!
+        let request = (try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-12-12"])).first!
         
         assertNotificationRequest(request, identifier: "d2019-12-12", contentTitle: "Your Exam Day Briefing",
                                   contentBody: "Today is an exam day with blocks A. Good luck!",
@@ -138,7 +143,8 @@ class NODayBriefingTest: XCTestCase {
         let dayBriefing = NODayBriefing(calendar: calendar, schedule: schedule)
         defaults.set("7:25", forKey: "dayBriefingTime")
         
-        let request = (try dayBriefing.scheduleNotifications(from: date(2019, 12, 12), to: date(2019, 12, 12))).first!
+        let request = (try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-12-12"])).first!
         
         assertNotificationRequest(request, identifier: "d2019-12-12", contentTitle: "Your Exam Day Briefing",
                                   contentBody: "Today is an exam day with blocks A. Your teachers for today are Aubrey. Good luck!",
@@ -149,9 +155,10 @@ class NODayBriefingTest: XCTestCase {
         let dayBriefing = NODayBriefing(calendar: calendar)
         defaults.set("7:10", forKey: "dayBriefingTime")
         
-        let requests = try dayBriefing.scheduleNotifications(from: date(2019, 9, 5), to: date(2019, 9, 10))
+        let requests = try dayBriefing.scheduleNotifications(
+            withIdentifiers: ["d2019-09-05", "d2019-09-06", "d2019-09-09"])
         
-        XCTAssertEqual(requests.count, 4)
+        XCTAssertEqual(requests.count, 3)
         assertNotificationRequest(requests[0], identifier: "d2019-09-05", contentTitle: "Your Daily Briefing",
                                   contentBody: "Today is a Day 2 with blocks EAD.",
                                   triggerYear: 2019, triggerMonth: 9, triggerDay: 5, triggerHour: 7, triggerMinute: 10)
@@ -166,13 +173,13 @@ class NODayBriefingTest: XCTestCase {
     func testOneDayIdentifier() {
         let dayBriefing = NODayBriefing(calendar: calendar)
         
-        XCTAssertEqual(dayBriefing.notificationIdentifiers(from: date(2019, 9, 4), to: date(2019, 9, 4)), ["d2019-09-04"])
+        XCTAssertEqual(dayBriefing.notificationIdentifiers(from: date(2019, 9, 4)).next()!.0, "d2019-09-04")
     }
     
     func testMultipleDaysIdentifier() {
         let dayBriefing = NODayBriefing(calendar: calendar)
         
-        XCTAssertEqual(dayBriefing.notificationIdentifiers(from: date(2019, 9, 4), to: date(2019, 9, 10)), [
+        XCTAssertEqual(dayBriefing.notificationIdentifiers(from: date(2019, 9, 4)).prefix(5).map { $0.0 }, [
             "d2019-09-04", "d2019-09-05", "d2019-09-06", "d2019-09-09", "d2019-09-10"])
     }
     

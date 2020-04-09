@@ -32,6 +32,8 @@ public struct ResourceProvider {
         return nil
     }
     
+    /// Gets the currently stored calendar instance.
+    /// - Returns: The stored calendar instance, or `nil` if no calendar is present.
     public static func calendar() -> SphCalendar? {
         if let cal = _calendar {
             return cal

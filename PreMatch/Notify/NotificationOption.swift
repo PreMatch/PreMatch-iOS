@@ -14,16 +14,22 @@ protocol NotificationOption {
     /// A unique character among all notification options that represents this option.
     ///
     /// Used to denote user preferences in UserDefaults. Must be a prefix of the identifiers of all notifications scheduled by the current option.
-    static var id: Character { get }
+    var id: Character { get }
     
     /// A human-readable name that summarizes this notification option.
     ///
     /// Shown to the user in the Notifications tab.
-    static var name: String { get }
+    var name: String { get }
     
-    // from and to are both inclusive
-    func scheduleNotifications(from: Date, to: Date) throws -> [UNNotificationRequest]
-    func notificationIdentifiers(from: Date, to: Date) -> [String]
+    func scheduleNotification(withIdentifier: String) throws -> UNNotificationRequest
+    
+    /// Generate IDs for notifications from the given date indefinitely. Returns an iterator of IDs and their respective dates.s
+    func notificationIdentifiers(from: Date) -> AnyIterator<(String, Date)>
+}
+
+func getNotificationOptions() throws -> [NotificationOption] {
+    guard let calendar = ResourceProvider.calendar() else { throw NotificationConfigError.missingCalendar }
+    return [NODayBriefing(calendar: calendar)]
 }
 
 public func schedulingRange(from date: Date, inCalendar cal: SphCalendar) throws -> (DateInterval, Int) {
