@@ -80,8 +80,10 @@ class NotificationScheduler {
                 for id in missing {
                     do {
                         try self.scheduleRequest(id: id) { error in
-                            if let error = error, let onError = onError {
-                                onError(error)
+                            if let error = error {
+                                if let onError = onError {
+                                    onError(error)
+                                }
                             } else {
                                 requestsDone += 1
                                 if let onProgress = onProgress {
